@@ -49,7 +49,7 @@ const light = {
 };
 
 // A custom theme for this app => mijozlarning applicationing razmeriga qarab uzgarsin
-let theme = createTheme(light);
+let theme = createTheme(light);  // materila ui dan kelyabdi
 theme = createTheme(theme, {
     components: {
         MuiContainer: {

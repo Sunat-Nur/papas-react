@@ -1,5 +1,10 @@
-import React from 'react';
+
+
+
+import {Box, Button, Stack, Typography} from "@mui/material";
+import React, {useState} from "react";
 import '../css/App.css';
+import '../css/navbar.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {RestaurantPage} from "./screens/RestaurantPage";
 import {CommunityPage} from "./screens/CommunityPage";
@@ -8,42 +13,58 @@ import {MemberPage} from "./screens/MemberPage";
 import {HelpPage} from "./screens/HelpPage";
 import {LoginPage} from "./screens/LoginPage";
 import {Homepage} from "./screens/Homepage";
+import {NavbarHome} from "./components/header";
+import {NavbarRestaurant} from "./components/header/restaurant";
+import {NavbarOthers} from "./components/header/others";
+
+
 function App() {
+    const [path, setPath] = useState();
+    const main_path = window.location.pathname;
+
     return (
-        <div>
             <Router>
-                <div>
-                    <nav>
-                        <ul>
-                            <li>
-                                <Link to="restaurant">RestaurantPage </Link>
-                            </li>
-                            <li>
-                                <Link to="/community">CommunityPage</Link>
-                            </li>
-                            <li>
-                                <Link to="/orders">OrdersPage</Link>
-                            </li>
-                            <li>
-                                <Link to="/member-page">MemberPage</Link>
-                            </li>
+                {main_path == "/" ? (
+                    <NavbarHome setPath={setPath} />
+                ) : main_path.includes("/restaurant") ? (
+                    <NavbarRestaurant setPath={setPath} />
+                ) : (
+                    <NavbarOthers />
+                )}
 
-                            <li>
-                                <Link to="/help">HelpPage</Link>
-                            </li>
+                    {/*<nav>*/}
+                    {/*    <ul>*/}
+                    {/*        <li>*/}
+                    {/*            <Link to="restaurant">RestaurantPage </Link>*/}
+                    {/*        </li>*/}
+                    {/*        <li>*/}
+                    {/*            <Link to="/community">CommunityPage</Link>*/}
+                    {/*        </li>*/}
+                    {/*        <li>*/}
+                    {/*            <Link to="/orders">OrdersPage</Link>*/}
+                    {/*        </li>*/}
+                    {/*        <li>*/}
+                    {/*            <Link to="/member-page">MemberPage</Link>*/}
+                    {/*        </li>*/}
 
-                            <li>
-                                <Link to="/login">LoginPage</Link>
-                            </li>
+                    {/*        <li>*/}
+                    {/*            <Link to="/help">HelpPage</Link>*/}
+                    {/*        </li>*/}
 
-                            <li>
-                                <Link to="/">HomePage</Link>
-                            </li>
+                    {/*        <li>*/}
+                    {/*            <Link to="/login">LoginPage</Link>*/}
+                    {/*        </li>*/}
 
-                        </ul>
-                    </nav>
+                    {/*        <li>*/}
+                    {/*            <Link to="/">HomePage</Link>*/}
+                    {/*        </li>*/}
+
+                    {/*    </ul>*/}
+                    {/*</nav>*/}
 
                     {/*buyerdan swich routerlar boshlandi*/}
+
+
                     <Switch>
                         <Route path="/restaurant">
                             < RestaurantPage/>
@@ -68,9 +89,7 @@ function App() {
                         </Route>
                     </Switch>
 
-                </div>
             </Router>
-        </div>
 
     );
 }
