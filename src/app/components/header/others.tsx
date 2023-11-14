@@ -21,27 +21,28 @@ export function NavbarOthers(props: any) {
                     className="navbar_links"
                 >
                     <Box className="hover-line" onClick={props.setPath}>
-                        <NavLink to="/">
-                            Bosh Sahifa
-                        </NavLink>
+                        <NavLink to="/">Bosh Sahifa</NavLink>
                     </Box>
+
                     <Box className="hover-line" onClick={props.setPath}>
-                        <NavLink to="/restaurant" activeClassName="uderline">
+                        <NavLink to="/restaurant" activeClassName="underline">
                             Oshhona
                         </NavLink>
                     </Box>
+
                     <Box className="hover-line" onClick={props.setPath}>
-                        <NavLink to="/orders" activeClassName="uderline">
+                        <NavLink to="/orders" activeClassName="underline">
                             Buyurtma
                         </NavLink>
                     </Box>
+
                     <Box className="hover-line" onClick={props.setPath}>
-                        <NavLink to="/community" activeClassName="uderline">
+                        <NavLink to="/community" activeClassName="underline">
                             Jamiyat
                         </NavLink>
                     </Box>
                     <Box className="hover-line" onClick={props.setPath}>
-                        <NavLink to="/help" activeClassName="uderline">
+                        <NavLink to="/help" activeClassName="underline">
                             Yordam
                         </NavLink>
                     </Box>

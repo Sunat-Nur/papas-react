@@ -1,8 +1,7 @@
-import React from "react";
-import {Box, Button, Container, IconButton, Stack} from "@mui/material";
+import React from 'react';
+import { Box, Button, Container, IconButton, Stack} from "@mui/material";
 import {NavLink} from "react-router-dom";
 import Badge from "@mui/material/Badge";
-
 export function NavbarHome(props: any) {
     return (
         <div className="format home_navbar">
@@ -13,39 +12,43 @@ export function NavbarHome(props: any) {
                     justifyContent={"space-between"}
                 >
                     <Box>
-                        <img src={"/icons/Papay..svg"}/>
+                        <img src='/icons/Papay..svg'/>
                     </Box>
                     <Stack
                         flexDirection={"row"}
                         justifyContent="space-evenly"
                         alignItems={"center"}
                         className="navbar_links"
-                    >
+                    ><Box className="hover-line" onClick={props.setPath}>
+                        <NavLink to="/" activeClassName="underline">
+                            Bosh Sahifa
+                        </NavLink>
+                    </Box>
+
                         <Box className="hover-line" onClick={props.setPath}>
-                            <NavLink to="/" activeClassName="uderline">
-                                Bosh Sahifa
-                            </NavLink>
-                        </Box>
-                        <Box className="hover-line" onClick={props.setPath}>
-                            <NavLink to="/restaurant" activeClassName="uderline">
+                            <NavLink to="/restaurant" activeClassName="underline">
                                 Oshhona
                             </NavLink>
                         </Box>
+
                         <Box className="hover-line" onClick={props.setPath}>
-                            <NavLink to="/orders" activeClassName="uderline">
+                            <NavLink to="/orders" activeClassName="underline">
                                 Buyurtma
                             </NavLink>
                         </Box>
+
                         <Box className="hover-line" onClick={props.setPath}>
-                            <NavLink to="/community" activeClassName="uderline">
+                            <NavLink to="/community" activeClassName="underline">
                                 Jamiyat
                             </NavLink>
                         </Box>
+
                         <Box className="hover-line" onClick={props.setPath}>
-                            <NavLink to="/help" activeClassName="uderline">
+                            <NavLink to="/help" activeClassName="underline">
                                 Yordam
                             </NavLink>
                         </Box>
+
 
                         <Box className="hover-line">
                             <IconButton
@@ -56,56 +59,56 @@ export function NavbarHome(props: any) {
                                 aria-expanded={undefined}
                             >
                                 <Badge badgeContent={3} color="secondary">
-                                    <img src={"/icons/shopping-cart.svg"}/>
+                                    <img src={'/icons/shopping_cart.svg'}/>
                                 </Badge>
                             </IconButton>
                         </Box>
+
                         <Box>
                             <Button
                                 variant="contained"
-                                style={{color: "#FFFFFF", background: "#1976d2 "}}
+                                style={{color: "#FFFFFF",background: "#1976d2"}}
                             >
-                                Kirish
+                                KIRISH
                             </Button>
                         </Box>
-
-
                     </Stack>
                 </Stack>
 
-                {/*main stack qismi*/}
+                <Stack className="head_information" justifyContent={"row"}>
 
-                <Stack className="head_information">
                     <Stack
-                        justifyContent={"column"}
-                        style={{marginTop: "86px", marginLeft: "24px"}}
-                    >
+                        justifyContent={'column'}
+                        style={{ marginTop: "86px", marginLeft: "24px" }}>
                         <Box>
-                            <img src="/icons/Welcome%20to%20Papay.svg"/>
+                            <img src="/icons/welcome.svg" />
                         </Box>
+
                         <Box className="define_restaurant">
                             The Authentic Restaurant & Cafe
                         </Box>
+
                         <Box className="timeline_service">
-                            24 soat xizmatingdamiz.
+                            24 soat xizmatinggizdamiz.
                         </Box>
                         <Box sx={{mt: "90px"}}>
                             <Button
                                 variant="contained"
-                                style={{
-                                    width: "210px",
+                                style={{width: "210px",
                                     height: "60px",
                                     background: "#1976d2",
-                                    color: "#ffffff",
-                                }}
+                                    color: "#FFFFF",}}
                             >
-                                RO'YHATDAN O'TISH
+                                RO'YXATDAN O'TISH
                             </Button>
                         </Box>
                     </Stack>
-                    <Box className="big_img"></Box>
-                </Stack>
+                    <Stack flexDirection={'column'}>
+                        <Box className="big_img"></Box>
 
+                    </Stack>
+
+                </Stack>
             </Container>
         </div>
     );

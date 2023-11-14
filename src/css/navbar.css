@@ -2,20 +2,20 @@
     width: 100%;
     height: 773px;
     display: flex;
-    background: url("/public/restaurant/Rectangle 2.png");
+    background: url("/public/restaurant/home_restaurant.jpg");
     background-size: cover;
 }
 .format_restaurant.home_navbar {
     width: 100%;
-    height: 773px;
+    height: 400px;
     display: flex;
-    background: url("/public/restaurant/header_res.png");
+    background: url("/public/restaurant/home_restaurant.jpg");
     background-size: cover;
 }
 
 .format_order.home_navbar {
     width: 100%;
-    height: 773px;
+    height: 400px;
     display: flex;
     background: url("/public/others/others_hearder.png");
     background-size: cover;
@@ -49,7 +49,6 @@
 
 .home_navbar .hover-line:after {
     display: block;
-
     content: "";
     border-bottom: solid 2px #d7b686;
     transform: scaleX(0);

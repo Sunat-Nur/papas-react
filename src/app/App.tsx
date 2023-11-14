@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 // useStateni REACT dan import qilib olamz.
 // bizning path imiz uzgarganda viewimizni qayta qurub beradi.
+
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import "../css/App.css";
 import "../css/navbar.css";
 import "../css/footer.css";
-import { BrowserRouter as Router, Switch, Route,} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 import {RestaurantPage} from "./screens/RestaurantPage";
 import {CommunityPage} from "./screens/CommunityPage";
@@ -63,7 +65,3 @@ function App () {
     );
 }
 export default App;
-
-function Home() {
-    return <h2>Home</h2>;
-}

@@ -4,7 +4,8 @@ import {NavLink} from "react-router-dom";
 import Badge from "@mui/material/Badge";
 
 export function NavbarRestaurant(props: any) {
-    return <div className="format_restaurant home_navbar">
+    return (
+    <div className="format_restaurant home_navbar">
         <Container>
             <Stack
                 flexDirection={"row"}
@@ -20,31 +21,37 @@ export function NavbarRestaurant(props: any) {
                     alignItems={"center"}
                     className="navbar_links"
                 >
+
                     <Box className="hover-line" onClick={props.setPath}>
-                        <NavLink to="/" activeClassName="uderline">
+                        <NavLink to="/">
                             Bosh Sahifa
                         </NavLink>
                     </Box>
+
                     <Box className="hover-line" onClick={props.setPath}>
-                        <NavLink to="/restaurant" activeClassName="uderline">
-                            Oshhona
+                        <NavLink to="/restaurant" activeClassName="underline">
+                            Oshxona
                         </NavLink>
                     </Box>
+
                     <Box className="hover-line" onClick={props.setPath}>
-                        <NavLink to="/orders">
+                        <NavLink to="/orders" activeClassName="underline">
                             Buyurtma
                         </NavLink>
                     </Box>
+
                     <Box className="hover-line" onClick={props.setPath}>
-                        <NavLink to="/community" activeClassName="uderline">
+                        <NavLink to="/community" activeClassName="underline">
                             Jamiyat
                         </NavLink>
                     </Box>
+
                     <Box className="hover-line" onClick={props.setPath}>
-                        <NavLink to="/help" activeClassName="uderline">
+                        <NavLink to="/help" activeClassName="underline">
                             Yordam
                         </NavLink>
                     </Box>
+
 
                     <Box className="hover-line">
                         <IconButton
@@ -71,7 +78,6 @@ export function NavbarRestaurant(props: any) {
             </Stack>
             {/*main stack qismi*/}
         </Container>
-
-
-    </div>;
+    </div>
+    );
 }
