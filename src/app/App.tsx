@@ -1,8 +1,11 @@
-import React, {useState} from "react";
-import '../css/App.css';
-import '../css/navbar.css';
-import '../css/footer.css';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import React, {useState} from 'react';
+// useStateni REACT dan import qilib olamz.
+// bizning path imiz uzgarganda viewimizni qayta qurub beradi.
+import "../css/App.css";
+import "../css/navbar.css";
+import "../css/footer.css";
+import { BrowserRouter as Router, Switch, Route,} from "react-router-dom";
+
 import {RestaurantPage} from "./screens/RestaurantPage";
 import {CommunityPage} from "./screens/CommunityPage";
 import {OrdersPage} from "./screens/OrdersPage";
@@ -15,22 +18,21 @@ import {NavbarRestaurant} from "./components/header/restaurant";
 import {NavbarOthers} from "./components/header/others";
 import {Footer} from "./components/footer";
 
-
-function App() {
+function App () {
     const [path, setPath] = useState();
     const main_path = window.location.pathname;
 
     return (
         <Router>
             {main_path == "/" ? (
-                <NavbarHome setPath={setPath}/>
+                <NavbarHome setPath={setPath} />
             ) : main_path.includes("/restaurant") ? (
-                <NavbarRestaurant setPath={setPath}/>
+                <NavbarRestaurant setPath={setPath} />
             ) : (
-                <NavbarOthers/>
+                <NavbarOthers setPath={setPath} />
             )}
 
-
+            {/*buyerdan swich routerlar boshlandi*/}
             <Switch>
                 <Route path="/restaurant">
                     < RestaurantPage/>
@@ -42,25 +44,24 @@ function App() {
                     < OrdersPage/>
                 </Route>
                 <Route path="/member-page">
-                    < MemberPage/>
+                    < MemberPage />
                 </Route>
                 <Route path="/help">
-                    < HelpPage/>
+                    < HelpPage />
                 </Route>
                 <Route path="/login">
-                    < LoginPage/>
+                    < LoginPage />
                 </Route>
                 <Route path="/">
-                    < Homepage/>
+                    < Homepage />
                 </Route>
             </Switch>
 
-            <Footer/>
-        </Router>
+            <Footer />
 
+        </Router>
     );
 }
-
 export default App;
 
 function Home() {
