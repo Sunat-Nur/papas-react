@@ -92,7 +92,7 @@ export function AllRestaurants() {
                                             />
                                         </IconButton>
                                     </CardOverflow>
-                                    <Typography level="body-sm" sx={{fontSize: "md", mt: 0.5}}>
+                                    <Typography level="h2" sx={{fontSize: "lg", mt: 0.5}}>
                                         Burak Cevit
                                     </Typography>
                                     <Typography level="body-sm" sx={{mt: 0.1, mb: 0.5}}>
@@ -167,7 +167,7 @@ export function AllRestaurants() {
                             <PaginationItem components={{
                                 previous: ArrowBackIcon,
                                 next: ArrowForwardIcon,
-                            }} sx={{color: "secondary"}} {...item}
+                            }} sx={{color: "blue"}} {...item}
                             />
                         )}
                     />
