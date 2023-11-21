@@ -287,7 +287,7 @@ export function OneRestaurants () {
                     <Box className={"category_title"}>Oshxona Manzili</Box>
                     <iframe
                         style={{ marginTop: "60px",}}
-                        src="https://image.cnbcfm.com/api/v1/image/100416482-google-map-maker-north-korea-google-youtube.jpg?v=1359477081&w=1600&h=900"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25294.242382150278!2d127.05066999999998!3d37.58379085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbb5cd4298ec1%3A0xe040c8bbb76d2b24!2sDongdaemun-gu%2C%20Seoul!5e0!3m2!1sen!2skr!4v1700545060503!5m2!1sen!2skr"
                         width="1320"
                         height="500"
                     ></iframe>
