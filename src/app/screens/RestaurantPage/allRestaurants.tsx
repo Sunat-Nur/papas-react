@@ -167,7 +167,7 @@ export function AllRestaurants() {
                             <PaginationItem components={{
                                 previous: ArrowBackIcon,
                                 next: ArrowForwardIcon,
-                            }} sx={{color: "blue"}} {...item}
+                            }} sx={{color: "brown"}} {...item}
                             />
                         )}
                     />

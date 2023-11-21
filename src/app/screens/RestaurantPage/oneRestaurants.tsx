@@ -91,10 +91,10 @@ export function OneRestaurants () {
                         display={"flex"}
                         flexDirection={"row"}
                         justifyContent={"flex-end"}
-                        width={"75%"}
+                        width={"90%"}
                         sx={{ mt: "65px"}}
                     >
-                        <Box className={"dishs_filter_box"}>
+                        <Box className={"dishes_filter_box"}>
                             <Button variant={"contained"} color="secondary">
                                 new
                             </Button>

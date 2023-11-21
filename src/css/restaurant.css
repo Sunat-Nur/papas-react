@@ -742,12 +742,12 @@
     justify-content: space-between;
 }
 
-.single_restaurant .dishs_filter_box {
-    width: 37%;
+.single_restaurant .dishes_filter_box {
+    width: 30%;
     height: auto;
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .single_restaurant .dish_category_box {

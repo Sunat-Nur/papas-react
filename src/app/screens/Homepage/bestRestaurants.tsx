@@ -351,22 +351,7 @@ export function BestRestaurants() {
                                             display: "flex",
                                         }}
                                     >
-                                        <IconButton aria-label="Like minimal Photography"
-                                                    size="md"
-                                                    variant="solid"
-                                                    color="neutral"
-                                                    sx={{
-                                                        position: "absolute",
-                                                        zIndex: 2,
-                                                        borderRadius: "50%",
-                                                        right: "1rem",
-                                                        bottom: 45,
-                                                        transform: "translateY(50%)",
-                                                        color: "rgba(0,0,0,.4)",
-                                                    }}
-                                        >
-                                            <Favorite style={{fill: "white"}}/>
-                                        </IconButton>
+
                                         100{" "}
                                         <VisibilityIcon sx={{fontSize: 20, marginLeft: "5px"}}/>
                                     </Typography>
