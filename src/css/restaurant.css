@@ -879,7 +879,6 @@
 }
 
 
-
 .chosen_dish_page .dish_swiper_second {
     --swiper-navigation-color: #fff;
     --swiper-pagination-color: #fff;
@@ -889,7 +888,7 @@
     justify-content: space-between;
     flex-direction: row;
     margin-top: 15px;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 

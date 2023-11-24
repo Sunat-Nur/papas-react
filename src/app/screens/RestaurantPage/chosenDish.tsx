@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import {Box, Container, Stack} from "@mui/system";
 import {Swiper, SwiperSlide} from "swiper/react";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -10,7 +10,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import {FreeMode, Navigation, Thumbs} from "swiper";
-import {Favorite, FavoriteBorder } from "@mui/icons-material";
+import {Favorite, FavoriteBorder} from "@mui/icons-material";
 import Checkbox from "@mui/material/Checkbox";
 
 const chosen_list = Array.from(Array(3).keys());
@@ -21,7 +21,7 @@ export function ChosenDish() {
     return (
         <div className="chosen_dish_page">
             <Container className="dish_container"
-                       sx={{ display: "flex" }}
+                       sx={{display: "flex"}}
             >
                 <Stack className="chosen_dish_slider">
                     <Swiper
@@ -44,7 +44,6 @@ export function ChosenDish() {
                             );
                         })}
                     </Swiper>
-
                     <Swiper
                         className="dish_swiper_second"
                         loop={true}
@@ -67,19 +66,13 @@ export function ChosenDish() {
                             );
                         })}
                     </Swiper>
-
-
-
-
                 </Stack>
                 <Stack className={"chosen_dish_info_container"}>
                     <Box className={"chosen_dish_info_box"}>
                         <strong className={"dish_text"}>Sweet Sandvish</strong>
                         <span className={"resto_name"}>Texas De Brazil</span>
                         <Box className={"rating_box"}>
-                            <Rating name="half_rating" defaultValue={3.5} precision={0.5} style={{
-                                fontSize: "30px"
-                            }}/>
+                            <Rating name="half_rating" defaultValue={3.5} precision={0.5} style={{fontSize: "30px" }}/>
                             <div className={"evaluation_box"}>
                                 <div
                                     style={{
@@ -102,7 +95,9 @@ export function ChosenDish() {
                                 </div>
                             </div>
                         </Box>
-                        <p className={"dish_desc_info"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. </p>
+                        <p className={"dish_desc_info"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea. </p>
                         <Marginer
                             direction="horizontal"
                             height="1"
