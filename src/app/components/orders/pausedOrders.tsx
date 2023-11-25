@@ -1,5 +1,5 @@
-import {Box, Stack} from "@mui/material"
-import TabPanel from "@mui/joy/Tab";
+import {Box, Stack, Button} from "@mui/material"
+import TabPanel from "@mui/lab/TabPanel";
 import React from "react";
 
 
@@ -27,7 +27,7 @@ export default function PausedOrders(props: any) {
                                                 <p>$7</p>
                                                 <img src={"/icons/Close.svg"}/>
                                                 <p>3</p>
-                                                <img src={"/icons/pause.svg"}/>
+                                                <img src={"/icons/Pause.svg"}/>
                                                 <p style={{marginLeft: "15px"}}>$21</p>
                                             </Box>
                                         </Box>
@@ -38,16 +38,32 @@ export default function PausedOrders(props: any) {
                                     <Box className={"boxTotal"}>
                                         <p>mahsulot narxi</p>
                                         <p>$21</p>
-                                        <img src={"/icons/plus.svg"} style={{marginLeft: "20px"}}/>
+                                        <img src={"/icons/Plus.svg"} style={{marginLeft: "20px"}}/>
                                         <p>yetkazib berish</p>
                                         <p>$2</p>
                                         <img
-                                            src={"/icons/pause.svg"}
+                                            src={"/icons/Pause.svg"}
                                             style={{marginLeft: "20px"}}
                                         />
                                         <p>total price</p>
                                         <p>$23</p>
                                     </Box>
+                                    <Button
+                                        variant="contained"
+                                        style={{ borderRadius: "10px", background: "red" }}
+                                    >
+                                        BEKOR QILISH
+                                    </Button>
+                                    <Button
+                                        variant="contained"
+                                        sx={{
+                                            background: "rgb(2, 136, 209)",
+                                            color: "rgb(255, 255, 255)",
+                                            borderRadius: "10px",
+                                        }}
+                                    >
+                                        TO'LASH
+                                    </Button>
                                 </Box>
                             </Box>
                         </Box>

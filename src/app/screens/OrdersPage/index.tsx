@@ -3,7 +3,7 @@ import "../../../css/order.css"
 import {Box, Container, Stack} from "@mui/material";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
-import TabList from '@mui//TabList';
+import TabList from "@mui/lab/TabList"
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 import PausedOrders from "../../components/orders/pausedOrders"
@@ -32,12 +32,12 @@ export function OrdersPage() {
                         <Box className={"order_nev_frame"}>
                             <Box sx={{borderBottom: 1, borderColor: "divider"}}>
                                 <TabList onChange={handleChange}
-                                         value={value}
+                                    // value={value}
                                          aria-label="basic tabs example"
                                          style={{display: "flex", justifyContent: "space-between"}}
                                 >
                                     <Tab label="Buyurtmalarim" value={"1"}/>
-                                    <Tab label="arayon" value={"2"}/>
+                                    <Tab label="Jarayon" value={"2"}/>
                                     <Tab label="Yakunlangan" value={"3"}/>
                                 </TabList>
                             </Box>
@@ -59,12 +59,12 @@ export function OrdersPage() {
                         >
                             <div className={"order_user_img"}>
                                 <img
-                                    src={"/auth/default.user.svg"}
+                                    src={"/community/profile.4.png"}
                                     className={"order_user_avatar"}
                                 />
                                 <div className={"order_user_icon_box"}>
                                     <img
-                                        src={"/icons/user_icon.svg"}
+                                        src={"/icons/user_icon..svg"}
                                         className={"order_user_prof_ing"}
                                     />
                                 </div>
@@ -86,7 +86,7 @@ export function OrdersPage() {
                         </Box>
                     </Box>
                     <Box className={"order_info_box"} sx={{mt: "15px"}}>
-                        <input type={"text"} name={"card_number"} placeholder={"card_input"}/>
+                        <input type={"text"} name={"card_creator"} placeholder={"card_number: 000 00 0000 00"} className={"card_input"}/>
                         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}
                         >
                             <input type={"text"} name={"card_period"} placeholder={"07 / 24"}
@@ -96,10 +96,10 @@ export function OrdersPage() {
                         </div>
                         <input type={"text"} name={"card_creator"} placeholder={"sunat_nur"} className={"card_input"}/>
                         <div className={"card_box"}>
-                            <img src={"/icons/western_card.svg"}/>
-                            <img src={"/icons/master_card.svg"}/>
-                            <img src={"/icons/paypal_card.svg"}/>
-                            <img src={"/icons/visa_card.svg"}/>
+                            <img src={"/icons/Western-union.svg"}/>
+                            <img src={"/icons/Paypal.svg"}/>
+                            <img src={"/icons/Western-union.svg"}/>
+                            <img src={"/icons/Paypal.svg"}/>
                         </div>
                     </Box>
                 </Stack>
