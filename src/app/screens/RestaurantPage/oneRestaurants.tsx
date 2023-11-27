@@ -214,7 +214,7 @@ export function OneRestaurants () {
                                 <Box className={"review_box"} key={index}>
                                     <Box display={"flex"} justifyContent={"center"}>
                                         <img
-                                            src={"/community/profile.4.png"}
+                                            src={"/community/sunat_nur.png"}
                                             className={"review_img"}
                                         />
                                     </Box>

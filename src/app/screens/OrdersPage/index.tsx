@@ -6,9 +6,9 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList"
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
-import PausedOrders from "../../components/orders/pausedOrders"
-import ProcessOrders from "../../components/orders/processOrders"
-import FinishedOrders from "../../components/orders/finishedOrders"
+import PausedOrders from "../orders/pausedOrders"
+import ProcessOrders from "../orders/processOrders"
+import FinishedOrders from "../orders/finishedOrders"
 
 export function OrdersPage() {
     // Initializations
@@ -32,7 +32,7 @@ export function OrdersPage() {
                         <Box className={"order_nev_frame"}>
                             <Box sx={{borderBottom: 1, borderColor: "divider"}}>
                                 <TabList onChange={handleChange}
-                                    // value={value}
+                                      // value={value}
                                          aria-label="basic tabs example"
                                          style={{display: "flex", justifyContent: "space-between"}}
                                 >
@@ -59,7 +59,7 @@ export function OrdersPage() {
                         >
                             <div className={"order_user_img"}>
                                 <img
-                                    src={"/community/profile.4.png"}
+                                    src={"/community/sunat_nur.png"}
                                     className={"order_user_avatar"}
                                 />
                                 <div className={"order_user_icon_box"}>
@@ -86,7 +86,8 @@ export function OrdersPage() {
                         </Box>
                     </Box>
                     <Box className={"order_info_box"} sx={{mt: "15px"}}>
-                        <input type={"text"} name={"card_creator"} placeholder={"card_number: 000 00 0000 00"} className={"card_input"}/>
+                        <input type={"text"} name={"card_creator"} placeholder={"card_number: 000 00 0000 00"}
+                               className={"card_input"}/>
                         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}
                         >
                             <input type={"text"} name={"card_period"} placeholder={"07 / 24"}
