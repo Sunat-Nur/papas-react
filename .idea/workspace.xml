@@ -5,18 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/communityChats.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/targetArticles.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/css/community.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/auth/it_dev.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/Group.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/Pencil.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/User.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/follow_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/odamcha.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/upload_pics.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitMyPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitOtherPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowing.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberPosts.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/mySettings.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/css/my_page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/community/miiti.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/community/mitti.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/community/profile.4.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/community/sunat_nur.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orders/finishedOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/orders/finishedOrders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orders/pausedOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/orders/pausedOrders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orders/processOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/orders/processOrders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/OrdersPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/RestaurantPage/oneRestaurants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/RestaurantPage/oneRestaurants.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/MaterialTheme/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MaterialTheme/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/targetArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/targetArticles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/community.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/community.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/order.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/order.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +42,9 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2YbxTjCLxMjdHHbhpVlhVysgnNg" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -62,6 +72,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/icons" />
+      <recent name="$PROJECT_DIR$/public/auth" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/screens" />
@@ -76,7 +87,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700808092904</updated>
-      <workItem from="1700808094575" duration="26293000" />
+      <workItem from="1700808094575" duration="43569000" />
+      <workItem from="1701150502276" duration="26515000" />
     </task>
     <servers />
   </component>

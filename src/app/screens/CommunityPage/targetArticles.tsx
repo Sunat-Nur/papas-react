@@ -2,15 +2,15 @@ import React from "react";
 import {Box, Link, Stack} from "@mui/material";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-// import Favorite from "@mui/icons-material/Favorite";
-// import moment from "moment"
+import Favorite from "@mui/icons-material/Favorite";
+import moment from "moment"
 
 
 export function TargetArticles(props: any) {
     return (
         <Stack>
             {props.targetBoArticle?.map((article: any, index: string) => {
-                const art_image_url = "/public/community/sunat_nur.png";
+                const art_image_url = "/community/sunat_nur.png";
                 return (
                     <Link
                         className="all_article_box"
