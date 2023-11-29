@@ -61,7 +61,7 @@ export function MemberFollowers(props: any) {
                                                 }}
                                                 startIcon={
                                                     <img
-                                                        src={"/icons/follow_icon.svg"}
+                                                        src={"/icons/follow_icon.svg"} alt=""
                                                     />
                                                 }
                                             >

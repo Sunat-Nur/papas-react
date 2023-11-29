@@ -8,6 +8,13 @@ import moment from "moment";
 
 export function MemberPosts(props: any) {
     return (
+        <Stack
+            className={"content_page"}
+            style={{
+                width: "100%",
+                height: "600px"
+            }}
+        >
         <Box className={"post_content"}>
             {["1", "2", "3"].map((article) => {
                 return (
@@ -73,5 +80,6 @@ export function MemberPosts(props: any) {
                 );
             })}
         </Box>
+        </Stack>
     );
 }

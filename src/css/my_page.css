@@ -67,6 +67,7 @@
     flex-direction: column;
 }
 
+
 .post_content .all_article_author_user {
     margin-left: 10px;
     font-family: "Poppins";
@@ -270,8 +271,6 @@
 }
 
 
-
-
 /*Followers*/
 
 .my_followers_page {
@@ -285,14 +284,12 @@
     width: 821.42px;
     height: 140px;
     border-radius: 17px;
-    padding:  25px 45px;
+    padding: 25px 45px;
 
     background: linear-gradient(180deg,
     rgba(38, 112, 129, 0.90) 0%,
     rgba(21, 61, 70, 0.90) 100%);
-    box-shadow: 0px 4px 12px 0px
-    rgba(0, 0, 0, 0.15), 3px 2px 9px 0px
-    rgba(255, 255, 255, 0.25) inset;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15), 3px 2px 9px 0px rgba(255, 255, 255, 0.25) inset;
 
     position: relative;
     flex-direction: row;
@@ -320,7 +317,6 @@
 }
 
 
-
 .follow_back {
     width: 160px;
     height: 40px;
@@ -342,10 +338,7 @@
 }
 
 
-
-
 /*    MY-settings_css*/
-
 
 
 .my_settings_page {
@@ -368,12 +361,12 @@
     margin-right: 20px;
 }
 
-.my_settings_page .member_media_frame  .media_change_box {
+.my_settings_page .member_media_frame .media_change_box {
     margin-left: 20px;
 
 }
 
-.my_settings_page .member_media_frame  .span {
+.my_settings_page .member_media_frame .span {
     margin-bottom: 1px;
     color: #140342;
     font-family: Poppins;
@@ -385,7 +378,7 @@
 }
 
 
-.my_settings_page .member_media_frame  .media_change_box p {
+.my_settings_page .member_media_frame .media_change_box p {
     color: #4F547B;
     font-family: Poppins;
     font-size: 14px;
@@ -462,6 +455,12 @@
     flex-shrink: 0;
 }
 
+ /*Edit and Other CSS*/
+
+.edit_page .edit_box{
+    width: 821.42px;
+    height: 640px;
+}
 
 
 

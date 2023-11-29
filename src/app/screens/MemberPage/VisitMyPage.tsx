@@ -1,30 +1,31 @@
+import React, { useState } from "react";
+
 import TabPanel from "@mui/lab/TabPanel";
 import TabContext from "@mui/lab/TabContext";
 import {Box, Container, Pagination, PaginationItem, Stack} from "@mui/material";
-import React from "react";
 import {MemberPosts} from "./memberPosts";
 import {MemberFollowers} from "./memberFollowers";
 import {MemberFollowing} from "./memberFollowing";
 import {MySettings} from "./mySettings";
+import {TuiEditor} from "../../components/tuiEditor/TuiEditor";
+import {TViewer} from "../../components/tuiEditor/TViewer"
 import SettingsIcon from "@mui/icons-material/Settings";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-
-
 //OTHERS
-
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import TabList from "@mui/lab/TabList";
 import {Button, Tab} from "@mui/material";
 import Marginer from "../../components/marginer";
+// import {Viewer} from "@toast-ui/react-editor";
 
 
 export function VisitMyPage(props: any) {
     /** INITIALIZATIONS */
-    const [value, setValue] = React.useState("1");
+    const [value, setValue] = useState("1");
 
     /** HANDLERS */
     const handleChange = (event: any, newValue: string) => {
@@ -88,12 +89,16 @@ export function VisitMyPage(props: any) {
 
                                 <TabPanel value={"4"}>
                                     <Box className={"menu_name"}>Maqola yozish</Box>
-                                    <Box className={"write_content"}></Box>
+                                    <Box className={"write_content"}>
+                                        <TuiEditor />
+                                    </Box>
                                 </TabPanel>
 
                                 <TabPanel value={"5"}>
-                                    <Box className={"menu_name"}>Chosen an Content</Box>
-                                    <Box className={"menu_content"}></Box>
+                                    <Box className={"menu_name"}>tanlangan maqola</Box>
+                                    <Box className={"menu_content"}>
+                                        <TViewer text={`<h3>hello</h3>`} />
+                                    </Box>
                                 </TabPanel>
 
                                 <TabPanel value={"6"}>

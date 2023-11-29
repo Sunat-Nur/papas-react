@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/components/tuiEditor/TViewer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitMyPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitMyPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitOtherPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitOtherPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberPosts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/my_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/my_page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +62,8 @@
       <recent name="$PROJECT_DIR$/public/auth" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/components/tuiEditor" />
+      <recent name="$PROJECT_DIR$/src/app/screens/MemberPage" />
       <recent name="$PROJECT_DIR$/src/app/screens" />
       <recent name="$PROJECT_DIR$/public/icons" />
     </key>
@@ -68,7 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700808092904</updated>
       <workItem from="1700808094575" duration="43569000" />
-      <workItem from="1701150502276" duration="32124000" />
+      <workItem from="1701150502276" duration="47269000" />
     </task>
     <servers />
   </component>
@@ -85,17 +94,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/screens/MemberPage/VisitMyPage.tsx</url>
-          <line>112</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
