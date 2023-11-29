@@ -39,9 +39,16 @@ export function MemberFollowers(props: any) {
                                     {props.actions_enabled &&
                                         (follower.following ? (
                                             <Button
+                                                style={{
+                                                    background: "#68C5CB",
+                                                    color: "#ffffff",
+                                                    borderRadius: "50px",
+                                                    marginTop: "18px",
+                                                    width: "160px",
+                                                }}
                                                 className={"following_already"}
                                             >
-                                                <span>FOLLOWING</span>
+                                                <span>Following</span>
                                             </Button>
                                         ) : (
                                             <Button
@@ -49,7 +56,8 @@ export function MemberFollowers(props: any) {
                                                 style={{
                                                     background: "#30945E",
                                                     borderRadius: "50px",
-                                                    marginTop: "18px"
+                                                    marginTop: "18px",
+                                                    color: "#ffffff",
                                                 }}
                                                 startIcon={
                                                     <img

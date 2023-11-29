@@ -321,18 +321,6 @@
 
 
 
-.button_follow .following_already {
-    margin-top: 15px;
-    width: 160px;
-    height: 38px;
-    background: #68C5CB;
-    align-items: center;
-    position: relative;
-    display: flex;
-    border-radius: 35px;
-    cursor: pointer;
-}
-
 .follow_back {
     width: 160px;
     height: 40px;
@@ -352,17 +340,6 @@
     font-weight: 600;
     line-height: normal;
 }
-
-
-.button_follow p {
-    color: #FFF;
-    font-family: Montserrat;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-}
-
 
 
 

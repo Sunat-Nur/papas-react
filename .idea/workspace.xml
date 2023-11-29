@@ -5,28 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/auth/it_dev.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons/Group.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons/Pencil.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons/User.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons/follow_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons/odamcha.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/icons/upload_pics.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitMyPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitOtherPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowing.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberPosts.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/mySettings.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/css/my_page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/MaterialTheme/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MaterialTheme/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/targetArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/targetArticles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/community.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/community.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/order.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/order.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/my_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/my_page.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700808092904</updated>
       <workItem from="1700808094575" duration="43569000" />
-      <workItem from="1701150502276" duration="26515000" />
+      <workItem from="1701150502276" duration="28329000" />
     </task>
     <servers />
   </component>

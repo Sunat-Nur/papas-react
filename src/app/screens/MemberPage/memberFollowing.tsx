@@ -51,7 +51,7 @@ export function MemberFollowing(props: any) {
                                             />
                                         }
                                     >
-                                        Bekor Qilish
+                                        UnFollowing
                                     </Button>
                                 )}
                             </Stack>
