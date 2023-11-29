@@ -15,18 +15,18 @@ export function MemberPosts(props: any) {
                         <Box
                             className={"all_article_img"}
                             sx={{
-                                backgroundImage: `url('/community/sunat_nur.png')`,
+                                backgroundImage: `url('/icons/odamcha.svg')`,
                             }}
                         ></Box>
                         <Box className={"all_article_container"}>
                             <Box
                                 alignItems={"center"} display={"flex"}>
                                 <img
-                                    src={"/community/sunat_nur.png"}
+                                    src={"/icons/odamcha.svg"}
                                     width={"35px"}
                                     style={{borderRadius: "50%", backgroundSize: "cover"}}/>
                                 <span className={"all_article_author_user"}>
-                                    @sunat_nur
+                                    @user_nick
                                 </span>
                             </Box>
                             <Box

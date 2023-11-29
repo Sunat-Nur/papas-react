@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/my_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/my_page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitOtherPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitOtherPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberPosts.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700808092904</updated>
       <workItem from="1700808094575" duration="43569000" />
-      <workItem from="1701150502276" duration="28329000" />
+      <workItem from="1701150502276" duration="29727000" />
     </task>
     <servers />
   </component>
