@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitOtherPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitOtherPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700808092904</updated>
       <workItem from="1700808094575" duration="43569000" />
-      <workItem from="1701150502276" duration="30033000" />
+      <workItem from="1701150502276" duration="32124000" />
     </task>
     <servers />
   </component>
@@ -85,5 +85,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/screens/MemberPage/VisitMyPage.tsx</url>
+          <line>112</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -41,7 +41,7 @@ export function VisitOtherPage(props: any) {
                         <Stack className={"my_page_left"}>
                             <Box display={"flex"} flexDirection={"column"}>
                                 <TabPanel value={"1"}>
-                                    <Box className={"menu_name"}>Mening Maqolalarim</Box>
+                                    <Box className={"menu_name"}> contents</Box>
 
                                     <Box className={"menu_content"}>
                                         <MemberPosts/>
@@ -75,33 +75,23 @@ export function VisitOtherPage(props: any) {
                                 <TabPanel value={"2"}>
                                     <Box className={"menu_name"}>Followers</Box>
                                     <Box className={"menu_content"}>
-                                        <MemberFollowers actions_enabled={true}/>
+                                        <MemberFollowers actions_enabled={false}/>
                                     </Box>
                                 </TabPanel>
 
                                 <TabPanel value={"3"}>
                                     <Box className={"menu_name"}>Following</Box>
                                     <Box className={"menu_content"}>
-                                        <MemberFollowing actions_enabled={true}/>
+                                        <MemberFollowing actions_enabled={false}/>
                                     </Box>
                                 </TabPanel>
 
                                 <TabPanel value={"4"}>
-                                    <Box className={"menu_name"}>Maqola yozish</Box>
-                                    <Box className={"write_content"}></Box>
-                                </TabPanel>
-
-                                <TabPanel value={"5"}>
-                                    <Box className={"menu_name"}>Chosen an Content</Box>
+                                    <Box className={"menu_name"}>tanlangan Maqola</Box>
                                     <Box className={"menu_content"}></Box>
                                 </TabPanel>
 
-                                <TabPanel value={"6"}>
-                                    <Box className={"menu_name"}>Ma'lumotlarni o'zgartirish</Box>
-                                    <Box className={"menu_content"}>
-                                        <MySettings/>
-                                    </Box>
-                                </TabPanel>
+
                             </Box>
                         </Stack>
                         <Stack className={"my_page_right"}>
@@ -162,7 +152,7 @@ export function VisitOtherPage(props: any) {
                                                     variant={"contained"}
                                                     onClick={() => setValue("4")}
                                                 >
-                                                    Maqola Yozish
+                                                    Bekor qilish
                                                 </Button>
                                             )}
                                         />
@@ -192,7 +182,7 @@ export function VisitOtherPage(props: any) {
                                                     onClick={() => setValue("1")}
                                                 >
                                                     <img src={"/icons/Pencil.svg"} alt=""/>
-                                                    <span>My Contents</span>
+                                                    <span> Contents</span>
                                                 </div>
                                             )}
                                         />
