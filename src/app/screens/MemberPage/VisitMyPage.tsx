@@ -42,7 +42,7 @@ export function VisitMyPage(props: any) {
                         <Stack className={"my_page_left"}>
                             <Box display={"flex"} flexDirection={"column"}>
                                 <TabPanel value={"1"}>
-                                    <Box className={"menu_name"}>Mening Maqolalarim</Box>
+                                    <Box className={"menu_name"}>Contents</Box>
 
                                     <Box className={"menu_content"}>
                                         <MemberPosts/>
