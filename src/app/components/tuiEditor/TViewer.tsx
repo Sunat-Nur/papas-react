@@ -8,7 +8,8 @@ export const TViewer = (props: any) => {
     const editorRef = useRef();
 
     return (
-        <Stack sx={{ background: "white", mt: "30px", borderRadius: "10px"}}>
+        <Stack className={"TV_editor_page"}
+            sx={{ background: "white", mt: "30px", borderRadius: "10px"}}>
             <Box sx={{ m: "40px"}}>
                 <Viewer
                     // @ts-ignore

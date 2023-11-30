@@ -110,15 +110,15 @@ export function HelpPage() {
     const rules = [
         `It is a long established fact that a reader will be
          distracted by the readable content of a page when.`,
-         `Looking at its layout. The point of using Lorem Ipsum 
+        `Looking at its layout. The point of using Lorem Ipsum 
          is that it has a more-or-less normal distribution.`,
-         `ofletters, as opposed to using 'Content here, content 
+        `ofletters, as opposed to using 'Content here, content 
          here', making it look like readable English. Many desktop.`,
-         `publishing packages and web page editors now use Lorem 
+        `publishing packages and web page editors now use Lorem 
          Ipsum as their default model text, and a search for 'lorem.`,
-         `ipsum' will uncover many web sites still in 
+        `ipsum' will uncover many web sites still in 
          their infancy. Various versions have evolved over the years,`,
-         `sometimes by accident, sometimes on purpose (injected humour 
+        `sometimes by accident, sometimes on purpose (injected humour 
          publishing packages and web page editors now use Lorem).`,
     ];
 
@@ -171,7 +171,7 @@ export function HelpPage() {
                                                 >
                                                     <Typography
                                                         style={{
-                                                            color:"#172B4D",
+                                                            color: "#172B4D",
                                                             fontSize: "18px",
                                                             lineHeight: "120%"
                                                         }}
@@ -181,7 +181,7 @@ export function HelpPage() {
                                                 <AccordionDetails>
                                                     <Typography
                                                         style={{
-                                                            color:"#616164",
+                                                            color: "#616164",
                                                             fontSize: "18px",
                                                             lineHeight: "140%"
                                                         }}
@@ -236,8 +236,7 @@ export function HelpPage() {
                                                 sx={{mt: "30px"}}
                                             >
                                                 <Button type={"submit"} variant="contained"
-                                                style={{ borderRadius: "20px"}}
-                                                >
+                                                        style={{borderRadius: "20px"}}>
                                                     Jo'natish
                                                 </Button>
                                             </Box>

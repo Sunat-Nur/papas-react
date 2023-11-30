@@ -16,9 +16,7 @@ export function MemberFollowers(props: any) {
                     const image_url = "/community/mitti.jpeg";
                     return (
                         <Box className={"follow_box"}>
-                            <Stack
-                                flexDirection="row"
-                            >
+                            <Stack flexDirection="row">
                                 <Avatar alt={""} src={image_url} sx={{width: 89, height: 89,}}/>
                                 <div
                                     style={{
@@ -32,13 +30,10 @@ export function MemberFollowers(props: any) {
                                     <span className={"username_text"}>@mitti_vine</span>
                                     <span className={"name_text"}>Ulug'bek</span>
                                 </div>
-
-                                <Stack
-                                    className={"button_follow"}
-                                >
+                                <Stack className={"button_follow"} >
                                     {props.actions_enabled &&
                                         (follower.following ? (
-                                            <Button
+                                            <Button className={"following_already"}
                                                 style={{
                                                     background: "#68C5CB",
                                                     color: "#ffffff",
@@ -46,7 +41,6 @@ export function MemberFollowers(props: any) {
                                                     marginTop: "18px",
                                                     width: "160px",
                                                 }}
-                                                className={"following_already"}
                                             >
                                                 <span>Following</span>
                                             </Button>
@@ -60,9 +54,7 @@ export function MemberFollowers(props: any) {
                                                     color: "#ffffff",
                                                 }}
                                                 startIcon={
-                                                    <img
-                                                        src={"/icons/follow_icon.svg"} alt=""
-                                                    />
+                                                    <img src={"/icons/follow_icon.svg"} alt=""/>
                                                 }
                                             >
                                                 <p> Follow back</p>
@@ -70,7 +62,6 @@ export function MemberFollowers(props: any) {
                                         ))}
                                 </Stack>
                             </Stack>
-
                         </Box>
                     );
                 })}

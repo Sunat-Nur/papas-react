@@ -10,7 +10,7 @@ export const TuiEditor = (props: any) => {
     const editorRef = useRef<Editor | null>(null);
 
     return (
-        <Stack>
+        <Stack className={"my_edit_page"}>
             <Stack>
                 <Stack
                     className={"edit_page"}

@@ -11,7 +11,7 @@ const followings = [
 
 export function MemberFollowing(props: any) {
     return (
-        <Stack className={"following_page"}>
+        <Stack className={"my_following_page"}>
             {followings.map((following) => {
                 const image_url = "/community/ulug_bek.jpeg";
                 return (

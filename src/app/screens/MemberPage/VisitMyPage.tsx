@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 import TabPanel from "@mui/lab/TabPanel";
 import TabContext from "@mui/lab/TabContext";
@@ -20,6 +20,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import TabList from "@mui/lab/TabList";
 import {Button, Tab} from "@mui/material";
 import Marginer from "../../components/marginer";
+
 // import {Viewer} from "@toast-ui/react-editor";
 
 
@@ -35,15 +36,12 @@ export function VisitMyPage(props: any) {
     return (
         <div className={"my_page"}>
             <Container maxWidth="lg" sx={{mt: "50px", mb: "50px",}}>
-                <Stack className={"my_page_frame"}
-                       sx={{flexDirection: "row"}}
-                >
+                <Stack className={"my_page_frame"} sx={{flexDirection: "row"}} >
                     <TabContext value={value}>
                         <Stack className={"my_page_left"}>
                             <Box display={"flex"} flexDirection={"column"}>
                                 <TabPanel value={"1"}>
                                     <Box className={"menu_name"}>Contents</Box>
-
                                     <Box className={"menu_content"}>
                                         <MemberPosts/>
                                         <Stack
@@ -67,40 +65,34 @@ export function VisitMyPage(props: any) {
                                                         />
                                                     )}
                                                 />
-
                                             </Box>
                                         </Stack>
                                     </Box>
                                 </TabPanel>
-
                                 <TabPanel value={"2"}>
                                     <Box className={"menu_name"}>Followers</Box>
                                     <Box className={"menu_content"}>
                                         <MemberFollowers actions_enabled={true}/>
                                     </Box>
                                 </TabPanel>
-
                                 <TabPanel value={"3"}>
                                     <Box className={"menu_name"}>Following</Box>
                                     <Box className={"menu_content"}>
                                         <MemberFollowing actions_enabled={true}/>
                                     </Box>
                                 </TabPanel>
-
                                 <TabPanel value={"4"}>
                                     <Box className={"menu_name"}>Maqola yozish</Box>
                                     <Box className={"write_content"}>
-                                        <TuiEditor />
+                                        <TuiEditor/>
                                     </Box>
                                 </TabPanel>
-
                                 <TabPanel value={"5"}>
                                     <Box className={"menu_name"}>tanlangan maqola</Box>
                                     <Box className={"menu_content"}>
-                                        <TViewer text={`<h3>hello</h3>`} />
+                                        <TViewer text={`<h3>hello</h3>`}/>
                                     </Box>
                                 </TabPanel>
-
                                 <TabPanel value={"6"}>
                                     <Box className={"menu_name"}>Ma'lumotlarni o'zgartirish</Box>
                                     <Box className={"menu_content"}>
@@ -111,7 +103,6 @@ export function VisitMyPage(props: any) {
                         </Stack>
                         <Stack className={"my_page_right"}>
                             <Box className={"order_info_box"}>
-
                                 <a onClick={() => setValue("6")} className={"settings_btn"}>
                                     <SettingsIcon/>
                                 </a>
@@ -142,10 +133,7 @@ export function VisitMyPage(props: any) {
                                     <YouTubeIcon/>
                                 </Box>
                                 <Box className={"user_media_box_follow"}
-                                     sx={{
-                                         flexDirection: "row",
-                                     }}
-
+                                     sx={{flexDirection: "row"}}
                                 >
                                     <p className={"follows"}>Followers: 3 Following: 2</p>
                                 </Box>
@@ -155,18 +143,12 @@ export function VisitMyPage(props: any) {
                                     justifyContent={"flex-end"}
                                     sx={{mb: "10px"}}
                                 >
-                                    <TabList
-                                        onChange={handleChange}
-                                        aria-label="lab API tabs example"
-                                    >
+                                    <TabList onChange={handleChange} aria-label="lab API tabs example">
                                         <Tab
                                             style={{flexDirection: "column"}}
                                             value={"4"}
                                             component={(e) => (
-                                                <Button
-                                                    variant={"contained"}
-                                                    onClick={() => setValue("4")}
-                                                >
+                                                <Button variant={"contained"} onClick={() => setValue("4")} >
                                                     Maqola Yozish
                                                 </Button>
                                             )}
@@ -174,28 +156,16 @@ export function VisitMyPage(props: any) {
                                     </TabList>
                                 </Box>
                             </Box>
-
                             <Box className={"my_page_menu"}
-                                 sx={{
-                                     flexDirection: "column",
-                            }}
-
+                                 sx={{ flexDirection: "column"}}
                             >
-                                <TabList
-                                    onChange={handleChange}
-                                    aria-label="lab API tabs example"
-                                >
-                                    <Stack
-                                    flexDirection={"column"}
-                                    >
+                                <TabList onChange={handleChange}  aria-label="lab API tabs example" >
+                                    <Stack flexDirection={"column"} >
                                         <Tab
                                             style={{flexDirection: "column",}}
                                             value={"1"}
                                             component={() => (
-                                                <div
-                                                    className={`menu_box ${value}`}
-                                                    onClick={() => setValue("1")}
-                                                >
+                                                <div className={`menu_box ${value}`}  onClick={() => setValue("1")} >
                                                     <img src={"/icons/Pencil.svg"} alt=""/>
                                                     <span>My Contents</span>
                                                 </div>
@@ -205,40 +175,29 @@ export function VisitMyPage(props: any) {
                                             style={{flexDirection: "column",}}
                                             value={"2"}
                                             component={() => (
-                                                <div
-                                                    className={`menu_box ${value}`}
-                                                    onClick={() => setValue("2")}
-                                                >
+                                                <div className={`menu_box ${value}`}  onClick={() => setValue("2")} >
                                                     <img src={"/icons/Group.svg"} alt=""/>
                                                     <span>Follower</span>
                                                 </div>
                                             )}
                                         />
                                         <Tab
-                                            style={{flexDirection: "column", }}
+                                            style={{flexDirection: "column",}}
                                             value={"3"}
                                             component={() => (
-                                                <div
-                                                    className={`menu_box ${value}`}
-                                                    onClick={() => setValue("3")}
-                                                >
+                                                <div className={`menu_box ${value}`} onClick={() => setValue("3")} >
                                                     <img src={"/icons/user.svg"} alt=""/>
                                                     <span>Following</span>
                                                 </div>
                                             )}
                                         />
-
                                     </Stack>
-
                                 </TabList>
                             </Box>
-
                         </Stack>
                     </TabContext>
                 </Stack>
-
             </Container>
-
         </div>
     );
 }

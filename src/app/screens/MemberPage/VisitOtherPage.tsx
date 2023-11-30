@@ -67,7 +67,6 @@ export function VisitOtherPage(props: any) {
                                                         />
                                                     )}
                                                 />
-
                                             </Box>
                                         </Stack>
                                     </Box>
@@ -188,40 +187,25 @@ export function VisitOtherPage(props: any) {
                             </Box>
 
                             <Box className={"my_page_menu"}
-                                 sx={{
-                                     flexDirection: "column",
-                                 }}
-
+                                 sx={{ flexDirection: "column", }}
                             >
-                                <TabList
-                                    onChange={handleChange}
-                                    aria-label="lab API tabs example"
-                                >
-                                    <Stack
-                                        flexDirection={"column"}
-                                    >
+                                <TabList onChange={handleChange} aria-label="lab API tabs example" >
+                                    <Stack flexDirection={"column"} >
                                         <Tab
                                             style={{flexDirection: "column",}}
                                             value={"1"}
                                             component={() => (
-                                                <div
-                                                    className={`menu_box ${value}`}
-                                                    onClick={() => setValue("1")}
-                                                >
+                                                <div className={`menu_box ${value}`} onClick={() => setValue("1")} >
                                                     <img src={"/icons/Pencil.svg"} alt=""/>
                                                     <span> Contents</span>
                                                 </div>
                                             )}
                                         />
-
                                         <Tab
                                             style={{flexDirection: "column",}}
                                             value={"1"}
                                             component={() => (
-                                                <div
-                                                    className={`menu_box ${value}`}
-                                                    onClick={() => setValue("4")}
-                                                >
+                                                <div className={`menu_box ${value}`} onClick={() => setValue("4")} >
                                                     <img src={"/icons/Pencil.svg"} alt=""/>
                                                     <span> tanlangan maqola</span>
                                                 </div>
@@ -232,10 +216,7 @@ export function VisitOtherPage(props: any) {
                                             style={{flexDirection: "column",}}
                                             value={"2"}
                                             component={() => (
-                                                <div
-                                                    className={`menu_box ${value}`}
-                                                    onClick={() => setValue("2")}
-                                                >
+                                                <div className={`menu_box ${value}`} onClick={() => setValue("2")} >
                                                     <img src={"/icons/Group.svg"} alt=""/>
                                                     <span>Follower</span>
                                                 </div>
@@ -245,10 +226,7 @@ export function VisitOtherPage(props: any) {
                                             style={{flexDirection: "column",}}
                                             value={"3"}
                                             component={() => (
-                                                <div
-                                                    className={`menu_box ${value}`}
-                                                    onClick={() => setValue("3")}
-                                                >
+                                                <div className={`menu_box ${value}`} onClick={() => setValue("3")}>
                                                     <img src={"/icons/user.svg"} alt=""/>
                                                     <span>Following</span>
                                                 </div>

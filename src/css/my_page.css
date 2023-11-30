@@ -16,6 +16,11 @@
 }
 
 
+.content_page {
+    width: 880px;
+    height: auto;
+}
+
 .my_page .menu_name {
     width: 821px;
     height: 70px;
@@ -274,7 +279,15 @@
 /*Followers*/
 
 .my_followers_page {
-    width: 100%;
+    width: 880px;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+
+
+.my_following_page {
+    width: 880px;
     height: 100%;
     display: flex;
     position: relative;
@@ -339,6 +352,17 @@
 
 
 /*    MY-settings_css*/
+
+.my_settings {
+    width: 880px;
+    height: auto;
+    display: flex;
+}
+
+.my_settings .my_settings_page input {
+    padding-left: 15px;
+    position: relative;
+}
 
 
 .my_settings_page {
@@ -422,12 +446,11 @@
     flex-direction: row;
     display: flex;
     align-items: center;
-
 }
 
 
 .my_settings_page .input_frame .spec_input_mb_phone {
-    width: 380.48px;
+    width: 400px;
     height: 54px;
     flex-shrink: 0;
     border-radius: 5px;
@@ -439,14 +462,12 @@
 
 
 .my_settings_page .input_frame .spec_input_mb_address {
-    width: 380.48px;
+    width: 400px;
     height: 54px;
     flex-shrink: 0;
     border-radius: 5px;
     background: #F6F6F6;
     margin-bottom: 50px;
-    margin-right: 17.52px;
-
 }
 
 .my_settings_page .spec_textarea_mb_description {
@@ -457,10 +478,27 @@
 
  /*Edit and Other CSS*/
 
-.edit_page .edit_box{
-    width: 821.42px;
-    height: 640px;
+
+.my_edit_page {
+    width: 880px;
+    height: auto;
+    display: flex;
+    position: relative;
 }
 
+.edit_page .edit_box{
+    width: 821.43px;
+    height: 640px;
+    position: relative;
+    display: flex;
+}
+
+
+.TV_editor_page {
+    width: 880px;
+    height: auto;
+    display: flex;
+    position: relative;
+}
 
 
