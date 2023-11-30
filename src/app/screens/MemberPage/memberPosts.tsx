@@ -11,7 +11,7 @@ export function MemberPosts(props: any) {
         <Stack
             className={"content_page"}
             style={{
-                width: "100%",
+                width: "821.42px",
                 height: "600px"
             }}
         >
