@@ -119,7 +119,7 @@ export function HelpPage() {
          `ipsum' will uncover many web sites still in 
          their infancy. Various versions have evolved over the years,`,
          `sometimes by accident, sometimes on purpose (injected humour 
-         and the like).`,
+         publishing packages and web page editors now use Lorem).`,
     ];
 
 // HANDLERS

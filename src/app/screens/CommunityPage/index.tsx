@@ -16,7 +16,7 @@ const targetBoArticles = [1, 2, 3, 4, 5];
 
 export function CommunityPage(props: any) {
     // Initializations
-    const [value, setValue] = React.useState("1");
+    const [value, setValue] = useState("1");
 
     // HANDLERS
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
