@@ -6,17 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/tuiEditor/TViewer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/tuiEditor/TViewer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/tuiEditor/TuiEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/tuiEditor/TuiEditor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/HelpPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/HelpPage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitMyPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitMyPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitOtherPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitOtherPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowing.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/mySettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/mySettings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/help.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/help.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/my_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/my_page.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +74,10 @@
       <workItem from="1700808094575" duration="43569000" />
       <workItem from="1701150502276" duration="56535000" />
       <workItem from="1701320675482" duration="1000" />
+      <workItem from="1702386327122" duration="1814000" />
+      <workItem from="1703135084994" duration="586000" />
+      <workItem from="1703291684178" duration="63000" />
+      <workItem from="1703292324970" duration="307000" />
     </task>
     <servers />
   </component>
