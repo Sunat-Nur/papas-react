@@ -819,7 +819,7 @@
 .single_restaurant .dish_category_box .dish_category_main {
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
 
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);

@@ -61,11 +61,13 @@ export function OrdersPage() {
                                 <img
                                     src={"/community/sunat_nur.png"}
                                     className={"order_user_avatar"}
+                                    alt=""
                                 />
                                 <div className={"order_user_icon_box"}>
                                     <img
                                         src={"/icons/user_icon..svg"}
                                         className={"order_user_prof_ing"}
+                                        alt=""
                                     />
                                 </div>
                             </div>
@@ -97,10 +99,10 @@ export function OrdersPage() {
                         </div>
                         <input type={"text"} name={"card_creator"} placeholder={"sunat_nur"} className={"card_input"}/>
                         <div className={"card_box"}>
-                            <img src={"/icons/Western-union.svg"}/>
-                            <img src={"/icons/Paypal.svg"}/>
-                            <img src={"/icons/Western-union.svg"}/>
-                            <img src={"/icons/Paypal.svg"}/>
+                            <img src={"/icons/Western-union.svg"} alt=""/>
+                            <img src={"/icons/Paypal.svg"} alt=""/>
+                            <img src={"/icons/Western-union.svg"} alt=""/>
+                            <img src={"/icons/Paypal.svg alt="} alt=""/>
                         </div>
                     </Box>
                 </Stack>

@@ -66,7 +66,7 @@ export function BestDishes() {
                                         <div className={"view_btn"}>
                                             Batafsil ko'rinish
                                             <img
-                                                src={"/icons/strilka.png"}
+                                                src={"/icons/Arrow8.svg"}
                                                 style={{ marginLeft: "9px" }}
                                             />
                                         </div>
