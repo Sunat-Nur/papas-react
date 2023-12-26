@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/auth/password.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/auth/password.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/auth/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/sweetAlert.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/apiServices/restaurantApiService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/apiServices/restaurantApiService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/Homepage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/Homepage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/Homepage/selector.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/Homepage/selector.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/Homepage/slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/Homepage/slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/screen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/screen.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -56,7 +57,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "develop",
-    "last_opened_file_path": "/Users/mac/Documents/papay-react/public/icons",
+    "last_opened_file_path": "/Users/mac/Documents/papay-react/public/auth",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -69,8 +70,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/icons" />
       <recent name="$PROJECT_DIR$/public/auth" />
+      <recent name="$PROJECT_DIR$/public/icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/components/tuiEditor" />
@@ -94,7 +95,7 @@
       <workItem from="1703135084994" duration="586000" />
       <workItem from="1703291684178" duration="63000" />
       <workItem from="1703292324970" duration="307000" />
-      <workItem from="1703348545981" duration="23832000" />
+      <workItem from="1703348545981" duration="25224000" />
     </task>
     <servers />
   </component>

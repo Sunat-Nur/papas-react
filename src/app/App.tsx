@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 // useStateni REACT dan import qilib olamz.
 // bizning path imiz uzgarganda viewimizni qayta qurub beradi.
 
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import {Box, Button, Container, Stack, Typography} from "@mui/material";
 import "../css/App.css";
 import "../css/navbar.css";
 import "../css/footer.css";
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 import {RestaurantPage} from "./screens/RestaurantPage";
 import {CommunityPage} from "./screens/CommunityPage";
@@ -19,19 +19,20 @@ import {NavbarHome} from "./components/header";
 import {NavbarRestaurant} from "./components/header/restaurant";
 import {NavbarOthers} from "./components/header/others";
 import {Footer} from "./components/footer";
+import AuthenticationModal from "./components/auth";
 
-function App () {
+function App() {
     const [path, setPath] = useState();
     const main_path = window.location.pathname;
 
     return (
         <Router>
             {main_path == "/" ? (
-                <NavbarHome setPath={setPath} />
+                <NavbarHome setPath={setPath}/>
             ) : main_path.includes("/restaurant") ? (
-                <NavbarRestaurant setPath={setPath} />
+                <NavbarRestaurant setPath={setPath}/>
             ) : (
-                <NavbarOthers setPath={setPath} />
+                <NavbarOthers setPath={setPath}/>
             )}
 
             {/*buyerdan swich routerlar boshlandi*/}
@@ -46,22 +47,23 @@ function App () {
                     < OrdersPage/>
                 </Route>
                 <Route path="/member-page">
-                    < MemberPage />
+                    < MemberPage/>
                 </Route>
                 <Route path="/help">
-                    < HelpPage />
+                    < HelpPage/>
                 </Route>
                 <Route path="/login">
-                    < LoginPage />
+                    < LoginPage/>
                 </Route>
                 <Route path="/">
-                    < Homepage />
+                    < Homepage/>
                 </Route>
             </Switch>
 
-            <Footer />
-
+            <Footer/>
+            <AuthenticationModal/>
         </Router>
     );
 }
+
 export default App;
