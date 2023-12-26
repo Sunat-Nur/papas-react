@@ -72,10 +72,11 @@ function App() {
     };
     const handleLogOutRequest = async () => {
         try{
+            let member_data: any = null; // nay qiymatni null boshlangich qiymat bn olyabman
             const memberApiService = new MemberApiService();
             await memberApiService.logOutRequest(); // memberApiService ni  logOutRequest methodini chaqirib olyabman
             await sweetTopSmallSuccessAlert('success', 700, true);
-            window.location.reload();
+            localStorage.removeItem('member_data');
         } catch(err: any) {
             console.log(err);
             sweetFailureProvider(Definer.general_err1);
