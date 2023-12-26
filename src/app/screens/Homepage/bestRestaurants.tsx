@@ -10,11 +10,11 @@ import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import CallIcon from "@mui/icons-material/Call";
 
 // REDUX tegishli bulgan importlar.
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 import {createSelector} from "reselect";
 import {retrieveBestRestaurants} from "./selector";
-import { Restaurant } from '../../../types/user';
-import { serverApi } from '../../../lib/Config';
+import {Restaurant} from '../../../types/user';
+import {serverApi} from '../../../lib/Config';
 
 
 /** REDUX SELECTOR */
@@ -44,7 +44,7 @@ export function BestRestaurants() {
                     <Stack sx={{mt: "43px"}} flexDirection={"row"} alignItems={"center"}>
                         {bestRestaurants.map((ele: Restaurant) => {
                             const image_path = `${serverApi}/${ele.mb_image}`;
-                            return(
+                            return (
                                 <CssVarsProvider>
                                     <Card
                                         variant="outlined"
@@ -73,11 +73,12 @@ export function BestRestaurants() {
                                                             color: "rgba(0,0,0,.4)",
                                                         }}
                                             >
-                                                <Favorite
-                                                    /*@ts-ignore*/
-                                                    style={{
-                                                        color: "white",
-                                                    }}
+                                                <Favorite style={{
+                                                    fill:
+                                                        ele?.me_liked && ele?.me_liked[0]?.my_favorite
+                                                            ? "red"
+                                                            : "white",
+                                                }}
                                                 />
                                             </IconButton>
                                         </CardOverflow>

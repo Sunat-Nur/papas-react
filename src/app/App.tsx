@@ -6,7 +6,7 @@ import {Box, Button, Container, Stack, Typography} from "@mui/material";
 import "../css/App.css";
 import "../css/navbar.css";
 import "../css/footer.css";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link, useHistory} from "react-router-dom";
 
 import {RestaurantPage} from "./screens/RestaurantPage";
 import {CommunityPage} from "./screens/CommunityPage";
@@ -76,7 +76,7 @@ function App() {
             const memberApiService = new MemberApiService();
             await memberApiService.logOutRequest(); // memberApiService ni  logOutRequest methodini chaqirib olyabman
             await sweetTopSmallSuccessAlert('success', 700, true);
-            localStorage.removeItem('member_data');
+            // localStorage.removeItem('member_data');
         } catch(err: any) {
             console.log(err);
             sweetFailureProvider(Definer.general_err1);
