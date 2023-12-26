@@ -49,6 +49,23 @@ class MemberApiService {
             console.log(`ERROR ::: signupRequest ${err.message}`);
         }
     };
+    public async logOutRequest() {
+        try {
+            const result = await axios.get(this.path+"/logout", {
+                withCredentials: true, //withCredentialsni true qilishimiz sababi cookielarni oldi berdisi bn bog'liqdir.
+            });
+            assert.ok(result?.data, Definer.general_err1); //data mavjud bulsa, bulmasa general_error bergin.
+            assert.ok(result?.data?.state != 'fail', result?.data?.message); //state teng bulmasa failga, xatolik bbulsa, datani messagedan olib bersin.
+
+            const logout_result = result.data.state; // request ni ichidagi data state ni logout_result ga tengalyabman
+            return logout_result == 'success';  // logout_result sucess natijani return qilyabdi
+
+        } catch (err: any) {
+            console.log(`ERROR ::: logOutRequest ${err.message}`);
+            throw err;
+
+        }
+    }
 
 
 
