@@ -12,7 +12,7 @@ export function NavbarOthers(props: any) {
                 justifyContent={"space-between"}
             >
                 <Box>
-                    <img src={"/icons/Papay..svg"}/>
+                    <img src={"/icons/Papay..svg"} alt=''/>
                 </Box>
                 <Stack
                     flexDirection={"row"}
@@ -56,7 +56,7 @@ export function NavbarOthers(props: any) {
                             aria-expanded={undefined}
                         >
                             <Badge badgeContent={3} color="secondary">
-                                <img src={"/icons/shopping-cart.svg"}/>
+                                <img src={"/icons/shopping-cart.svg"} alt=''/>
                             </Badge>
                         </IconButton>
                     </Box>
@@ -64,6 +64,7 @@ export function NavbarOthers(props: any) {
                         <Button
                             variant="contained"
                             style={{color: "#FFFFFF", background: "#1976d2 "}}
+                            onClick={props.handleLoginOpen}
                         >
                             Kirish
                         </Button>

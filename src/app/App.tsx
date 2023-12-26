@@ -22,17 +22,40 @@ import {Footer} from "./components/footer";
 import AuthenticationModal from "./components/auth";
 
 function App() {
+    /** INITIALIZATION **/
     const [path, setPath] = useState();
     const main_path = window.location.pathname;
+    const [signUpOpen, setSignUpOpen] = useState(false); // boshlang'ish qiymat false
+    const [loginOpen, setLoginOpen] = useState(false); // boshlang'ish qiymat false
+
+
+    /** HANDLERS **/
+    const handleSignUpOpen = () => setSignUpOpen(true);
+    const handleSignUpClose = () => setSignUpOpen(false);
+
+    const handleLoginOpen = () => setLoginOpen(true);
+    const handleLoginClose = () => setLoginOpen(false);
 
     return (
         <Router>
             {main_path == "/" ? (
-                <NavbarHome setPath={setPath}/>
+                <NavbarHome
+                    setPath={setPath}
+                    handleLoginOpen={handleLoginOpen}
+                    handleSignUpOpen={handleSignUpOpen}
+                />
             ) : main_path.includes("/restaurant") ? (
-                <NavbarRestaurant setPath={setPath}/>
+                <NavbarRestaurant
+                    setPath={setPath}
+                    handleLoginOpen={handleLoginOpen}
+                    handleSignUpOpen={handleSignUpOpen}
+                />
             ) : (
-                <NavbarOthers setPath={setPath}/>
+                <NavbarOthers
+                    setPath={setPath}
+                    handleLoginOpen={handleLoginOpen}
+                    handleSignUpOpen={handleSignUpOpen}
+                />
             )}
 
             {/*buyerdan swich routerlar boshlandi*/}
@@ -61,7 +84,14 @@ function App() {
             </Switch>
 
             <Footer/>
-            <AuthenticationModal/>
+            <AuthenticationModal
+                loginOpen={loginOpen}
+                handleLoginOpen={handleLoginOpen}
+                handleLoginClose={handleLoginClose}
+                signUpOpen={signUpOpen}
+                handleSignUpOpen={handleSignUpOpen}
+                handleSignUpClose={handleSignUpClose}
+            />
         </Router>
     );
 }

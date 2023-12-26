@@ -59,7 +59,7 @@ export function NavbarHome(props: any) {
                                 aria-expanded={undefined}
                             >
                                 <Badge badgeContent={3} color="secondary">
-                                    <img src={'/icons/shopping-cart.svg'}/>
+                                    <img src={'/icons/shopping-cart.svg'} alt=''/>
                                 </Badge>
                             </IconButton>
                         </Box>
@@ -68,6 +68,7 @@ export function NavbarHome(props: any) {
                             <Button
                                 variant="contained"
                                 style={{color: "#FFFFFF",background: "#1976d2"}}
+                                onClick={props.handleLoginOpen}
                             >
                                 KIRISH
                             </Button>
@@ -81,7 +82,7 @@ export function NavbarHome(props: any) {
                         justifyContent={'column'}
                         style={{ marginTop: "86px", marginLeft: "24px" }}>
                         <Box>
-                            <img src="/icons/welcome.svg" />
+                            <img src="/icons/welcome.svg"  alt=''/>
                         </Box>
 
                         <Box className="define_restaurant">
@@ -97,7 +98,9 @@ export function NavbarHome(props: any) {
                                 style={{width: "210px",
                                     height: "60px",
                                     background: "#1976d2",
-                                    color: "#FFFFF",}}
+                                    color: "#FFFFF",
+                                }}
+                                onClick={props.handleSignUpOpen}
                             >
                                 RO'YXATDAN O'TISH
                             </Button>
