@@ -38,12 +38,14 @@ export function Homepage() {
     // biri yozilgan mantiqni olib uqiydi.
     // backenddan olgan datani Redux Storega borib yozadi, buning un SLICE(malumot yozuvchi degani) yordam beradi.
 
-    useEffect(() => {
+    useEffect(() => {  // back-end dan kelgan datani  ma'lumotni retriev qiladi
         const restaurantService = new RestaurantApiService();
         restaurantService
             .getTopRestaurants()
-            .then((data) => {  //useEffectni ichidagi jarayonlar syncrins usulida bulishi keraak.
-                setTopRestaurants(data);
+            .then((data) => {  // then javob kelsin, back-end dan data kelsin deyilyabdi
+
+                // redux ni call qismi b
+                setTopRestaurants(data); // kelgan data ni setTopRestaurants ga yuklayabman
 
             }).catch(err => console.log(err));
 

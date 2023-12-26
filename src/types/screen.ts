@@ -1,9 +1,12 @@
 
+// back-end dagi schema model front-end da interface tushunchasiga teng
+// create schema_model ----> create interface
+
 import { BoArticle } from "./boArticle";
 import { Product } from "./product";
 import { Restaurant } from "./user";
 
-export interface AppRootState {  // app dagi barcha interfacelarni integratsiya iqlayopman.
+export interface AppRootState {  // app dagi barcha interfacelarni integratsiya qilayopman. ularga biriktirilgan page lar va ularni typelari
     homePage: HomePageState;  // homepage => homepage typedan iborat;
 }
 

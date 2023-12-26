@@ -1,9 +1,11 @@
+// slice ma'lumot yozish hisoblanadi (storage ga )
+
 import { createSlice } from "@reduxjs/toolkit";
 import { HomePageState } from "../../../types/screen";
 
-const initialState: HomePageState = {
+const initialState: HomePageState = { //initialState ni interface si sifatida homepage interface ni tashkilashtirib olganman
     topRestaurants: [],  // type restaurant bulgan arraylardan iborat.
-    bestRestaurants: [],
+    bestRestaurants: [], // birinchi back-end dan hec qanday qiymat olmasa boshlang'ich qiymatni pustoy qilib olyabman [],
     trendProducts: [],
     bestBoArticles: [],
     trendBoArticles: [],
@@ -11,13 +13,18 @@ const initialState: HomePageState = {
 
 };
 
-const HomePageSlice = createSlice({
+// HomePageSlice ma'lumot joylovchi qismi hisoblanadi
+const HomePageSlice = createSlice({  // createSlice ni tooketdan olyabman
     name: 'homePage',
-    initialState, // initialState yuqoridagidek bulishi kerak
-    reducers: { //  malumotni borib Redux Store ga yozadigan actionlar buladi.
-        setTopRestaurants: (state, action) => { //setTopRestaurant faqat topRestaurantni qiymatini uzgartiradi.
-            state.topRestaurants = action.payload  //InitialStateni olib beradi. actiondan kelayotgan datani payload orqali olaman.
-        },
+    initialState, // initialState yuqoridagi qiymatlarni kirityabman
+    reducers: { //  store ni o'zgatiruvchi hisoblanadi
+
+        // bu yerda topRestaurantlani initialState ni o'zgartiryabdi
+        setTopRestaurants: (state, action) => {  // state -- ma'umotlar manbaiga ulaniw
+
+            // state -- InitialState dan keladigan datani. actiondan kelayotgan datani reducer dan keladigan datani qiymatiga tenglab beradi
+            state.topRestaurants = action.payload  // state -- InitialState dan keladigan datani. actiondan kelayotgan datani reducer dan keladigan datani qiymatiga tenglab beradi
+        },// bu yerda BestRestaurants initialState ni o'zgartiryabdi
         setBestRestaurants: (state, action) => {
             state.bestRestaurants = action.payload
         },
@@ -36,7 +43,7 @@ const HomePageSlice = createSlice({
     },
 });
 
-export const {
+export const { // reducer larni slice dan tashqarida ishlatish uchun complex  kurinishda yozib olyabman
     setTopRestaurants,
     setBestRestaurants,
     setTrendProducts,
@@ -45,5 +52,8 @@ export const {
     setNewsBoArticles
 } = HomePageSlice.actions;
 
-const HomePageReducer = HomePageSlice.reducer;
-export default HomePageReducer;
+// homepage reducer larni complex qilib olib storage ga integratsiya qilib olaman
+// butun reducelari redux-storage bilan bog'lawni uchun ishlatyabman
+
+const HomePageReducer = HomePageSlice.reducer; // HomePageSlice dan reducer (data ni ) olib HomePageReducer ga tenglayabman
+export default HomePageReducer; // va HomePageReducer ni export qilyabman
