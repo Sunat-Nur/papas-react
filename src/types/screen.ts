@@ -6,10 +6,14 @@ import { BoArticle } from "./boArticle";
 import { Product } from "./product";
 import { Restaurant } from "./user";
 
+
+/** REACT app state **/
 export interface AppRootState {  // app dagi barcha interfacelarni integratsiya qilayopman. ularga biriktirilgan page lar va ularni typelari
     homePage: HomePageState;  // homepage => homepage typedan iborat;
+    restaurantPage: RestaurantPageState;
 }
 
+/** homePage  **/
 // Homepage ichida kerakli data => typelar tashkillshtirib oldim.
 export interface  HomePageState { //  homepageimning interfaceni hosil qilib oldim.
     topRestaurants: Restaurant[];  // type restaurant bulgan arraylardan iborat.
@@ -18,4 +22,13 @@ export interface  HomePageState { //  homepageimning interfaceni hosil qilib old
     bestBoArticles: BoArticle[];
     trendBoArticles: BoArticle[];
     newsBoArticles: BoArticle[];
+}
+
+/** restaurant page **/
+export interface RestaurantPageState{
+    tartgetRestaurants: Restaurant[];
+    randomRestaurants: Restaurant[];
+    chosenRestaurant: Restaurant | null;
+    targetProducts: Product[];
+    chosenProduct: Product | null;
 }

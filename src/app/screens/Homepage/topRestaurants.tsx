@@ -10,19 +10,20 @@ import {IconButton} from '@mui/joy';
 import {Favorite} from "@mui/icons-material";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Typography from '@mui/joy/Typography';
-
-// REDUX tegishli bulgan importlar.
+// OTHERS
+import {serverApi} from '../../../lib/Config';
+import assert from "assert";
+import {Definer} from "../../../lib/Definer";
+import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetAlert";
+import MemberApiService from "../../apiServices/memberApiService";
+import {useRef} from "react";
+import {useHistory} from "react-router-dom";
+// REDUX
 import {useSelector} from "react-redux";
 import {createSelector} from "reselect";
 import {retrieveTopRestaurants} from "./selector";
 import {Restaurant} from '../../../types/user';
-import {serverApi} from '../../../lib/Config';
-import assert from "assert";
-import {Definer} from "../../../lib/Definer";
-import {sweetErrorHandling} from "../../../lib/sweetAlert";
-import MemberApiService from "../../apiServices/memberApiService";
-import {useRef} from "react";
-import {useHistory} from "react-router-dom";
+
 
 
 
@@ -41,9 +42,7 @@ export function TopRestaurants() {
     console.log("topRestaurants:::", topRestaurants);
     const refs: any = useRef([]);
 
-
     /** HANDLERS */
-
     const chosenRestaurantHandler = (id: string) => {
         history.push(`/restaurant/${id}`);
     }
@@ -66,7 +65,7 @@ export function TopRestaurants() {
                 e.target.style.fill = "white"
                 refs.current[like_result.like_ref_id].innerHTML--;
             }
-
+            await sweetTopSmallSuccessAlert("success", 700, false);
         } catch (err: any) {
             console.log("targetLikeTop, ERROR:", err);
             sweetErrorHandling(err).then();
@@ -149,6 +148,9 @@ export function TopRestaurants() {
                                                             transform: "translateY(50%)",
                                                             color: "rgba(0,0,0,.4)",
                                                         }}
+                                                        onClick={(e) => {
+                                                            e.stopPropagation()
+                                                        }}
                                             >
                                                 <Favorite
                                                     onClick={(e) => targetLikeTop(e, ele._id)}
@@ -184,7 +186,8 @@ export function TopRestaurants() {
                                                     display: "flex",
                                                 }}
                                             >
-                                                <div ref={(element) => (refs.current[ele._id] = element)}
+                                                <div
+                                                    ref={(element) => (refs.current[ele._id] = element)}
                                                 >
                                                     {ele.mb_likes}
                                                 </div>

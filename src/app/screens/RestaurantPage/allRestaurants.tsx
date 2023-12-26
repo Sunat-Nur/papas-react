@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Box, Button, Stack,} from "@mui/material";
 import Typography from "@mui/joy/Typography";
 import SearchIcon from "@mui/icons-material/Search";
@@ -10,21 +10,49 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { PaginationItem } from "@mui/material";
+import {PaginationItem} from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import SwiperCore, {Autoplay, Navigation} from "swiper";
+// REDUX
+import {createSelector} from "reselect";
+import {retrieveTargetRestaurants} from "./selector";
+import {Restaurant} from '../../../types/user';
+import {useDispatch, useSelector} from "react-redux";
+import {Dispatch} from "@reduxjs/toolkit";
+import {setTargetRestaurants} from "./slice";
+import RestaurantApiService from "../../apiServices/restaurantApiService";
+
 
 SwiperCore.use([Autoplay, Navigation,]);
-
 const order_list = Array.from(Array(8).keys());
-console.log(order_list);
+
+/** REDUX SLICE */
+const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlicedan setTopRestaurantni chaqirib olish edi.
+    setTargetRestaurants: (data: Restaurant[]) => dispatch(setTargetRestaurants(data)),
+});
+
+/** REDUX SELECTOR */
+const targetRestaurantRetriever = createSelector(
+    retrieveTargetRestaurants,
+    (targetRestaurants) => ({
+        targetRestaurants,
+    })
+);
 
 export function AllRestaurants() {
+    /** INITIALIZATIONS */
+    const {setTargetRestaurants} = actionDispatch(useDispatch());
+    const {targetRestaurants} = useSelector(targetRestaurantRetriever);
+
+    useEffect(() => {
+        // todo retrieve target restaurant data
+    }, []);
+
     return (
         < div className="all_restaurant">
             <Stack flexDirection={"column"} alignItems={"center"}>
-                <Box className={"fil_search_box"} sx={{ display: "flex", justifyContent: "space-between"}}>
-                    <Box className={"fil_box"} >
+                <Box className={"fil_search_box"} sx={{display: "flex", justifyContent: "space-between"}}>
+                    <Box className={"fil_box"}>
                         <a>Zo'r</a>
                         <a>Mashhur</a>
                         <a>Trendagi</a>
@@ -55,7 +83,7 @@ export function AllRestaurants() {
                 <Stack className={"all_res_box"}>
                     <CssVarsProvider>
                         {order_list.map(ele => {
-                            return(
+                            return (
                                 <Card
                                     variant="outlined"
                                     sx={{
@@ -159,7 +187,7 @@ export function AllRestaurants() {
                 </Stack>
 
                 <Stack className={"bottom_box"}>
-                    <img className={"line_img"} src={"/restaurant/icons_right.svg"} alt="" />
+                    <img className={"line_img"} src={"/restaurant/icons_right.svg"} alt=""/>
                     <Pagination
                         count={3}
                         page={1}
