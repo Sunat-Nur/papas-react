@@ -300,6 +300,7 @@ export function OneRestaurants() {
                                     product.product_collection === "drink"
                                         ? product.product_volume + "l"
                                         : product.product_size + "size";
+                                console.log("product::::", product);
                                 return (
                                     <Box className={"dish_box"} key={product._id}>
                                         <Box className={"dish_img"}

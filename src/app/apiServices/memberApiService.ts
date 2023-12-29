@@ -57,10 +57,10 @@ class MemberApiService {
                 withCredentials: true, //withCredentialsni true qilishimiz sababi cookielarni oldi berdisi bn bog'liqdir.
             });
             assert.ok(result?.data, Definer.general_err1); //data mavjud bulsa, bulmasa general_error bergin.
-            assert.ok(result?.data?.state != 'fail', result?.data?.message); //state teng bulmasa failga, xatolik bbulsa, datani messagedan olib bersin.
+            assert.ok(result?.data?.state !== 'fail', result?.data?.message); //state teng bulmasa failga, xatolik bbulsa, datani messagedan olib bersin.
 
             const logout_result = result.data.state; // request ni ichidagi data state ni logout_result ga tengalyabman
-            return logout_result == 'success';  // logout_result sucess natijani return qilyabdi
+            return logout_result === 'success';  // logout_result sucess natijani return qilyabdi
 
         } catch (err: any) {
             console.log(`ERROR ::: logOutRequest ${err.message}`);
@@ -69,26 +69,26 @@ class MemberApiService {
         }
     };
 
-    public async memberLikeTarget(data: any) {
+
+    async memberLikeTarget(data: any) {
         try {
-            const url = "/member-liken",
-                result = await axios.post(this.path + url, data, {
-                    withCredentials: true,
-                });
+            const result = await axios.post(this.path + "/member-liken", data, {
+                withCredentials: true,
+            });
+
+            console.log("res", result);
             assert.ok(result?.data, Definer.general_err1);
-            assert.ok(result?.data?.state !="fail", result?.data?.message);
+            assert.ok(result?.data?.state !== "fail", result?.data?.message);
 
-            console.log("state:", result.data.data);
             const like_result: MemberLiken = result.data.data;
-            return like_result;
+            console.log("like", like_result);
 
+            return like_result;
         } catch (err: any) {
             console.log(`ERROR ::: memberLikeTarget ${err.message}`);
             throw err;
         }
     };
-
-
 }
 
 export default MemberApiService;

@@ -1,18 +1,17 @@
-import { MeLiked } from "./product";
-import { Member } from "./user";
+import { Meliked, Member } from "./user";
 
 export interface BoArticle {
     _id: string;
     art_subject: string;
     art_content: string;
-    art_image: string;
+    art_image?: string;
     bo_id: string;
-    art_status: string;
-    art_likes: number;
-    art_views: number;
+    art_status?: string;
+    art_likes?: number;
+    art_views?: number;
     mb_id: string;
-    creatadAt: Date;
-    updateAt: Date;
+    createdAt: Date;
+    updatedAt: Date;
     member_data: Member;
-    me_liked: MeLiked[];
+    me_liked: Meliked[];
 }

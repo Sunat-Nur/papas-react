@@ -44,7 +44,6 @@ export function TopRestaurants() {
     const chosenRestaurantHandler = (id: string) => {
         history.push(`/restaurant/${id}`);
     }
-
     const targetLikeTop = async (e: any, id: string) => {
         try {
             assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
@@ -82,6 +81,7 @@ export function TopRestaurants() {
                     <Stack sx={{mt: "43px"}} flexDirection={'row'} m={"16px"}>
                         {topRestaurants.map((ele: Restaurant) => {
                             const image_path = `${serverApi}/${ele.mb_image}`;
+                            console.log("ele::::", ele);
                             return (
                                 <CssVarsProvider key={ele._id}>
                                     <Card

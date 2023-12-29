@@ -1,5 +1,5 @@
 export interface MeFollowed {
-    mb_id: string;
-    like_ref_id: string;
-    my_following: boolean;
+    follow_id: string;
+    subscriber_id: string;
+    me_following: boolean;
 }

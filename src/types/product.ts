@@ -1,8 +1,3 @@
-export interface MeLiked {
-    mb_id: string;
-    like_ref_id: string;
-    my_favorite: boolean;
-}
 
 
 export interface Product {
@@ -22,5 +17,12 @@ export interface Product {
     restaurant_mb_id: string,
     createdAt: Date,
     updatedAt: Date,
-    me_liked: MeLiked[];
+    me_liked: Meliked[];
+}
+
+
+export interface Meliked {
+    mb_id: string;
+    like_ref_id: string;
+    my_favorite: boolean;
 }
