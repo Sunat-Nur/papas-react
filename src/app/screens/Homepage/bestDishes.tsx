@@ -1,16 +1,17 @@
-import React, { useEffect } from "react";
+import React, {useEffect, useRef} from "react";
 import {Box, Container, Stack} from "@mui/material";
 import {MonetizationOn} from "@mui/icons-material/";
 
 // REDUX tegishli bulgan importlar.
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Dispatch} from "@reduxjs/toolkit";
-import { setTrendProducts } from "./slice";
-import { Product } from "../../../types/product";
+import {setTrendProducts} from "./slice";
+import {Product} from "../../../types/product";
 import ProductApiService from "../../apiServices/productApiService";
-import { retrieveTrendProducts } from "./selector";
+import {retrieveTrendProducts} from "./selector";
 import {createSelector} from "reselect";
-import { serverApi } from "../../../lib/Config";
+import {serverApi} from "../../../lib/Config";
+import {useHistory} from "react-router-dom";
 
 /** REDUX SLICE */
 const actionDispatch = (dispach: Dispatch) => ({ // buning mantiqi HomepageSlicedan setTopRestaurantni chaqirib olish edi.
@@ -29,6 +30,8 @@ const trendProductsRetriever = createSelector(
 export function BestDishes() {
 
     /** INITIALIZATION */
+    const refs: any = useRef([]);
+    const history = useHistory();
     const {setTrendProducts} = actionDispatch(useDispatch());
     const {trendProducts} = useSelector(trendProductsRetriever); //useSelectorga topRestaurantRetrieverni kiritib undan topRestaurantni qabul qilib olayopman.
     useEffect(() => {
@@ -38,7 +41,13 @@ export function BestDishes() {
             .catch(err => console.log(err));
     }, []);
 
-    return(
+
+    /** HANDLERS  */
+    const chosenDishHandler = (id: string) => {
+        history.push(`/restaurant/dish/${id}`);
+    };
+
+    return (
         <div className="best_dishes_frame">
             <Container>
                 <Stack
@@ -46,7 +55,7 @@ export function BestDishes() {
                     alignItems={'center'}
                 >
                     <Box className={'category_title'}>Trendagi Ovqatlar</Box>
-                    <Stack  sx={{mt: "43px"}} flexDirection={"row"}>
+                    <Stack sx={{mt: "43px"}} flexDirection={"row"}>
                         {trendProducts.map((product: Product) => {
 
                             const image_path = `${serverApi}/${product.product_images[0]}`
@@ -55,7 +64,7 @@ export function BestDishes() {
                                 ? product.product_volume + 'l'
                                 : product.product_size + 'size';
 
-                            return(
+                            return (
                                 <Box className="dish_box">
                                     <Stack className="dish_img"
                                            sx={{
@@ -64,17 +73,19 @@ export function BestDishes() {
                                     >
                                         <div className={"dish_sale"}>{size_volume}</div>
                                         <div className={"view_btn"}>
-                                            Batafsil ko'rinish
+                                            <div onClick={() => chosenDishHandler(product._id)}>
+                                                Batafsil ko'rinish
+                                            </div>
                                             <img
                                                 src={"/icons/Arrow8.svg"}
-                                                style={{ marginLeft: "9px" }}
+                                                style={{marginLeft: "9px"}}
                                             />
                                         </div>
                                     </Stack>
                                     <Stack className={"dish_desc"}>
                                         <span className={"dish_title_text"}>{product.product_name}</span>
                                         <span className={"dish_desc_text"}>
-                                        <MonetizationOn />
+                                        <MonetizationOn/>
                                             {product.product_price}
                                     </span>
                                     </Stack>

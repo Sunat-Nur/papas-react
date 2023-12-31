@@ -1,10 +1,10 @@
-import { serverApi } from "../../lib/Config";
+import {serverApi} from "../../lib/Config";
 import axios from "axios";
 import assert from "assert";
-import { Definer } from "../../lib/Definer";
-import { Restaurant } from "../../types/user";
-import { ProductSearchObj } from "../../types/others";
-import { Product } from "../../types/product";
+import {Definer} from "../../lib/Definer";
+import {Restaurant} from "../../types/user";
+import {ProductSearchObj} from "../../types/others";
+import {Product} from "../../types/product";
 
 
 class ProductApiService {
@@ -15,7 +15,7 @@ class ProductApiService {
     }
 
     async getTargetProducts(data: ProductSearchObj) {
-        try{
+        try {
             const url = '/products',
                 result = await axios.post(this.path + url, data, {
                     withCredentials: true,
@@ -24,11 +24,28 @@ class ProductApiService {
             console.log("state:", result.data.state);
             const products: Product[] = result.data.data;
             return products;  // qiymatni return qilayopman.
-        }catch(err: any) {
+        } catch (err: any) {
             console.log(`ERROR ::: getTargetProducts ${err.message}`);
             throw err;
         }
-    }
+    };
+
+
+    async getChosenDish(dish_id: string) {
+        try {
+            const url = `/products/${dish_id}`,
+                result = await axios.get(this.path + url, {
+                    withCredentials: true,
+                });
+            assert.ok(result, Definer.general_err1);
+            console.log("state:", result.data.state);
+            const product: Product = result.data.data;
+            return product;  // qiymatni return qilayopman.
+        } catch (err: any) {
+            console.log(`ERROR ::: getChosenDish ${err.message}`);
+            throw err;
+        }
+    };
 
 }
 

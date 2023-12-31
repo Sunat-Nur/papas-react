@@ -12,13 +12,6 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import StarIcon from "@mui/icons-material/Star";
 import {useHistory, useParams} from "react-router-dom";
 
-// REDUX
-import {createSelector} from "reselect";
-import {retrieveRandomRestaurants, retrieveChosenRestaurant, retrieveTargetProducts} from "./selector";
-import {Restaurant} from '../../../types/user';
-import {useDispatch, useSelector} from "react-redux";
-import {Dispatch} from "@reduxjs/toolkit";
-import {setRandomRestaurants, setChosenRestaurant, setTargetProducts} from "./slice";
 import {Product} from "../../../types/product";
 import {ProductSearchObj} from "../../../types/others";
 import ProductApiService from "../../apiServices/productApiService";
@@ -28,6 +21,14 @@ import assert from "assert";
 import {Definer} from "../../../lib/Definer";
 import MemberApiService from "../../apiServices/memberApiService";
 import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetAlert";
+
+// REDUX
+import {createSelector} from "reselect";
+import {retrieveRandomRestaurants, retrieveChosenRestaurant, retrieveTargetProducts} from "./selector";
+import {Restaurant} from '../../../types/user';
+import {useDispatch, useSelector} from "react-redux";
+import {Dispatch} from "@reduxjs/toolkit";
+import {setRandomRestaurants, setChosenRestaurant, setTargetProducts} from "./slice";
 
 const restaurant_list = Array.from(Array(10).keys());
 const product_list = Array.from(Array(8).keys());
@@ -91,12 +92,16 @@ export function OneRestaurants() {
             .then((data) => setRandomRestaurants(data))
             .catch((err) => console.log(err));
 
+        restaurantService.getChosenRestaurant(chosenRestaurantId)
+            .then((data) => setChosenRestaurant(data))
+            .catch((err) => console.log(err));
+
 
         const productService = new ProductApiService();
         productService.getTargetProducts(targetProductsSearchObj)
             .then((data) => setTargetProducts(data))
             .catch((err) => console.log(err));
-    }, [targetProductsSearchObj, productRebuild]);
+    }, [chosenRestaurantId, targetProductsSearchObj, productRebuild]);
 
     /** HANDLERS  */
     const chosenRestaurantHandler = (id: string) => {
@@ -419,11 +424,12 @@ export function OneRestaurants() {
                     <Box
                         className={"about_left"}
                         sx={{
-                            backgroundImage: `url('/restaurant/texasdebrazil.webp')`,
+                            backgroundImage: `url(${serverApi}/${chosenRestaurant?.mb_image})`,
                         }}
                     >
                         <div className={"about_left_desc"}>
-                            <span>eng mazzali oshxona</span>
+                            <span>{chosenRestaurant?.mb_nick}</span>
+                            <p>{chosenRestaurant?.mb_description}</p>
                         </div>
                     </Box>
                     <Box className={"about_right"}>
