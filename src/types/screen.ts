@@ -5,6 +5,7 @@
 import { BoArticle } from "./boArticle";
 import { Product } from "./product";
 import { Restaurant } from "./user";
+import {Order} from "./order";
 
 
 /** REACT app state **/
@@ -32,3 +33,11 @@ export interface RestaurantPageState{
     targetProducts: Product[];
     chosenProduct: Product | null;
 }
+
+/** orders page **/
+export interface OrdersPageState{
+    pausedOrders: Order[];
+    processOrders: Order[];
+    finishedOrders: Order[];
+}
+
