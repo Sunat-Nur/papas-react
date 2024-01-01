@@ -65,7 +65,7 @@ export function OneRestaurants() {
     const history = useHistory();
     let {restaurant_id} = useParams<{ restaurant_id: string }>();
     const {setRandomRestaurants, setChosenRestaurant, setTargetProducts} =
-    actionDispatch(useDispatch())
+        actionDispatch(useDispatch())
 
     const {randomRestaurants} = useSelector(randomRestaurantsRetriever);
     const {chosenRestaurant} = useSelector(chosenRestaurantRetriever);
@@ -119,7 +119,11 @@ export function OneRestaurants() {
         targetProductsSearchObj.page = 1;
         targetProductsSearchObj.order = order;
         setTargetProductSearchObj({...targetProductsSearchObj});
-    }
+    };
+
+    const chosenDishHandler = (id: string) => {
+        history.push(`/restaurant/dish/${id}`);
+    };
 
 
     const targetLikeProduct = async (e: any) => {
@@ -305,7 +309,10 @@ export function OneRestaurants() {
                                         : product.product_size + "size";
                                 console.log("product::::", product);
                                 return (
-                                    <Box className={"dish_box"} key={product._id}>
+                                    <Box
+                                        onClick={() => chosenDishHandler(product._id)}
+                                        className={"dish_box"} key={product._id}
+                                    >
                                         <Box className={"dish_img"}
                                              sx={{
                                                  backgroundImage: `url(${image_path})`,
