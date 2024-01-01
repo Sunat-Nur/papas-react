@@ -1,21 +1,46 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "../../../css/order.css"
 import {Box, Container, Stack} from "@mui/material";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList"
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-
 import PausedOrders from "../orders/pausedOrders"
 import ProcessOrders from "../orders/processOrders"
 import FinishedOrders from "../orders/finishedOrders"
+import {Restaurant} from "../../../types/user";
+import {Product} from "../../../types/product";
+
+// REDUX
+import {Dispatch} from "@reduxjs/toolkit";
+import {setPausedOrders, setProcessOrders, setFinishedOrders} from "./slice";
+import {useDispatch} from "react-redux";
+
+
+/** REDUX SLICE */
+const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlicedan setTopRestaurantni chaqirib olish edi.
+    setPausedOrders: (data: Restaurant[]) => dispatch(setPausedOrders(data)),
+    setProcessOrders: (data: Restaurant) => dispatch(setProcessOrders(data)),
+    setFinishedOrders: (data: Product[]) => dispatch(setFinishedOrders(data)),
+});
+
+/** REDUX SELECTOR */
+
 
 export function OrdersPage() {
-    // Initializations
+    /** Initializations  */
+    const {setPausedOrders, setProcessOrders, setFinishedOrders } =
+        actionDispatch(useDispatch())
     const [value, setValue] = useState("1");
-    //useState react hok hisoblanadi
-    // Handlers
+
+
+    useEffect(() => {
+
+    }, []);
+
+    /** Handlers  */
     const handleChange = (event: any, newValue: string) => {
+        console.log("newValue", newValue);
         setValue(newValue);
     };
 
@@ -32,7 +57,7 @@ export function OrdersPage() {
                         <Box className={"order_nev_frame"}>
                             <Box sx={{borderBottom: 1, borderColor: "divider"}}>
                                 <TabList onChange={handleChange}
-                                      // value={value}
+                                    // value={value}
                                          aria-label="basic tabs example"
                                          style={{display: "flex", justifyContent: "space-between"}}
                                 >

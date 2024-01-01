@@ -3,6 +3,19 @@ import TabPanel from "@mui/lab/TabPanel";
 import React from "react";
 
 
+// REDUX
+import {createSelector} from "reselect";
+import { useSelector} from "react-redux";
+import {retrieveProcessOrders} from "../OrdersPage/selector";
+
+/** REDUX SELECTOR */
+const processOrdersRetriever = createSelector(
+    retrieveProcessOrders,
+    (processOrders) => ({
+        processOrders,
+    })
+);
+
 const processOrders = [
     [1, 2, 3],
     [1, 2, 3],
@@ -10,6 +23,11 @@ const processOrders = [
 ];
 
 export default function ProcessOrders(props: any) {
+    /** INITIALIZATIONS */
+
+    // const {processOrders} = useSelector(processOrdersRetriever);
+
+
     return (
         <TabPanel value={"2"}>
             <Stack>

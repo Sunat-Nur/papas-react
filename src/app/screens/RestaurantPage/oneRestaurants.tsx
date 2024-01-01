@@ -30,8 +30,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {Dispatch} from "@reduxjs/toolkit";
 import {setRandomRestaurants, setChosenRestaurant, setTargetProducts} from "./slice";
 
-const restaurant_list = Array.from(Array(10).keys());
-const product_list = Array.from(Array(8).keys());
 
 /** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlicedan setTopRestaurantni chaqirib olish edi.
@@ -64,11 +62,11 @@ const targetProductsRetriever = createSelector(
 export function OneRestaurants() {
 
     /** INITIALIZATIONS */
-    const refs: any = useRef([]);
     const history = useHistory();
     let {restaurant_id} = useParams<{ restaurant_id: string }>();
     const {setRandomRestaurants, setChosenRestaurant, setTargetProducts} =
-        actionDispatch(useDispatch());
+    actionDispatch(useDispatch())
+
     const {randomRestaurants} = useSelector(randomRestaurantsRetriever);
     const {chosenRestaurant} = useSelector(chosenRestaurantRetriever);
     const {targetProducts} = useSelector(targetProductsRetriever);
