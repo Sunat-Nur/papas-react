@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 // useStateni REACT dan import qilib olamz.
 // bizning path imiz uzgarganda viewimizni qayta qurub beradi.
 
-import {Box, Button, Container, Stack, Typography} from "@mui/material";
 import "../css/App.css";
 import "../css/navbar.css";
 import "../css/footer.css";
@@ -162,8 +161,9 @@ function App() {
                     handleCloseLogOut={handleCloseLogOut}
                     handleLogOutRequest={handleLogOutRequest}
                     verifiedMemberData={verifiedMemberData}
-                    anchorEl={anchorEl}
+                    onDeleteAll={onDeleteAll}
                     cartItems={cartItems}
+                    anchorEl={anchorEl}
                     onRemove={onRemove}
                     onDelete={onDelete}
                     onAdd={onAdd}
@@ -178,8 +178,9 @@ function App() {
                     handleCloseLogOut={handleCloseLogOut}
                     handleLogOutRequest={handleLogOutRequest}
                     verifiedMemberData={verifiedMemberData}
-                    anchorEl={anchorEl}
+                    onDeleteAll={onDeleteAll}
                     cartItems={cartItems}
+                    anchorEl={anchorEl}
                     onRemove={onRemove}
                     onDelete={onDelete}
                     onAdd={onAdd}
@@ -194,8 +195,9 @@ function App() {
                     handleCloseLogOut={handleCloseLogOut}
                     handleLogOutRequest={handleLogOutRequest}
                     verifiedMemberData={verifiedMemberData}
-                    anchorEl={anchorEl}
+                    onDeleteAll={onDeleteAll}
                     cartItems={cartItems}
+                    anchorEl={anchorEl}
                     onRemove={onRemove}
                     onDelete={onDelete}
                     onAdd={onAdd}
