@@ -26,6 +26,8 @@ import MemberApiService from "./apiServices/memberApiService";
 import {sweetFailureProvider, sweetTopSmallSuccessAlert} from "../lib/sweetAlert";
 import {Definer} from "../lib/Definer";
 import "../app/apiServices/verify";
+import {CartItem} from "../types/others";
+import {Product} from "../types/product";
 
 function App() {
     /** INITIALIZATION **/
@@ -38,6 +40,9 @@ function App() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 
+    const cartJson: any = localStorage.getItem("cart_data");
+    const current_cart: CartItem[] = JSON.parse(cartJson) ?? [];
+    const [cartItems, setCartItems] = useState<CartItem[]>(current_cart);
 
 
     useEffect(() => {
@@ -55,7 +60,7 @@ function App() {
                 : "/auth/odamcha.svg"; // agar mb_image mavjud bolmasa default rasm ber deyabman
             setVerifiedMemberData(member_data);
         }
-    }, [signUpOpen, ]);
+    }, [signUpOpen,]);
 
 
     /** HANDLERS **/
@@ -71,17 +76,80 @@ function App() {
         setAnchorEl(null);
     };
     const handleLogOutRequest = async () => {
-        try{
+        try {
             let member_data: any = null; // nay qiymatni null boshlangich qiymat bn olyabman
             const memberApiService = new MemberApiService();
             await memberApiService.logOutRequest(); // memberApiService ni  logOutRequest methodini chaqirib olyabman
             await sweetTopSmallSuccessAlert('success', 700, true);
             // localStorage.removeItem('member_data');
-        } catch(err: any) {
+        } catch (err: any) {
             console.log(err);
             sweetFailureProvider(Definer.general_err1);
         }
     };
+
+    const onAdd = (product: Product) => {
+        const exist: any = cartItems?.find(
+            (item: CartItem) => item._id === product._id
+        );
+        if (exist) {
+            const cart_updated = cartItems.map((item: CartItem) =>
+                item._id === product._id  // item ni idisi product_id isiga teng bolgan holda
+                    ? {...exist, quantity: exist.quantity + 1} // teng bolsa  exist ni o'zidan olib quantity ni bitta ga oshirib qaytar
+                    : item // teng bolmaganda o'zini qaytar deyabman
+            );
+            setCartItems(cart_updated);
+            localStorage.setItem("cart_data", JSON.stringify(cart_updated));
+        } else {
+            const new_item: CartItem = {
+                _id: product._id,
+                quantity: 1,
+                price: product.product_price,
+                image: product.product_images[0],
+                name: product.product_name,
+            };
+            // new_item ni hozirgi card_item ga qo'shib yangi qiymat hosil qib ber deyabmiz
+            const cart_updated = [{...new_item}];
+            console.log("new", cart_updated);
+
+            // localStorage da cart_data ni json formatda o'tkazib data ni yarngilab olaman
+            setCartItems(cart_updated);
+            localStorage.setItem("cart_data", JSON.stringify(cart_updated));
+        }
+    };
+    const onRemove = (item: CartItem) => {
+        const item_data: any = cartItems?.find(
+            (vl: CartItem) => vl._id === item._id
+        );
+        if (item_data.quantity === 1) {
+            const filter_items: CartItem[] = cartItems.filter(
+                (vl) => vl._id !== item._id
+            );
+            setCartItems(filter_items);
+            localStorage.setItem("cart_data", JSON.stringify(filter_items));
+        } else {
+            const cart_updated = cartItems?.map((vl: CartItem) =>
+                vl._id === item_data._id
+                    ? {...item_data, quantity: item_data.quantity - 1}
+                    : item
+            );
+            console.log("rem", cart_updated);
+            setCartItems(cart_updated);
+            localStorage.setItem("cart_data", JSON.stringify(cart_updated));
+        }
+    };
+    const onDelete = (item: CartItem) => {
+        const deleted_items: CartItem[] = cartItems?.filter(
+            (vl) => vl._id !== item._id
+        );
+        setCartItems(deleted_items);
+        localStorage.setItem("cart_data", JSON.stringify(deleted_items));
+    };
+    const onDeleteAll = () => {
+        setCartItems([]);
+        localStorage.removeItem("cart_data");
+    };
+
 
     return (
         <Router>
@@ -106,8 +174,10 @@ function App() {
                     handleCloseLogOut={handleCloseLogOut}
                     handleLogOutRequest={handleLogOutRequest}
                     verifiedMemberData={verifiedMemberData}
+                    cartItems={cartItems}
                     anchorEl={anchorEl}
                     open={open}
+                    onAdd={onAdd}
                 />
             ) : (
                 <NavbarOthers
@@ -126,7 +196,7 @@ function App() {
             {/*buyerdan swich routerlar boshlandi*/}
             <Switch>
                 <Route path="/restaurant">
-                    < RestaurantPage/>
+                    < RestaurantPage onAdd={onAdd}/>
                 </Route>
                 <Route path="/community">
                     < CommunityPage/>

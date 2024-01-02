@@ -59,7 +59,7 @@ const targetProductsRetriever = createSelector(
 );
 
 
-export function OneRestaurants() {
+export function OneRestaurants(props: any) {
 
     /** INITIALIZATIONS */
     const history = useHistory();
@@ -338,9 +338,14 @@ export function OneRestaurants() {
                                                     />
                                                 </Badge>
                                             </Button>
-                                            <Button className={"view_btn"}>
+                                            <Button className={"view_btn"}
+                                                    onClick={(e) => {
+                                                        props.onAdd(product);
+                                                        e.stopPropagation();
+                                                    }}
+                                            >
                                                 <img
-                                                    src={"/icons/shopping-cart_oneres.svg"}
+                                                    src={"/icons/shopping_cart.svg"}
                                                     style={{display: "flex"}}
                                                 />
                                             </Button>

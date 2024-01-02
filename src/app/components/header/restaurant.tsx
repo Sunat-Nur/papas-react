@@ -63,7 +63,7 @@ export function NavbarRestaurant(props: any) {
                     </Box>
 
 
-                   <Basket/>
+                   <Basket  cartItems={props.cartItems} onAdd={props.onAdd}/>
                     {!props.verifiedMemberData ? (
                         <Box>
                             <Button
