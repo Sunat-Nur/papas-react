@@ -1,5 +1,4 @@
 import React from "react";
-import {Container} from "@mui/material";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 import { VisitMyPage} from "./VisitMyPage";
 import { VisitOtherPage} from "./VisitOtherPage";

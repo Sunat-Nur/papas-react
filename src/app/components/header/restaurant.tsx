@@ -3,6 +3,7 @@ import {Box, Button, Container, IconButton, ListItemIcon, Menu, MenuItem, Stack}
 import {NavLink} from "react-router-dom";
 import Badge from "@mui/material/Badge";
 import {Logout} from "@mui/icons-material";
+import Basket from "./basket";
 
 export function NavbarRestaurant(props: any) {
     return (
@@ -62,19 +63,7 @@ export function NavbarRestaurant(props: any) {
                     </Box>
 
 
-                    <Box className="hover-line">
-                        <IconButton
-                            aria-label="cart"
-                            id="basic-button"
-                            aria-controls={undefined}
-                            aria-haspopup="true"
-                            aria-expanded={undefined}
-                        >
-                            <Badge badgeContent={3} color="secondary">
-                                <img src={"/icons/shopping-cart.svg" } alt=''/>
-                            </Badge>
-                        </IconButton>
-                    </Box>
+                   <Basket/>
                     {!props.verifiedMemberData ? (
                         <Box>
                             <Button

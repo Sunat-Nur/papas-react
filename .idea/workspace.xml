@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/app/screens/RestaurantPage/oneRestaurants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/RestaurantPage/oneRestaurants.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/header/basket.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/header/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/header/others.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/header/others.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/header/restaurant.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/header/restaurant.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/navbar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
