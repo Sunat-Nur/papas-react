@@ -163,6 +163,10 @@ function App() {
                     handleLogOutRequest={handleLogOutRequest}
                     verifiedMemberData={verifiedMemberData}
                     anchorEl={anchorEl}
+                    cartItems={cartItems}
+                    onRemove={onRemove}
+                    onDelete={onDelete}
+                    onAdd={onAdd}
                     open={open}
                 />
             ) : main_path.includes("/restaurant") ? (
@@ -174,8 +178,8 @@ function App() {
                     handleCloseLogOut={handleCloseLogOut}
                     handleLogOutRequest={handleLogOutRequest}
                     verifiedMemberData={verifiedMemberData}
-                    cartItems={cartItems}
                     anchorEl={anchorEl}
+                    cartItems={cartItems}
                     onRemove={onRemove}
                     onDelete={onDelete}
                     onAdd={onAdd}
@@ -191,6 +195,10 @@ function App() {
                     handleLogOutRequest={handleLogOutRequest}
                     verifiedMemberData={verifiedMemberData}
                     anchorEl={anchorEl}
+                    cartItems={cartItems}
+                    onRemove={onRemove}
+                    onDelete={onDelete}
+                    onAdd={onAdd}
                     open={open}
                 />
             )}

@@ -30,7 +30,6 @@ const trendProductsRetriever = createSelector(
 export function BestDishes() {
 
     /** INITIALIZATION */
-    const refs: any = useRef([]);
     const history = useHistory();
     const {setTrendProducts} = actionDispatch(useDispatch());
     const {trendProducts} = useSelector(trendProductsRetriever); //useSelectorga topRestaurantRetrieverni kiritib undan topRestaurantni qabul qilib olayopman.
