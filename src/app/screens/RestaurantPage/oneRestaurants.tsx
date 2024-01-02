@@ -328,7 +328,10 @@ export function OneRestaurants(props: any) {
                                                         icon={<FavoriteBorder style={{color: "white"}}/>}
                                                         id={product._id}
                                                         checkedIcon={<Favorite style={{color: "red"}}/>}
-                                                        onClick={targetLikeProduct}
+                                                        onClick={(e) => {
+                                                            targetLikeProduct(e);
+                                                            e.stopPropagation();
+                                                        }}
                                                         checked={
                                                             product?.me_liked &&
                                                             product?.me_liked[0]?.my_favorite
