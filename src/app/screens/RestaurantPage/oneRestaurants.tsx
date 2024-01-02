@@ -368,7 +368,7 @@ export function OneRestaurants(props: any) {
                                         <Box className={"dish_desc"}>
                                             <span className={"dish_title_text"}>{product.product_name}</span>
                                             <div className={"dish_desc_text"}>
-                                                <MonetizationOnIcon/>{product.product_size}
+                                                <MonetizationOnIcon/>{product.product_price}
                                             </div>
                                         </Box>
                                     </Box>

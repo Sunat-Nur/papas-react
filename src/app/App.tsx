@@ -35,6 +35,8 @@ function App() {
     const main_path = window.location.pathname;
     const [signUpOpen, setSignUpOpen] = useState(false); // boshlang'ish qiymat false
     const [loginOpen, setLoginOpen] = useState(false); // boshlang'ish qiymat false
+    const [orderRebuild, setOrderRebuild] = useState<Date>(new Date());
+
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -108,7 +110,7 @@ function App() {
                 name: product.product_name,
             };
             // new_item ni hozirgi card_item ga qo'shib yangi qiymat hosil qib ber deyabmiz
-            const cart_updated = [... cartItems, {...new_item}];
+            const cart_updated = [...cartItems, {...new_item}];
             console.log("new", cart_updated);
 
             // localStorage da cart_data ni json formatda o'tkazib data ni yarngilab olaman
@@ -154,52 +156,55 @@ function App() {
         <Router>
             {main_path == "/" ? (
                 <NavbarHome
-                    setPath={setPath}
-                    handleLoginOpen={handleLoginOpen}
-                    handleSignUpOpen={handleSignUpOpen}
-                    handleLogOutClick={handleLogOutClick}
-                    handleCloseLogOut={handleCloseLogOut}
                     handleLogOutRequest={handleLogOutRequest}
                     verifiedMemberData={verifiedMemberData}
+                    handleCloseLogOut={handleCloseLogOut}
+                    handleLogOutClick={handleLogOutClick}
+                    handleSignUpOpen={handleSignUpOpen}
+                    handleLoginOpen={handleLoginOpen}
+                    setOrderRebuild={setOrderRebuild}
                     onDeleteAll={onDeleteAll}
                     cartItems={cartItems}
                     anchorEl={anchorEl}
                     onRemove={onRemove}
                     onDelete={onDelete}
+                    setPath={setPath}
                     onAdd={onAdd}
                     open={open}
                 />
             ) : main_path.includes("/restaurant") ? (
                 <NavbarRestaurant
-                    setPath={setPath}
-                    handleLoginOpen={handleLoginOpen}
-                    handleSignUpOpen={handleSignUpOpen}
-                    handleLogOutClick={handleLogOutClick}
-                    handleCloseLogOut={handleCloseLogOut}
                     handleLogOutRequest={handleLogOutRequest}
                     verifiedMemberData={verifiedMemberData}
+                    handleLogOutClick={handleLogOutClick}
+                    handleCloseLogOut={handleCloseLogOut}
+                    handleSignUpOpen={handleSignUpOpen}
+                    handleLoginOpen={handleLoginOpen}
+                    setOrderRebuild={setOrderRebuild}
                     onDeleteAll={onDeleteAll}
                     cartItems={cartItems}
-                    anchorEl={anchorEl}
                     onRemove={onRemove}
                     onDelete={onDelete}
+                    anchorEl={anchorEl}
+                    setPath={setPath}
                     onAdd={onAdd}
                     open={open}
                 />
             ) : (
                 <NavbarOthers
-                    setPath={setPath}
-                    handleLoginOpen={handleLoginOpen}
-                    handleSignUpOpen={handleSignUpOpen}
-                    handleLogOutClick={handleLogOutClick}
-                    handleCloseLogOut={handleCloseLogOut}
                     handleLogOutRequest={handleLogOutRequest}
                     verifiedMemberData={verifiedMemberData}
+                    handleLogOutClick={handleLogOutClick}
+                    handleCloseLogOut={handleCloseLogOut}
+                    handleSignUpOpen={handleSignUpOpen}
+                    handleLoginOpen={handleLoginOpen}
+                    setOrderRebuild={setOrderRebuild}
                     onDeleteAll={onDeleteAll}
                     cartItems={cartItems}
                     anchorEl={anchorEl}
                     onRemove={onRemove}
                     onDelete={onDelete}
+                    setPath={setPath}
                     onAdd={onAdd}
                     open={open}
                 />
@@ -214,7 +219,10 @@ function App() {
                     < CommunityPage/>
                 </Route>
                 <Route path="/orders">
-                    < OrdersPage/>
+                    < OrdersPage
+                        orderRebuild={orderRebuild}
+                        setOrderRebuild={setOrderRebuild}
+                    />
                 </Route>
                 <Route path="/member-page">
                     < MemberPage/>
