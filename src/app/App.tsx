@@ -109,7 +109,7 @@ function App() {
                 name: product.product_name,
             };
             // new_item ni hozirgi card_item ga qo'shib yangi qiymat hosil qib ber deyabmiz
-            const cart_updated = [{...new_item}];
+            const cart_updated = [... cartItems, {...new_item}];
             console.log("new", cart_updated);
 
             // localStorage da cart_data ni json formatda o'tkazib data ni yarngilab olaman

@@ -1,24 +1,24 @@
-import { Box, Button, Stack } from "@mui/material";
+import {Box, Button, Stack} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import Menu from "@mui/material/Menu";
 import CancelIcon from "@mui/icons-material/Cancel";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import React from "react";
-import { serverApi } from "../../../lib/Config";
-import { CartItem } from "../../../types/others";
-import { sweetErrorHandling } from "../../../lib/sweetAlert";
+import {serverApi} from "../../../lib/Config";
+import {CartItem} from "../../../types/others";
+import {sweetErrorHandling} from "../../../lib/sweetAlert";
 import assert from "assert";
-import { Definer } from "../../../lib/Definer";
+import {Definer} from "../../../lib/Definer";
 import OrderApiService from "../../apiServices/orderApiService";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 export default function Basket(props: any) {
     /** INITIALIZATIONS **/
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const history = useHistory();
-    const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = props;
+    const {cartItems, onAdd, onRemove, onDelete, onDeleteAll} = props;
 
     const itemsPrice = cartItems?.reduce(
         (value: any, curValue: CartItem) =>
@@ -62,7 +62,7 @@ export default function Basket(props: any) {
                 onClick={handleClick}
             >
                 <Badge badgeContent={cartItems?.length} color="secondary">
-                    <img src={"/icons/shopping_cart.svg"} />
+                    <img src={"/icons/shopping_cart.svg"}/>
                 </Badge>
             </IconButton>
             <Menu
@@ -97,8 +97,8 @@ export default function Basket(props: any) {
                         },
                     },
                 }}
-                transformOrigin={{ horizontal: "right", vertical: "top" }}
-                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+                transformOrigin={{horizontal: "right", vertical: "top"}}
+                anchorOrigin={{horizontal: "right", vertical: "bottom"}}
             >
                 <Stack className={"basket_frame"}>
                     <Box className={"all_check_box"}>
@@ -121,12 +121,12 @@ export default function Basket(props: any) {
                                                 onClick={(e) => onDelete(item)}
                                             />
                                         </div>
-                                        <img src={image_path} className={"product_img"} />
+                                        <img src={image_path} className={"product_img"}/>
                                         <span className={"product_name"}>{item.name}</span>
                                         <p className={"product_price"}>
                                             ${item.price} x {item.quantity}
                                         </p>
-                                        <Box sx={{ minWidth: 120 }}>
+                                        <Box sx={{minWidth: 120}}>
                                             <div className="col-2">
                                                 <button
                                                     onClick={(e) => onRemove(item)}
@@ -152,7 +152,7 @@ export default function Basket(props: any) {
               </span>
                             <Button
                                 onClick={processOrderHandler}
-                                startIcon={<ShoppingCartIcon />}
+                                startIcon={<ShoppingCartIcon/>}
                                 variant={"contained"}
                             >
                                 Buyurtma qilish

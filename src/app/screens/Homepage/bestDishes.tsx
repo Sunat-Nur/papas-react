@@ -33,9 +33,10 @@ export function BestDishes() {
     const history = useHistory();
     const {setTrendProducts} = actionDispatch(useDispatch());
     const {trendProducts} = useSelector(trendProductsRetriever); //useSelectorga topRestaurantRetrieverni kiritib undan topRestaurantni qabul qilib olayopman.
+
     useEffect(() => {
         const productService = new ProductApiService();
-        productService.getTargetProducts({order: "product_likes", page: 1, limit: 7})
+        productService.getTargetProducts({order: "product_likes", page: 1, limit: 4})
             .then(data => setTrendProducts(data))  // productApiServicedan return bulgan qiymatni olib kelamiz.
             .catch(err => console.log(err));
     }, []);

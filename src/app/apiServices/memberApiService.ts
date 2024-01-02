@@ -17,9 +17,10 @@ class MemberApiService {
         try {
             const result = await axios.post(this.path + "/login", login_data, //  login_data ni request_body ga beryabman
                 {withCredentials: true});
-            console.log("state:", result.data.state);
             assert.ok(result?.data, Definer.general_err1);
-            assert.ok(result?.data?.state !== "fail", result?.data.message);
+            assert.ok(result?.data.state !== "fail", Definer.general_err1);
+            console.log("state:::", result.data.state);
+
 
             // member interface orqali hosil qilib olyabman
             const member: Member = result.data.data;
@@ -36,9 +37,9 @@ class MemberApiService {
         try {
             const result = await axios.post(this.path + "/signup", signup_data, //  login_data ni request_body ga beryabman
                 {withCredentials: true});
-            console.log("state:", result.data.state);
             assert.ok(result?.data, Definer.general_err1);
-            assert.ok(result?.data?.state !== "fail", result?.data.message);
+            assert.ok(result?.data.state !== "fail", Definer.general_err1);
+            console.log("state:::", result.data.state);
 
             // member interface orqali hosil qilib olyabman
             const member: Member = result.data.data;
@@ -76,9 +77,9 @@ class MemberApiService {
                 withCredentials: true,
             });
 
-            console.log("res", result);
             assert.ok(result?.data, Definer.general_err1);
-            assert.ok(result?.data?.state !== "fail", result?.data?.message);
+            assert.ok(result?.data.state !== "fail", Definer.general_err1);
+            console.log("state:::", result.data.state);
 
             const like_result: MemberLiken = result.data.data;
             console.log("like", like_result);

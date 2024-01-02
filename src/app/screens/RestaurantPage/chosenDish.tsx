@@ -170,7 +170,6 @@ export function ChosenDish(props: any) {
                                         id={chosenProduct?._id}
                                         onClick={targetLikeProduct}
                                         checked={
-                                            chosenProduct?.me_liked &&
                                             !!chosenProduct?.me_liked[0]?.my_favorite
                                         }
                                     />
