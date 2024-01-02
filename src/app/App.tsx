@@ -119,19 +119,19 @@ function App() {
     };
     const onRemove = (item: CartItem) => {
         const item_data: any = cartItems?.find(
-            (vl: CartItem) => vl._id === item._id
+            (ele: CartItem) => ele._id === item._id
         );
         if (item_data.quantity === 1) {
             const filter_items: CartItem[] = cartItems.filter(
-                (vl) => vl._id !== item._id
+                (ele) => ele._id !== item._id // ele ni id isi item_id ga teng bolmagada ele ni tushurib qoldir deyabman
             );
             setCartItems(filter_items);
             localStorage.setItem("cart_data", JSON.stringify(filter_items));
         } else {
-            const cart_updated = cartItems?.map((vl: CartItem) =>
-                vl._id === item_data._id
-                    ? {...item_data, quantity: item_data.quantity - 1}
-                    : item
+            const cart_updated = cartItems?.map((ele: CartItem) =>
+                ele._id === item_data._id
+                    ? {...item_data, quantity: item_data.quantity - 1} // bu yerda item_data ni ichidan quantity ni yengilab -1 ga tenglayabman
+                    : item // va item ni qaytar deyabman
             );
             console.log("rem", cart_updated);
             setCartItems(cart_updated);
@@ -140,7 +140,7 @@ function App() {
     };
     const onDelete = (item: CartItem) => {
         const deleted_items: CartItem[] = cartItems?.filter(
-            (vl) => vl._id !== item._id
+            (ele) => ele._id !== item._id
         );
         setCartItems(deleted_items);
         localStorage.setItem("cart_data", JSON.stringify(deleted_items));
@@ -176,8 +176,10 @@ function App() {
                     verifiedMemberData={verifiedMemberData}
                     cartItems={cartItems}
                     anchorEl={anchorEl}
-                    open={open}
+                    onRemove={onRemove}
+                    onDelete={onDelete}
                     onAdd={onAdd}
+                    open={open}
                 />
             ) : (
                 <NavbarOthers
