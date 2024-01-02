@@ -81,7 +81,7 @@ export function NavbarHome(props: any) {
                         ) : (
                             <img
                                 style={{width: "48px", height: "48px", borderRadius: "24px"}}
-                                src={props.verifiedMemberData.mb_image} alt=''
+                                src={props.verifiedMemberData.mb_image}
                                 onClick={props.handleLogOutClick}
                             />
                         )}

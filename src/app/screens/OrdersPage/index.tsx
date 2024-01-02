@@ -8,7 +8,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PausedOrders from "../orders/pausedOrders"
 import ProcessOrders from "../orders/processOrders"
 import FinishedOrders from "../orders/finishedOrders"
-import {Restaurant} from "../../../types/user";
+import {Member, Restaurant} from "../../../types/user";
 import {Product} from "../../../types/product";
 
 // REDUX
@@ -25,13 +25,15 @@ const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlic
     setFinishedOrders: (data: Product[]) => dispatch(setFinishedOrders(data)),
 });
 
-/** REDUX SELECTOR */
+
 
 export function OrdersPage(props: any) {
     /** Initializations  */
     const [value, setValue] = useState("1");
     const {setPausedOrders, setProcessOrders, setFinishedOrders} =
         actionDispatch(useDispatch())
+
+// const verifiedMemberData: Member | null = props.verifiedMemberData;
 
     useEffect(() => {
         const orderService = new OrderApiService();
@@ -55,7 +57,6 @@ export function OrdersPage(props: any) {
         setValue(newValue);
     };
 
-    // @ts-ignore
     return (
         <div className={"order_page"}>
             <Container
@@ -95,20 +96,22 @@ export function OrdersPage(props: any) {
                         >
                             <div className={"order_user_img"}>
                                 <img
-                                    src={"/community/sunat_nur.png"}
+                                    src={props.verifiedMemberData?.mb_image}
                                     className={"order_user_avatar"}
-                                    alt=""
                                 />
                                 <div className={"order_user_icon_box"}>
                                     <img
                                         src={"/icons/user_icon..svg"}
                                         className={"order_user_prof_ing"}
-                                        alt=""
                                     />
                                 </div>
                             </div>
-                            <span className={"order_user_name"}>sunat_nur</span>
-                            <span className={"order_user_prof"}>foydalanuvchi</span>
+                            <span className={"order_user_name"}>
+                                {props.verifiedMemberData?.mb_nick}
+                            </span>
+                            <span className={"order_user_prof"}>
+                                {props.verifiedMemberData?.mb_type ?? "user"}
+                            </span>
                         </Box>
                         <Box
                             style={{border: "1px solid #A1A1A1"}}
@@ -120,7 +123,9 @@ export function OrdersPage(props: any) {
                             <div style={{display: "flex"}}>
                                 <LocationOnIcon/>
                             </div>
-                            <div className={"spec_address_txt"}>Tashkent Yunusobod abad 4</div>
+                            <div className={"spec_address_txt"}>
+                                {props.verifiedMemberData?.mb_address ?? "manzil kiritilmagan"}
+                            </div>
                         </Box>
                     </Box>
                     <Box className={"order_info_box"} sx={{mt: "15px"}}>
