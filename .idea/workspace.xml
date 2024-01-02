@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/RestaurantPage/oneRestaurants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/RestaurantPage/oneRestaurants.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/apiServices/memberApiService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/apiServices/memberApiService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/apiServices/productApiService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/apiServices/productApiService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/apiServices/restaurantApiService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/apiServices/restaurantApiService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/RestaurantPage/chosenDish.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/RestaurantPage/chosenDish.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +56,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;React Native.Unnamed (1).executor&quot;: &quot;Debug&quot;,
+    &quot;React Native.Unnamed.executor&quot;: &quot;Debug&quot;,
+    &quot;React Native.firstDebugging.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -82,13 +87,14 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="ReactNative" factoryName="React Native" nameIsGenerated="true">
+    <configuration name="firstDebugging" type="ReactNative" factoryName="React Native">
       <node-interpreter value="project" />
       <react-native value="" />
       <platform value="ANDROID" />
       <envs />
       <only-packager />
       <browser value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <debug-port value="3002" />
       <method v="2">
         <option name="ReactNativePackager" enabled="true" />
       </method>
@@ -113,6 +119,7 @@
       <workItem from="1703585776659" duration="32214000" />
       <workItem from="1703742070779" duration="7563000" />
       <workItem from="1704165991056" duration="161000" />
+      <workItem from="1704190869037" duration="978000" />
     </task>
     <servers />
   </component>
@@ -144,10 +151,29 @@
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/screens/RestaurantPage/oneRestaurants.tsx</url>
-          <line>330</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/src/app/screens/RestaurantPage/chosenDish.tsx</url>
+          <line>168</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/screens/Homepage/bestDishes.tsx</url>
+          <line>45</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/screens/Homepage/bestDishes.tsx</url>
+          <line>49</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/screens/Homepage/bestDishes.tsx</url>
+          <line>38</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/screens/Homepage/bestDishes.tsx</url>
+          <line>56</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

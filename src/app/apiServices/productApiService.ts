@@ -2,7 +2,6 @@ import {serverApi} from "../../lib/Config";
 import axios from "axios";
 import assert from "assert";
 import {Definer} from "../../lib/Definer";
-import {Restaurant} from "../../types/user";
 import {ProductSearchObj} from "../../types/others";
 import {Product} from "../../types/product";
 
@@ -14,7 +13,7 @@ class ProductApiService {
         this.path = serverApi;
     }
 
-    async getTargetProducts(data: ProductSearchObj) {
+    async getTargetProducts(data: ProductSearchObj): Promise <Product[]> {
         try {
             const url = '/products',
                 result = await axios.post(this.path + url, data, {
@@ -34,7 +33,7 @@ class ProductApiService {
     };
 
 
-    async getChosenDish(dish_id: string) {
+    async getChosenDish(dish_id: string): Promise<Product> {
         try {
             const url = `/products/${dish_id}`,
                 result = await axios.get(this.path + url, {

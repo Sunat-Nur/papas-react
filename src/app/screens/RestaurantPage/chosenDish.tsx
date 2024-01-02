@@ -169,8 +169,7 @@ export function ChosenDish(props: any) {
                                         checkedIcon={<Favorite style={{color: "red"}}/>}
                                         id={chosenProduct?._id}
                                         onClick={targetLikeProduct}
-                                        checked={
-                                            !!chosenProduct?.me_liked[0]?.my_favorite
+                                        checked={!!chosenProduct?.me_liked[0]?.my_favorite
                                         }
                                     />
                                     <span>{chosenProduct?.product_likes}</span>

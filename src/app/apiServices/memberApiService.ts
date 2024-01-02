@@ -13,10 +13,11 @@ class MemberApiService {
 
     }
 
-    public async loginRequest(login_data: any) {
+    public async loginRequest(login_data: any): Promise<Member> {
         try {
             const result = await axios.post(this.path + "/login", login_data, //  login_data ni request_body ga beryabman
                 {withCredentials: true});
+
             assert.ok(result?.data, Definer.general_err1);
             assert.ok(result?.data.state !== "fail", Definer.general_err1);
             console.log("state:::", result.data.state);
@@ -30,10 +31,11 @@ class MemberApiService {
             return member;
         } catch (err: any) {
             console.log(`ERROR ::: loginRequest ${err.message}`);
+            throw err;
         }
     };
 
-    public async signupRequest(signup_data: any) {
+    public async signupRequest(signup_data: any): Promise<Member> {
         try {
             const result = await axios.post(this.path + "/signup", signup_data, //  login_data ni request_body ga beryabman
                 {withCredentials: true});
@@ -49,12 +51,13 @@ class MemberApiService {
             return member;
         } catch (err: any) {
             console.log(`ERROR ::: signupRequest ${err.message}`);
+            throw err;
         }
     };
 
-    public async logOutRequest() {
+    public async logOutRequest(): Promise <Boolean> {
         try {
-            const result = await axios.get(this.path+"/logout", {
+            const result = await axios.get(this.path + "/logout", {
                 withCredentials: true, //withCredentialsni true qilishimiz sababi cookielarni oldi berdisi bn bog'liqdir.
             });
             assert.ok(result?.data, Definer.general_err1); //data mavjud bulsa, bulmasa general_error bergin.
@@ -66,12 +69,11 @@ class MemberApiService {
         } catch (err: any) {
             console.log(`ERROR ::: logOutRequest ${err.message}`);
             throw err;
-
         }
     };
 
 
-    async memberLikeTarget(data: any) {
+    async memberLikeTarget(data: any): Promise<MemberLiken> {
         try {
             const result = await axios.post(this.path + "/member-liken", data, {
                 withCredentials: true,

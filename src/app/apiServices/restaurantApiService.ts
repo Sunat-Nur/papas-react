@@ -12,7 +12,7 @@ class RestaurantApiService {
         this.path = serverApi; // path ni localhost ga tenglab olyabman
     }
 
-    async getTopRestaurants() {
+    async getTopRestaurants(): Promise <Restaurant[]> {
 
         try {
             const url = "/restaurants?order=top&page=1&limit=4",  // postmandagi getrestaurantni URLi.
@@ -32,7 +32,7 @@ class RestaurantApiService {
     }
 
 
-    async getRestaurants(data: SearchObj) { //SearchObj interface hosil qildim
+    async getRestaurants(data: SearchObj): Promise <Restaurant[]> { //SearchObj interface hosil qildim
 
         try {
             const url = `/restaurants?order=${data.order}&page=${data.page}&limit=${data.limit}`,  // postmandagi getrestaurantni URLi.
@@ -52,7 +52,7 @@ class RestaurantApiService {
         }
     };
 
-    async getChosenRestaurant(id: string) {
+    async getChosenRestaurant(id: string): Promise <Restaurant> {
         try {
             const url = `/restaurants/${id}`,
                 result  = await axios.get(this.path + url, {withCredentials: true});
