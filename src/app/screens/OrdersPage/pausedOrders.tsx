@@ -1,35 +1,33 @@
-import {Box, Stack} from "@mui/material"
+import {Box, Stack, Button} from "@mui/material"
 import TabPanel from "@mui/lab/TabPanel";
 import React from "react";
 
 
 // REDUX
 import {createSelector} from "reselect";
-import {retrieveProcessOrders} from "../OrdersPage/selector";
-import {Order} from "../../../types/order";
-import {Product} from "../../../types/product";
-import {serverApi} from "../../../lib/Config";
 import {useSelector} from "react-redux";
-import moment from "moment";
-import Button from "@mui/material/Button";
-import OrderApiService from "../../apiServices/orderApiService";
+import {retrievePausedOrders} from "./selector";
+import {Order} from "../../../types/order";
+import {serverApi} from "../../../lib/Config";
+import {Product} from "../../../types/product";
 import {sweetErrorHandling, sweetFailureProvider} from "../../../lib/sweetAlert";
+import OrderApiService from "../../apiServices/orderApiService";
 
 /** REDUX SELECTOR */
-const processOrdersRetriever = createSelector(
-    retrieveProcessOrders,
-    (processOrders) => ({
-        processOrders,
+const pausedOrdersRetriever = createSelector(
+    retrievePausedOrders,
+    (pausedOrders) => ({
+        pausedOrders,
     })
 );
 
-export default function ProcessOrders(props: any) {
-    /** INITIALIZATIONS */
-    const {processOrders} = useSelector(processOrdersRetriever);
+export default function PausedOrders(props: any) {
 
+    /** INITIALIZATIONS */
+    const {pausedOrders} = useSelector(pausedOrdersRetriever);
 
     /** HANDLERS  */
-    const finishOrderHandler = async (event: any) => {
+    const deleteOrderHandler = async (event: any) => {
         try {
             const order_id = event.target.value;
             const data = {order_id: order_id, order_status: "DELETED"};
@@ -37,32 +35,52 @@ export default function ProcessOrders(props: any) {
             if (!localStorage.getItem("member_data")) {
                 sweetFailureProvider("Please login first!", true);
             }
-            let confirmation = window.confirm("Buyurtmani olganigizni tastiqlaysizmi ?");
+            let confirmation = window.confirm("Buyurtmani bekor qilishni xoxlaysizmi ?");
             if (confirmation) {
                 const orderService = new OrderApiService();
-                await orderService.updateOrderStatus(data);
+                await orderService.updateOrderStatus(data).then();
                 props.setOrderRebuild(new Date());
             }
         } catch (err) {
-            console.log("finishOrderHandler, ERROR:", err);
+            console.log("deleteOrderHandler, ERROR:", err);
             sweetErrorHandling(err).then();
         }
     };
 
+    const processOrderHandler = async (event: any) => {
+        try {
+            const order_id = event.target.value;
+            const data = {order_id: order_id, order_status: "PROCESS"};
+
+            if (!localStorage.getItem("member_data")) {
+                sweetFailureProvider("Please login first!", true);
+            }
+            let confirmation = window.confirm("Buyurtmani to'lashni tasdiqlaysizmi ?");
+            if (confirmation) {
+                const orderService = new OrderApiService();
+                await orderService.updateOrderStatus(data).then();
+                props.setOrderRebuild(new Date());
+            }
+        } catch (err) {
+            console.log("processOrderHandler, ERROR:", err);
+            sweetErrorHandling(err).then();
+        }
+    }
+
     return (
-        <TabPanel value={"2"}>
+        <TabPanel value={"1"}>
             <Stack>
-                {processOrders?.map((order: Order) => {
+                {pausedOrders?.map((order: Order) => {
                     return (
                         <Box className={"order_main_box"}>
                             <Box className={"order_box_scroll"}>
-                                {order.order_items.map((item) => {
+                                {order?.order_items?.map((item, index) => {
                                     const product: Product = order.product_data.filter(ele => ele._id === item.product_id)[0];
-                                    const image_path = `${serverApi}/${product.product_images[0]}`;
+                                    const image_path = `${serverApi}/${product?.product_images[0]}`;
                                     return (
                                         <Box className={"ordersName_price"}>
                                             <img src={image_path} className={"orderDishImage"}/>
-                                            <p className={"titleDish"}>{product.product_name}</p>
+                                            <p className={"titleDish"}>{product?.product_name}</p>
                                             <Box className={"priceBox"}>
                                                 <p>${item.item_price}</p>
                                                 <img src={"/icons/Close.svg"}/>
@@ -90,22 +108,25 @@ export default function ProcessOrders(props: any) {
                                         <p>total price</p>
                                         <p>${order.order_total_amount}</p>
                                     </Box>
-                                    <p className={"data_compl"}>
-                                        {moment(order.createdAt).format("YY-MM-DD HH:mm")}
-                                    </p>
                                     <Button
                                         value={order._id}
-                                        onClick={finishOrderHandler}
+                                        onClick={deleteOrderHandler}
                                         variant="contained"
-                                        style={{
-                                            background: "#0288D1",
-                                            color: "#FFFFFF",
+                                        style={{borderRadius: "10px", background: "red"}}
+                                    >
+                                        BEKOR QILISH
+                                    </Button>
+                                    <Button
+                                        value={order._id}
+                                        onClick={processOrderHandler}
+                                        variant="contained"
+                                        sx={{
+                                            background: "rgb(2, 136, 209)",
+                                            color: "rgb(255, 255, 255)",
                                             borderRadius: "10px",
-                                            boxShadow:
-                                                "0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px 4px rgba(0, 0, 0, 0.25)",
                                         }}
                                     >
-                                        yakunlash
+                                        TO'LASH
                                     </Button>
                                 </Box>
                             </Box>

@@ -5,10 +5,10 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList"
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import PausedOrders from "../orders/pausedOrders"
-import ProcessOrders from "../orders/processOrders"
-import FinishedOrders from "../orders/finishedOrders"
-import {Member, Restaurant} from "../../../types/user";
+import PausedOrders from "./pausedOrders"
+import ProcessOrders from "./processOrders"
+import FinishedOrders from "./finishedOrders"
+import { Restaurant} from "../../../types/user";
 import {Product} from "../../../types/product";
 
 // REDUX
@@ -16,6 +16,9 @@ import {Dispatch} from "@reduxjs/toolkit";
 import {setPausedOrders, setProcessOrders, setFinishedOrders} from "./slice";
 import {useDispatch} from "react-redux";
 import OrderApiService from "../../apiServices/orderApiService";
+import {createSelector} from "reselect";
+import {retrieveFinishedOrders, retrievePausedOrders, retrieveProcessOrders} from "./selector";
+import {verifyMemberData} from "../../apiServices/verify";
 
 
 /** REDUX SLICE */
@@ -26,34 +29,47 @@ const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlic
 });
 
 
+//redux selector
+export const targetOrdersRetriever = createSelector(
+    retrieveProcessOrders,
+    retrievePausedOrders,
+    retrieveFinishedOrders,
+    (processOrders, pausedOrders, finishedOrders) => ({
+        processOrders,
+        pausedOrders,
+        finishedOrders,
+    })
+);
+
 
 export function OrdersPage(props: any) {
     /** Initializations  */
-    const [value, setValue] = useState("1");
     const {setPausedOrders, setProcessOrders, setFinishedOrders} =
         actionDispatch(useDispatch())
 
+    const [value, setValue] = useState("1");
+
 // const verifiedMemberData: Member | null = props.verifiedMemberData;
+
 
     useEffect(() => {
         const orderService = new OrderApiService();
         orderService
             .getMyOrders("paused")
-            .then(data => setPausedOrders(data))
+            .then((data) => setPausedOrders(data))
             .catch((err) => console.log(err));
         orderService
             .getMyOrders("process")
-            .then(data => setProcessOrders(data))
+            .then((data) => setProcessOrders(data))
             .catch((err) => console.log(err));
         orderService
-            .getMyOrders("finished")
-            .then(data => setFinishedOrders(data))
+            .getMyOrders("deleted")
+            .then((data) => setFinishedOrders(data))
             .catch((err) => console.log(err));
     }, [props.orderRebuild]);
 
     /** Handlers  */
     const handleChange = (event: any, newValue: string) => {
-        console.log("newValue", newValue);
         setValue(newValue);
     };
 
@@ -96,7 +112,10 @@ export function OrdersPage(props: any) {
                         >
                             <div className={"order_user_img"}>
                                 <img
-                                    src={props.verifiedMemberData?.mb_image}
+                                    src={props.verifiedMemberData?.mb_image
+                                        ? verifyMemberData?.mb_image
+                                        : "/auth/default_user.svg"
+                                }
                                     className={"order_user_avatar"}
                                 />
                                 <div className={"order_user_icon_box"}>
@@ -110,7 +129,7 @@ export function OrdersPage(props: any) {
                                 {props.verifiedMemberData?.mb_nick}
                             </span>
                             <span className={"order_user_prof"}>
-                                {props.verifiedMemberData?.mb_type ?? "user"}
+                                {props.verifiedMemberData?.mb_type ?? "USER"}
                             </span>
                         </Box>
                         <Box

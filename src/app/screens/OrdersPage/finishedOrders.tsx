@@ -6,12 +6,10 @@ import React from "react";
 // REDUX
 import {createSelector} from "reselect";
 import {useSelector} from "react-redux";
-import {retrieveFinishedOrders} from "../OrdersPage/selector";
+import {retrieveFinishedOrders} from "./selector";
 import {Order} from "../../../types/order";
 import {Product} from "../../../types/product";
 import {serverApi} from "../../../lib/Config";
-import {sweetErrorHandling, sweetFailureProvider} from "../../../lib/sweetAlert";
-import OrderApiService from "../../apiServices/orderApiService";
 
 /** REDUX SELECTOR */
 const finishedOrdersRetriever = createSelector(
@@ -36,18 +34,18 @@ export default function FinishedOrders(props: any) {
                             <Box className={"order_box_scroll"}>
                                 {order.order_items.map((item) => {
                                     const product: Product = order.product_data.filter(ele => ele._id === item.product_id)[0];
-                                    const image_path = `${serverApi}/${product.product_images[0]}`;
+                                    const image_path = `${serverApi}/${product?.product_images[0]}`;
                                     return (
                                         <Box className={"ordersName_price"}>
                                             <img src={image_path} className={"orderDishImage"}/>
-                                            <p className={"titleDish"}>{product.product_name}</p>
+                                            <p className={"titleDish"}>{product?.product_name}</p>
                                             <Box className={"priceBox"}>
                                                 <p>${item.item_price}</p>
                                                 <img src={"/icons/Close.svg"}/>
-                                                <p>{item.item_quantity}</p>
+                                                <p>{item?.item_quantity}</p>
                                                 <img src={"/icons/Pause.svg"}/>
                                                 <p style={{marginLeft: "15px"}}>
-                                                    ${item.item_price * item.item_quantity}
+                                                    ${item?.item_price * item?.item_quantity}
                                                 </p>
                                             </Box>
                                         </Box>

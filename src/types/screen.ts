@@ -13,6 +13,7 @@ export interface AppRootState {  // app dagi barcha interfacelarni integratsiya 
     homePage: HomePageState;  // homepage => homepage typedan iborat;
     restaurantPage: RestaurantPageState;
     ordersPage: OrdersPageState;
+    communityPage: CommunityPageState;
 }
 
 /** homePage  **/
@@ -42,3 +43,9 @@ export interface OrdersPageState{
     finishedOrders: Order[];
 }
 
+
+/** community page **/
+export interface CommunityPageState{
+    targetBoArticles: BoArticle[]
+
+}
