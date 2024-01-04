@@ -49,7 +49,7 @@ export function OrdersPage(props: any) {
 
     const [value, setValue] = useState("1");
 
-const verifyMemberData: Member | null = props.verifyMemberData;
+// const verifyMemberData: Member | null = props.verifyMemberData;
 
 
     useEffect(() => {
@@ -114,9 +114,10 @@ const verifyMemberData: Member | null = props.verifyMemberData;
                         >
                             <div className={"order_user_img"}>
                                 <img
-                                    src={verifyMemberData?.mb_image
-                                        ? verifyMemberData?.mb_image
-                                        : "/auth/default_user.svg"
+                                    src={
+                                        props.verifyMemberData?.mb_image
+                                            ? props.verifyMemberData?.mb_image
+                                            : "/auth/default_user.svg"
                                     }
                                     className={"order_user_avatar"}
                                 />

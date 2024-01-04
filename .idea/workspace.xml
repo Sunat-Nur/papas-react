@@ -5,26 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/apiServices/communityApiService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/header/basket.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/header/basket.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/selector.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/selector.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/targetArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/targetArticles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/Homepage/bestDishes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/Homepage/bestDishes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/Homepage/bestRestaurants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/Homepage/bestRestaurants.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/Homepage/topRestaurants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/Homepage/topRestaurants.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/OrdersPage/finishedOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/finishedOrders.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/screens/OrdersPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/OrdersPage/pausedOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/pausedOrders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/OrdersPage/processOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/processOrders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/OrdersPage/slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/RestaurantPage/allRestaurants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/RestaurantPage/allRestaurants.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/RestaurantPage/chosenDish.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/RestaurantPage/chosenDish.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/RestaurantPage/oneRestaurants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/RestaurantPage/oneRestaurants.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/boArticle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/boArticle.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
