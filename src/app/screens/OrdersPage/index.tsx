@@ -18,7 +18,7 @@ import {useDispatch} from "react-redux";
 import OrderApiService from "../../apiServices/orderApiService";
 import {createSelector} from "reselect";
 import {retrieveFinishedOrders, retrievePausedOrders, retrieveProcessOrders} from "./selector";
-import {verifyMemberData} from "../../apiServices/verify";
+import {verifiedMemberData} from "../../apiServices/verify";
 
 
 /** REDUX SLICE */
@@ -49,7 +49,7 @@ export function OrdersPage(props: any) {
 
     const [value, setValue] = useState("1");
 
-// const verifyMemberData: Member | null = props.verifyMemberData;
+// const verifiedMemberData: Member | null = props.verifiedMemberData;
 
 
     useEffect(() => {
@@ -72,8 +72,6 @@ export function OrdersPage(props: any) {
     const handleChange = (event: any, newValue: string) => {
         setValue(newValue);
     };
-
-    console.log("verifyMemberData", verifyMemberData);
 
     return (
         <div className={"order_page"}>
@@ -115,8 +113,8 @@ export function OrdersPage(props: any) {
                             <div className={"order_user_img"}>
                                 <img
                                     src={
-                                        props.verifyMemberData?.mb_image
-                                            ? props.verifyMemberData?.mb_image
+                                        verifiedMemberData?.mb_image
+                                            ? verifiedMemberData?.mb_image
                                             : "/auth/default_user.svg"
                                     }
                                     className={"order_user_avatar"}
@@ -129,10 +127,10 @@ export function OrdersPage(props: any) {
                                 </div>
                             </div>
                             <span className={"order_user_name"}>
-                                {verifyMemberData?.mb_nick}
+                                {verifiedMemberData?.mb_nick}
                             </span>
                             <span className={"order_user_prof"}>
-                                {verifyMemberData?.mb_type ?? "USER"}
+                                {verifiedMemberData?.mb_type ?? "USER"}
                             </span>
                         </Box>
                         <Box
@@ -146,7 +144,7 @@ export function OrdersPage(props: any) {
                                 <LocationOnIcon/>
                             </div>
                             <div className={"spec_address_txt"}>
-                                {verifyMemberData?.mb_address ?? "manzil kiritilmagan"}
+                                {verifiedMemberData?.mb_address ?? "manzil kiritilmagan"}
                             </div>
                         </Box>
                     </Box>
