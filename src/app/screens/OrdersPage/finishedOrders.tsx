@@ -24,7 +24,7 @@ export default function FinishedOrders(props: any) {
     /** INITIALIZATIONS */
     const {finishedOrders} = useSelector(finishedOrdersRetriever);
 
-
+    console.log("finishedOrders", finishedOrders);
     return (
         <TabPanel value={"3"}>
             <Stack>

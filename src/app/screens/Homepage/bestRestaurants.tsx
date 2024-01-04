@@ -66,8 +66,6 @@ export function BestRestaurants() {
             sweetErrorHandling(err).then();
         }
     };
-
-
     return (
         <div className="best_restaurant_frame">
             <img src={"icons/kvadrat.svg"}
@@ -98,7 +96,6 @@ export function BestRestaurants() {
                                             <AspectRatio ratio="1">
                                                 <img src={image_path} alt=""/>
                                             </AspectRatio>
-
                                             <IconButton aria-label="Like minimal Photography"
                                                         size="md"
                                                         variant="solid"
@@ -128,31 +125,19 @@ export function BestRestaurants() {
                                             </IconButton>
                                         </CardOverflow>
                                         <Typography level="h2" sx={{fontSize: "md", mt: 0.1}}>
-
                                             {ele.mb_nick}
                                         </Typography>
                                         <Typography level="body-sm" sx={{mt: 0.5, mb: 0.1}}>
-                                            <Link
-                                                href=""
-                                                startDecorator={<LocationOnRoundedIcon/>}
-                                                textColor="neutral.700"
-                                            >
-
+                                            <Link href="" startDecorator={<LocationOnRoundedIcon/>}
+                                                  textColor="neutral.700">
                                                 {ele.mb_address}
-
                                             </Link>
                                         </Typography>
                                         <Typography level="body-sm" sx={{mt: 0.5, mb: 0.1}}>
-                                            <Link
-                                                href=""
-                                                startDecorator={<CallIcon/>}
-                                                textColor="neutral.700"
-                                            >
-
+                                            <Link href="" startDecorator={<CallIcon/>} textColor="neutral.700">
                                                 {ele.mb_phone}
                                             </Link>
                                         </Typography>
-
                                         <CardOverflow
                                             variant="soft"
                                             sx={{
@@ -187,9 +172,8 @@ export function BestRestaurants() {
                                                     fontWeight: "md",
                                                     color: "black",
                                                     alignItems: "center",
-                                                    display: "flex",
-                                                }}
-                                            >
+                                                    display: "flex"
+                                                }}>
                                                 <div
                                                     ref={(element) => (refs.current[ele._id] = element)}
                                                 >
@@ -199,20 +183,14 @@ export function BestRestaurants() {
                                             </Typography>
                                         </CardOverflow>
                                     </Card>
-
                                 </CssVarsProvider>
-
                             )
                         })};
                     </Stack>
-
                     <Stack
                         flexDirection={"row"}
                         justifyContent={"flex-end"}
-                        style={{
-                            width: "100%",
-                            marginTop: "16px"
-                        }}>
+                        style={{width: "100%", marginTop: "16px"}}>
                         <Button style={{background: "#1976d2", color: "#ffffff"}}
                                 onClick={goRestaurantsHandler}
                         >

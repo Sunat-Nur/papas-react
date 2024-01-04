@@ -58,7 +58,6 @@ export function AllRestaurants() {
     const refs: any = useRef([]);
     const history = useHistory();
 
-
     useEffect(() => {
         const restaurantService = new RestaurantApiService();
         restaurantService.getRestaurants(targetSearchObject)
@@ -66,13 +65,10 @@ export function AllRestaurants() {
             .catch((err) => console.log(err));
     }, [targetSearchObject]);
 
-
     /** HANDLERS  */
     const chosenRestaurantHandler = (id: string) => {
         history.push(`/restaurant/${id}`);
     };
-
-
     const searchHandler = (category: string) => {
         targetSearchObject.page = 1;
         targetSearchObject.order = category;
@@ -83,11 +79,9 @@ export function AllRestaurants() {
         setTartgetSearchObject({...targetSearchObject});
     };
 
-
     const targetLikeHandler = async (e: any, id: string) => {
         try {
             assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
-
             const memberService = new MemberApiService();
             const like_result: any = await memberService.memberLikeTarget({
                 like_ref_id: id,
@@ -120,11 +114,7 @@ export function AllRestaurants() {
                         <a onClick={() => searchHandler("createdAt")}>Yangi</a>
                     </Box>
                     <Box className={"search_big_box"}>
-                        <form
-                            className={"search_form"}
-                            action={""}
-                            method={""}
-                        >
+                        <form className={"search_form"} action={""} method={""}>
                             <input
                                 type={"search"}
                                 className={"searchInput"}
@@ -194,15 +184,10 @@ export function AllRestaurants() {
                                         {ele.mb_nick} restaurant
                                     </Typography>
                                     <Typography level="body-sm" sx={{mt: 0.1, mb: 0.5}}>
-                                        <Link
-                                            href=""
-                                            startDecorator={<LocationOnRoundedIcon/>}
-                                            textColor="neutral.700"
-                                        >
+                                        <Link href="" startDecorator={<LocationOnRoundedIcon/>} textColor="neutral.700">
                                         </Link>
                                         {ele.mb_address}
                                     </Typography>
-
                                     <Typography level="body-sm" sx={{mt: 0.5, mb: 0.5}}>
                                         <Link
                                             href=""
@@ -246,9 +231,7 @@ export function AllRestaurants() {
                                                 display: "flex",
                                             }}
                                         >
-                                            <div
-                                                ref={(element) => (refs.current[ele._id] = element)}
-                                            >
+                                            <div ref={(element) => (refs.current[ele._id] = element)}>
                                                 {ele.mb_likes}
                                             </div>
                                             <FavoriteIcon sx={{fontSize: 20, marginLeft: "5px"}}/>
@@ -259,13 +242,10 @@ export function AllRestaurants() {
                         })}
                     </CssVarsProvider>
                 </Stack>
-
                 <Stack className={"bottom_box"}>
                     <img className={"line_img"} src={"/restaurant/icons_right.svg"} alt=""/>
                     <Pagination
-                        count={
-                            targetSearchObject.page >= 3 ? targetSearchObject.page + 1 : 3
-                        }
+                        count={targetSearchObject.page >= 3 ? targetSearchObject.page + 1 : 3}
                         page={targetSearchObject.page}
                         renderItem={(item) => (
                             <PaginationItem components={{

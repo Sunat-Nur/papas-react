@@ -18,7 +18,7 @@ export default function Basket(props: any) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const history = useHistory();
-    const {cartItems, onAdd, onRemove, onDelete, onDeleteAll} = props;
+    const {cartItems, onAdd, onRemove, onDelete, onDeleteAll, setOrderRebuild} = props;
 
     const itemsPrice = cartItems?.reduce(
         (value: any, curValue: CartItem) =>

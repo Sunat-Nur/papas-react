@@ -5,16 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/selector.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/slice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/apiServices/communityApiService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/header/basket.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/header/basket.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/header/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/selector.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/selector.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/targetArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/targetArticles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/Homepage/bestDishes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/Homepage/bestDishes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/Homepage/bestRestaurants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/Homepage/bestRestaurants.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/Homepage/topRestaurants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/Homepage/topRestaurants.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/OrdersPage/finishedOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/finishedOrders.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/screens/OrdersPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/orders/finishedOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/finishedOrders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/orders/pausedOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/pausedOrders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/orders/processOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/processOrders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/OrdersPage/pausedOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/pausedOrders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/OrdersPage/processOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/processOrders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/OrdersPage/slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/OrdersPage/slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/RestaurantPage/allRestaurants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/RestaurantPage/allRestaurants.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/RestaurantPage/chosenDish.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/RestaurantPage/chosenDish.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/RestaurantPage/oneRestaurants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/RestaurantPage/oneRestaurants.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/boArticle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/boArticle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/screen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/screen.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,26 +69,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;React Native.Unnamed (1).executor&quot;: &quot;Debug&quot;,
-    &quot;React Native.Unnamed.executor&quot;: &quot;Debug&quot;,
-    &quot;React Native.firstDebugging.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mac/Documents/papay-react&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/mac/Documents/papay-react/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "React Native.Unnamed (1).executor": "Debug",
+    "React Native.Unnamed.executor": "Debug",
+    "React Native.firstDebugging.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "/Users/mac/Documents/papay-react",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "/Users/mac/Documents/papay-react/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/auth" />
@@ -91,20 +102,6 @@
       <recent name="$PROJECT_DIR$/src/app/screens" />
       <recent name="$PROJECT_DIR$/public/icons" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="firstDebugging" type="ReactNative" factoryName="React Native">
-      <node-interpreter value="project" />
-      <react-native value="" />
-      <platform value="ANDROID" />
-      <envs />
-      <only-packager />
-      <browser value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <debug-port value="3002" />
-      <method v="2">
-        <option name="ReactNativePackager" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -155,31 +152,6 @@
           <url>file://$PROJECT_DIR$/src/app/screens/HelpPage/index.tsx</url>
           <line>109</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/screens/RestaurantPage/chosenDish.tsx</url>
-          <line>168</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/screens/Homepage/bestDishes.tsx</url>
-          <line>45</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/screens/Homepage/bestDishes.tsx</url>
-          <line>49</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/screens/Homepage/bestDishes.tsx</url>
-          <line>38</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/screens/Homepage/bestDishes.tsx</url>
-          <line>56</line>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -72,11 +72,7 @@ export function TopRestaurants() {
     return (
         <div className="top_restaurant_frame">
             <Container>
-                <Stack
-                    flexDirection={'column'}
-                    alignItems={'center'}
-                    sx={{mt: "45px"}}
-                >
+                <Stack flexDirection={'column'} alignItems={'center'} sx={{mt: "45px"}}>
                     <Box className={'category_title'}>TOP Restaurantlar</Box>
                     <Stack sx={{mt: "43px"}} flexDirection={'row'} m={"16px"}>
                         {topRestaurants.map((ele: Restaurant) => {
@@ -94,33 +90,19 @@ export function TopRestaurants() {
                                         }}
                                     >
                                         <CardCover>
-                                            <img
-                                                src={image_path}
-                                                loading="lazy"
-                                                alt=""
-                                            />
+                                            <img src={image_path} loading="lazy"/>
                                         </CardCover>
                                         <CardCover
-                                            sx={{
-                                                background:
-                                                    'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
-                                            }}
+                                            sx={{background: 'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',}}
                                         />
                                         <CardContent sx={{justifyContent: 'flex-end'}}>
-                                            <Typography
-                                                level="h2"
-                                                fontSize="lg"
-                                                textColor="#fff"
-                                                mb={1}
-                                            >
+                                            <Typography level="h2" fontSize="lg" textColor="#fff" mb={1}>
                                                 {ele.mb_nick}
                                             </Typography>
                                             <Typography
                                                 startDecorator={<LocationOnRoundedIcon/>}
-                                                textColor="neutral.300"
-                                            >
+                                                textColor="neutral.300">
                                                 {ele.mb_address}
-
                                             </Typography>
                                         </CardContent>
                                         <CardOverflow
@@ -160,7 +142,6 @@ export function TopRestaurants() {
                                                     }}
                                                 />
                                             </IconButton>
-
                                             <Typography
                                                 level="body-sm"
                                                 sx={{
@@ -184,17 +165,13 @@ export function TopRestaurants() {
                                                     display: "flex",
                                                 }}
                                             >
-                                                <div
-                                                    ref={(element) => (refs.current[ele._id] = element)}
-                                                >
+                                                <div ref={(element) => (refs.current[ele._id] = element)}>
                                                     {ele.mb_likes}
                                                 </div>
                                                 <Favorite sx={{fontSize: 20, marginLeft: "5px"}}/>
                                             </Typography>
-
                                         </CardOverflow>
                                     </Card>
-
                                 </CssVarsProvider>
                             )
                         })};

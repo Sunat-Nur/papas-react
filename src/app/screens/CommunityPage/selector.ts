@@ -1,3 +1,4 @@
+// Selecotor,  Redux ga yozgan ma'lumotni olib beradi
 import {createSelector} from "reselect";
 import {AppRootState} from "../../../types/screen";
 

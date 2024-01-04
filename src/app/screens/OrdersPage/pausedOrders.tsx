@@ -27,25 +27,44 @@ export default function PausedOrders(props: any) {
     const {pausedOrders} = useSelector(pausedOrdersRetriever);
 
     /** HANDLERS  */
-    const deleteOrderHandler = async (event: any) => {
-        try {
-            const order_id = event.target.value;
-            const data = {order_id: order_id, order_status: "DELETED"};
+        // const deleteOrderHandler = async (event: any) => {
+        //     try {
+        //         const order_id = event.target.value;
+        //         const data = {order_id: order_id, order_status: "DELETED"};
+        //
+        //         if (!localStorage.getItem("member_data")) {
+        //             sweetFailureProvider("Please login first!", true);
+        //         }
+        //         let confirmation = window.confirm("Buyurtmani bekor qilishni xoxlaysizmi ?");
+        //         if (confirmation) {
+        //             const orderService = new OrderApiService();
+        //             await orderService.updateOrderStatus(data).then();
+        //             props.setOrderRebuild(new Date());
+        //         }
+        //     } catch (err) {
+        //         console.log("deleteOrderHandler, ERROR:", err);
+        //         sweetErrorHandling(err).then();
+        //     }
+        // };
+    const finishOrderHandler = async (event: any) => {
+            try {
+                const order_id = event.target.value;
+                const data = {order_id: order_id, order_status: "FINISHED"};
 
-            if (!localStorage.getItem("member_data")) {
-                sweetFailureProvider("Please login first!", true);
+                if (!localStorage.getItem("member_data")) {
+                    sweetFailureProvider("Please login first!", true);
+                }
+                let confirmation = window.confirm("Buyurtmani olganigizni tastiqlaysizmi ?");
+                if (confirmation) {
+                    const orderService = new OrderApiService();
+                    await orderService.updateOrderStatus(data).then();
+                    props.setOrderRebuild(new Date());
+                }
+            } catch (err) {
+                console.log("finishOrderHandler, ERROR:", err);
+                sweetErrorHandling(err).then();
             }
-            let confirmation = window.confirm("Buyurtmani bekor qilishni xoxlaysizmi ?");
-            if (confirmation) {
-                const orderService = new OrderApiService();
-                await orderService.updateOrderStatus(data).then();
-                props.setOrderRebuild(new Date());
-            }
-        } catch (err) {
-            console.log("deleteOrderHandler, ERROR:", err);
-            sweetErrorHandling(err).then();
-        }
-    };
+        };
 
     const processOrderHandler = async (event: any) => {
         try {
@@ -110,7 +129,7 @@ export default function PausedOrders(props: any) {
                                     </Box>
                                     <Button
                                         value={order._id}
-                                        onClick={deleteOrderHandler}
+                                        onClick={finishOrderHandler}
                                         variant="contained"
                                         style={{borderRadius: "10px", background: "red"}}
                                     >

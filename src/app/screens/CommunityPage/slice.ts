@@ -1,3 +1,4 @@
+// Slice,  Redux ga ma'umot yozadi
 import {createSlice} from "@reduxjs/toolkit";
 import {CommunityPageState} from "../../../types/screen";
 

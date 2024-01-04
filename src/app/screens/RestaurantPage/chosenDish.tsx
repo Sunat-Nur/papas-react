@@ -88,7 +88,6 @@ export function ChosenDish(props: any) {
     const targetLikeProduct = async (e: any) => {
         try {
             assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
-
             const memberService = new MemberApiService();
             const like_result: any = await memberService.memberLikeTarget({
                 like_ref_id: e.target.id,
@@ -105,26 +104,20 @@ export function ChosenDish(props: any) {
 
     return (
         <div className="chosen_dish_page">
-            <Container className="dish_container"
-                       sx={{display: "flex"}}
-            >
+            <Container className="dish_container" sx={{display: "flex"}}>
                 <Stack className="chosen_dish_slider">
                     <Swiper
                         className="dish_swiper"
                         loop={true}
                         spaceBetween={10}
                         navigation={true}
-
                         modules={[FreeMode, Navigation, Thumbs]}
                     >
                         {chosenProduct?.product_images.map((ele: string) => {
                             const image_path = `${serverApi}/${ele}`
                             return (
                                 <SwiperSlide>
-                                    <img
-                                        style={{width: "100%", height: "100%"}}
-                                        src={image_path}
-                                    />
+                                    <img style={{width: "100%", height: "100%"}} src={image_path}/>
                                 </SwiperSlide>
                             );
                         })}
@@ -144,9 +137,7 @@ export function ChosenDish(props: any) {
                         {chosenProduct?.product_images.map((ele: string) => {
                             const image_path = `${serverApi}/${ele}`
                             return (
-                                <SwiperSlide
-                                    style={{height: "107px", display: "flex",}}
-                                >
+                                <SwiperSlide style={{height: "107px", display: "flex"}}>
                                     <img style={{width: "100%", height: "100%"}} src={image_path}/>
                                 </SwiperSlide>
                             );
@@ -160,9 +151,7 @@ export function ChosenDish(props: any) {
                         <Box className={"rating_box"}>
                             <Rating name="half_rating" defaultValue={3.5} precision={0.5} style={{fontSize: "30px"}}/>
                             <div className={"evaluation_box"}>
-                                <div
-                                    style={{display: "flex", alignItems: "center", marginRight: "20px",}}
-                                >
+                                <div style={{display: "flex", alignItems: "center", marginRight: "20px",}}>
                                     <Checkbox
                                         {...label}
                                         icon={<FavoriteBorder/>}

@@ -171,7 +171,6 @@ export function OneRestaurants(props: any) {
                             </Box>
                         </Box>
                     </Stack>
-
                     <Stack
                         style={{width: "100%", display: "flex"}}
                         flexDirection={"row"}
@@ -179,10 +178,7 @@ export function OneRestaurants(props: any) {
                     >
                         <Box
                             className={"prev_btn restaurant-prev"}>
-                            <ArrowBackIosNewIcon
-                                sx={{fontSize: 40}}
-                                style={{color: "white"}}
-                            />
+                            <ArrowBackIosNewIcon sx={{fontSize: 40}} style={{color: "white"}}/>
                         </Box>
                         <Swiper
                             className={"restaurant_avatars_wrapper"}
@@ -209,10 +205,7 @@ export function OneRestaurants(props: any) {
                                 );
                             })}
                         </Swiper>
-                        <Box
-                            className={"next_btn restaurant-next"}
-                            style={{color: "white"}}
-                        >
+                        <Box className={"next_btn restaurant-next"} style={{color: "white"}}>
                             <ArrowForwardIosIcon sx={{fontSize: 40}}/>
                         </Box>
                     </Stack>
@@ -299,7 +292,6 @@ export function OneRestaurants(props: any) {
                                 </Button>
                             </div>
                         </Stack>
-
                         <Stack className={"dish_wrapper"}>
                             {targetProducts.map((product: Product, index) => {
                                 const image_path = `${serverApi}/${product.product_images[0]}`
@@ -313,11 +305,7 @@ export function OneRestaurants(props: any) {
                                         onClick={() => chosenDishHandler(product._id)}
                                         className={"dish_box"} key={product._id}
                                     >
-                                        <Box className={"dish_img"}
-                                             sx={{
-                                                 backgroundImage: `url(${image_path})`,
-                                             }}
-                                        >
+                                        <Box className={"dish_img"} sx={{backgroundImage: `url(${image_path})`}}>
                                             <div className={"dish_sale"}>{size_volume}</div>
                                             <Button
                                                 className={"like_view_btn"}
@@ -347,10 +335,7 @@ export function OneRestaurants(props: any) {
                                                         e.stopPropagation();
                                                     }}
                                             >
-                                                <img
-                                                    src={"/icons/shopping_cart.svg"}
-                                                    style={{display: "flex"}}
-                                                />
+                                                <img src={"/icons/shopping_cart.svg"} style={{display: "flex"}}/>
                                             </Button>
                                             <Button
                                                 className={"like_view_btn"}
@@ -358,9 +343,7 @@ export function OneRestaurants(props: any) {
                                             >
                                                 <Badge badgeContent={product.product_views} color="primary">
                                                     <Checkbox
-                                                        icon={
-                                                            <RemoveRedEyeIcon style={{color: "white"}}/>
-                                                        }
+                                                        icon={<RemoveRedEyeIcon style={{color: "white"}}/>}
                                                     />
                                                 </Badge>
                                             </Button>
@@ -378,7 +361,6 @@ export function OneRestaurants(props: any) {
                     </Stack>
                 </Stack>
             </Container>
-
             <div className={"review_for_restaurant"}>
                 <Container
                     sx={{mt: "100px"}}
@@ -399,10 +381,7 @@ export function OneRestaurants(props: any) {
                             return (
                                 <Box className={"review_box"} key={index}>
                                     <Box display={"flex"} justifyContent={"center"}>
-                                        <img
-                                            src={"/community/sunat_nur.png"}
-                                            className={"review_img"}
-                                        />
+                                        <img src={"/community/sunat_nur.png"} className={"review_img"}/>
                                     </Box>
 
                                     <span className={"review_user"}>Sunat_Nur</span>
@@ -425,7 +404,6 @@ export function OneRestaurants(props: any) {
 
                 </Container>
             </div>
-
             <Container className="member_reviews">
                 <Box className={"category_title"}>Oshxona haqida</Box>
                 <Stack
@@ -436,10 +414,7 @@ export function OneRestaurants(props: any) {
                 >
                     <Box
                         className={"about_left"}
-                        sx={{
-                            backgroundImage: `url(${serverApi}/${chosenRestaurant?.mb_image})`,
-                        }}
-                    >
+                        sx={{backgroundImage: `url(${serverApi}/${chosenRestaurant?.mb_image})`,}}>
                         <div className={"about_left_desc"}>
                             <span>{chosenRestaurant?.mb_nick}</span>
                             <p>{chosenRestaurant?.mb_description}</p>
@@ -461,15 +436,9 @@ export function OneRestaurants(props: any) {
                         })}
                     </Box>
                 </Stack>
-
-
                 <Stack
                     sx={{mt: "60px"}}
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                    }}
+                    style={{display: "flex", flexDirection: "column", alignItems: "center",}}
                 >
                     <Box className={"category_title"}>Oshxona Manzili</Box>
                     <iframe
@@ -478,7 +447,6 @@ export function OneRestaurants(props: any) {
                         width="1320"
                         height="500"
                     ></iframe>
-
                 </Stack>
             </Container>
         </div>

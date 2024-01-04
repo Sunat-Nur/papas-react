@@ -50,14 +50,10 @@ export function BestDishes() {
     return (
         <div className="best_dishes_frame">
             <Container>
-                <Stack
-                    flexDirection={"column"}
-                    alignItems={'center'}
-                >
+                <Stack flexDirection={"column"} alignItems={'center'}>
                     <Box className={'category_title'}>Trendagi Ovqatlar</Box>
                     <Stack sx={{mt: "43px"}} flexDirection={"row"}>
                         {trendProducts.map((product: Product) => {
-
                             const image_path = `${serverApi}/${product.product_images[0]}`
                             // product sizelar un teorema.
                             const size_volume = product.product_collection === 'drink'
@@ -66,20 +62,11 @@ export function BestDishes() {
 
                             return (
                                 <Box className="dish_box">
-                                    <Stack className="dish_img"
-                                           sx={{
-                                               backgroundImage: `url(${image_path})`,
-                                           }}
-                                    >
+                                    <Stack className="dish_img" sx={{backgroundImage: `url(${image_path})`}}>
                                         <div className={"dish_sale"}>{size_volume}</div>
                                         <div className={"view_btn"}>
-                                            <div onClick={() => chosenDishHandler(product._id)}>
-                                                Batafsil ko'rinish
-                                            </div>
-                                            <img
-                                                src={"/icons/Arrow8.svg"}
-                                                style={{marginLeft: "9px"}}
-                                            />
+                                            <div onClick={() => chosenDishHandler(product._id)}>Batafsil ko'rinish</div>
+                                            <img src={"/icons/Arrow8.svg"} style={{marginLeft: "9px"}}/>
                                         </div>
                                     </Stack>
                                     <Stack className={"dish_desc"}>
@@ -92,7 +79,6 @@ export function BestDishes() {
                                 </Box>
                             )
                         })}
-
                     </Stack>
                 </Stack>
             </Container>
