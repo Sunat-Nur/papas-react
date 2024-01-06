@@ -6,15 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/apiServices/communityApiService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/apiServices/communityApiService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/apiServices/memberApiService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/apiServices/memberApiService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/tuiEditor/TViewer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/tuiEditor/TViewer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitMyPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitMyPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/selector.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/selector.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/boArticle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/boArticle.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
