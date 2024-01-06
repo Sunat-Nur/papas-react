@@ -55,7 +55,7 @@ class MemberApiService {
         }
     };
 
-    public async logOutRequest(): Promise <Boolean> {
+    public async logOutRequest(): Promise<Boolean> {
         try {
             const result = await axios.get(this.path + "/logout", {
                 withCredentials: true, //withCredentialsni true qilishimiz sababi cookielarni oldi berdisi bn bog'liqdir.
@@ -92,6 +92,28 @@ class MemberApiService {
             throw err;
         }
     };
+
+
+    async getChosenMember(id: string): Promise<Member> {
+        try {
+            const url = `/member/${id}`,
+                result = await axios.get(this.path + url, {
+                    withCredentials: true,
+                });
+
+            assert.ok(result?.data, Definer.general_err1);
+            assert.ok(result?.data.state !== "fail", Definer.general_err1);
+            console.log("state:::", result.data.state);
+
+            const member: Member = result.data.data;
+            return member;
+        } catch (err: any) {
+            console.log(`ERROR ::: getChosenMember ${err.message}`);
+            throw err;
+        }
+    };
+
+
 }
 
 export default MemberApiService;

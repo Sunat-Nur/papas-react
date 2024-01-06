@@ -31,8 +31,12 @@ const followers = [
 
 export function MemberFollowers(props: any) {
     /** INITIALIZATIONS **/
-    const { setMemberFollowers,  } = actionDispatch(useDispatch());
-    const { memberFollowers } = useSelector(memberFollowersRetriever);
+    const {setMemberFollowers,} = actionDispatch(useDispatch());
+    const {memberFollowers} = useSelector(memberFollowersRetriever);
+
+    /** HANDLERS */
+    // todo: setMemberFollower
+    // todo: subs Handler
     return (
         <div className={"my_followers_page"}>
             <Stack>
@@ -54,17 +58,17 @@ export function MemberFollowers(props: any) {
                                     <span className={"username_text"}>@mitti_vine</span>
                                     <span className={"name_text"}>Ulug'bek</span>
                                 </div>
-                                <Stack className={"button_follow"} >
+                                <Stack className={"button_follow"}>
                                     {props.actions_enabled &&
                                         (follower.following ? (
                                             <Button className={"following_already"}
-                                                style={{
-                                                    background: "#68C5CB",
-                                                    color: "#ffffff",
-                                                    borderRadius: "50px",
-                                                    marginTop: "18px",
-                                                    width: "160px",
-                                                }}
+                                                    style={{
+                                                        background: "#68C5CB",
+                                                        color: "#ffffff",
+                                                        borderRadius: "50px",
+                                                        marginTop: "18px",
+                                                        width: "160px",
+                                                    }}
                                             >
                                                 <span>Following</span>
                                             </Button>

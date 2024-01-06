@@ -1,7 +1,6 @@
 import { createSelector } from "reselect";
 import { AppRootState } from "../../../types/screen";
 
-
 const selectMemberPage = (state: AppRootState) => state.memberPage;
 
 export const retrieveChosenMember = createSelector(

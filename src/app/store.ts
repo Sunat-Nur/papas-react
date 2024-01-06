@@ -17,7 +17,6 @@ export const store = configureStore({
     ordersPage: OrdersPagesReducer,
     communityPage: CommunityPageReducer,
     memberPageState: MemberPageReducer,
-
   },
 });
 

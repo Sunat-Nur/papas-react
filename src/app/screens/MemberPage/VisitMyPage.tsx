@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import TabPanel from "@mui/lab/TabPanel";
 import TabContext from "@mui/lab/TabContext";
@@ -24,10 +24,12 @@ import {Dispatch} from "@reduxjs/toolkit";
 import {Member} from "../../../types/user";
 import {setChosenMember, setChosenMemberBoArticles, setChosenSingleBoArticles} from "./slice";
 import {retrieveChosenMember, retrieveChosenMemberBoArticles, retrieveChosenSingleBoArticles} from "./selector";
-import {BoArticle} from "../../../types/boArticle";
+import {BoArticle, SearchMemberArticlesObj} from "../../../types/boArticle";
 import {createSelector} from "reselect";
 import {useDispatch, useSelector} from "react-redux";
-
+import {sweetErrorHandling, sweetFailureProvider} from "../../../lib/sweetAlert";
+import CommunityApiService from "../../apiServices/communityApiService";
+import MemberApiService from "../../apiServices/memberApiService";
 
 
 /** REDUX SLICE */
@@ -39,65 +41,97 @@ const actionDispatch = (dispatch: Dispatch) => ({
         dispatch(setChosenSingleBoArticles(data)),
 });
 /** REDUX SELECTOR **/
-// const chosenMemberRetriever = createSelector(
-//     retrieveChosenMember,
-//     (chosenMember) => ({
-//         chosenMember,
-//     })
-// );
-// const chosenMemberBoArticlesRetriever = createSelector(
-//     retrieveChosenMemberBoArticles,
-//     (chosenMemberBoArticles) => ({
-//         chosenMemberBoArticles,
-//     })
-// );
-// const chosenSingleBoArticleRetriever = createSelector(
-//     retrieveChosenSingleBoArticles,
-//     (chosenSingleBoArticle) => ({
-//         chosenSingleBoArticle,
-//     })
-// );
-
-const MemberRetriever = createSelector(
+const chosenMemberRetriever = createSelector(
     retrieveChosenMember,
-    retrieveChosenMemberBoArticles,
-    retrieveChosenSingleBoArticles,
-    (chosenMember, chosenMemberBoArticles, chosenSingleBoArticle) => ({
+    (chosenMember) => ({
         chosenMember,
+    })
+);
+const chosenMemberBoArticlesRetriever = createSelector(
+    retrieveChosenMemberBoArticles,
+    (chosenMemberBoArticles) => ({
         chosenMemberBoArticles,
+    })
+);
+const chosenSingleBoArticleRetriever = createSelector(
+    retrieveChosenSingleBoArticles,
+    (chosenSingleBoArticle) => ({
         chosenSingleBoArticle,
     })
 );
 
-
 export function VisitMyPage(props: any) {
     /** INITIALIZATIONS */
+    const {verifiedMemberData} = props;
     const {
         setChosenMember,
         setChosenMemberBoArticles,
         setChosenSingleBoArticle,
     } = actionDispatch(useDispatch());
 
-    // const { chosenMember } = useSelector(chosenMemberRetriever);
-    // const { chosenMemberBoArticles } = useSelector(chosenMemberBoArticlesRetriever);
-    // const { chosenSingleBoArticle } = useSelector(chosenSingleBoArticleRetriever);
+    const {chosenMember} = useSelector(chosenMemberRetriever);
+    const {chosenSingleBoArticle} = useSelector(chosenSingleBoArticleRetriever);
+    const {chosenMemberBoArticles} = useSelector(chosenMemberBoArticlesRetriever);
     const [value, setValue] = useState("1");
+    const [articlesRebuild, setArticlesRebuild] = useState<Date>(new Date());
+    const [memberArticleSearchObj, setMemberArticleSearchObj] =
+        useState<SearchMemberArticlesObj>({mb_id: "none", page: 1, limit: 5});
+
+    useEffect(() => {
+        if (!localStorage.getItem("member_data")) {
+            sweetFailureProvider("Please login first", true, true);
+        }
+
+        const communityService = new CommunityApiService();
+        communityService.getMemberCommunityArticles(memberArticleSearchObj)
+            .then(data => setChosenMemberBoArticles(data))
+            .catch((err) => console.log(err));
+
+        const memberService = new MemberApiService();
+        memberService.getChosenMember(verifiedMemberData?._id)
+            .then((data) => setChosenMember(data))
+            .catch((err) => console.log(err));
+
+    }, [memberArticleSearchObj, articlesRebuild]);
 
     /** HANDLERS */
     const handleChange = (event: any, newValue: string) => {
         setValue(newValue);
     };
+    const handlePaginationChange = (event: any, value: number) => {
+        memberArticleSearchObj.page = value
+        setMemberArticleSearchObj({...memberArticleSearchObj});
+    };
+
+    const renderChosenArticleHandler = async (art_id: string) => {
+        try {
+            const communityService = new CommunityApiService()
+            communityService.getChosenArticle(art_id)
+                .then((data) => setChosenSingleBoArticle(data))
+                .catch((err) => console.log(err));
+
+        } catch (err: any) {
+            console.log(err);
+            sweetErrorHandling(err).then()
+        }
+    }
+
+
     return (
         <div className={"my_page"}>
             <Container maxWidth="lg" sx={{mt: "50px", mb: "50px",}}>
-                <Stack className={"my_page_frame"} sx={{flexDirection: "row"}} >
+                <Stack className={"my_page_frame"} sx={{flexDirection: "row"}}>
                     <TabContext value={value}>
                         <Stack className={"my_page_left"}>
                             <Box display={"flex"} flexDirection={"column"}>
                                 <TabPanel value={"1"}>
                                     <Box className={"menu_name"}>Contents</Box>
                                     <Box className={"menu_content"}>
-                                        <MemberPosts/>
+                                        <MemberPosts
+                                            chosenMemberBoArticles={chosenMemberBoArticles}
+                                            renderChosenArticleHandler={renderChosenArticleHandler}
+                                            setArticlesRebuild={setArticlesRebuild}
+                                        />
                                         <Stack
                                             sx={{my: "40px"}}
                                             direction="row"
@@ -118,6 +152,7 @@ export function VisitMyPage(props: any) {
                                                             color={"secondary"}
                                                         />
                                                     )}
+                                                    onChange={handlePaginationChange}
                                                 />
                                             </Box>
                                         </Stack>
@@ -202,7 +237,7 @@ export function VisitMyPage(props: any) {
                                             style={{flexDirection: "column"}}
                                             value={"4"}
                                             component={(e) => (
-                                                <Button variant={"contained"} onClick={() => setValue("4")} >
+                                                <Button variant={"contained"} onClick={() => setValue("4")}>
                                                     Maqola Yozish
                                                 </Button>
                                             )}
@@ -211,15 +246,15 @@ export function VisitMyPage(props: any) {
                                 </Box>
                             </Box>
                             <Box className={"my_page_menu"}
-                                 sx={{ flexDirection: "column"}}
+                                 sx={{flexDirection: "column"}}
                             >
-                                <TabList onChange={handleChange}  aria-label="lab API tabs example" >
-                                    <Stack flexDirection={"column"} >
+                                <TabList onChange={handleChange} aria-label="lab API tabs example">
+                                    <Stack flexDirection={"column"}>
                                         <Tab
                                             style={{flexDirection: "column",}}
                                             value={"1"}
                                             component={() => (
-                                                <div className={`menu_box ${value}`}  onClick={() => setValue("1")} >
+                                                <div className={`menu_box ${value}`} onClick={() => setValue("1")}>
                                                     <img src={"/icons/Pencil.svg"} alt=""/>
                                                     <span>My Contents</span>
                                                 </div>
@@ -229,7 +264,7 @@ export function VisitMyPage(props: any) {
                                             style={{flexDirection: "column",}}
                                             value={"2"}
                                             component={() => (
-                                                <div className={`menu_box ${value}`}  onClick={() => setValue("2")} >
+                                                <div className={`menu_box ${value}`} onClick={() => setValue("2")}>
                                                     <img src={"/icons/Group.svg"} alt=""/>
                                                     <span>Follower</span>
                                                 </div>
@@ -239,7 +274,7 @@ export function VisitMyPage(props: any) {
                                             style={{flexDirection: "column",}}
                                             value={"3"}
                                             component={() => (
-                                                <div className={`menu_box ${value}`} onClick={() => setValue("3")} >
+                                                <div className={`menu_box ${value}`} onClick={() => setValue("3")}>
                                                     <img src={"/icons/user.svg"} alt=""/>
                                                     <span>Following</span>
                                                 </div>
