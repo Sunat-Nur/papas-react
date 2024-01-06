@@ -49,13 +49,15 @@ export function CommunityPage(props: any) {
         limit: 5
     });
 
+    const [articlesRebuild, setArticlesRebuild] = useState<Date>(new Date());
+
     useEffect(() => {
         const communityService = new CommunityApiService();
         communityService
             .getTargetArticles(searchArticlesObj)
             .then((data) => setTargetBoArticles(data))
             .catch((err) => console.log(err));
-    }, [searchArticlesObj]);
+    }, [searchArticlesObj, articlesRebuild]);
 
 
     /** HANDLERS **/
@@ -82,7 +84,7 @@ export function CommunityPage(props: any) {
 
     const handlePaginationChange = (event: any, value: number) => {
         searchArticlesObj.page = value;
-        setSearchArticlesObj({...searchArticlesObj });
+        setSearchArticlesObj({...searchArticlesObj});
     };
 
     return (
@@ -114,16 +116,28 @@ export function CommunityPage(props: any) {
                                 </Box>
                                 <Box className={"article_main"}>
                                     <TabPanel value={"1"}>
-                                        <TargetArticles targetBoArticle={targetBoArticles}/>
+                                        <TargetArticles
+                                            targetBoArticle={targetBoArticles}
+                                            setArticlesRebuild={setArticlesRebuild}
+                                        />
                                     </TabPanel>
                                     <TabPanel value={"2"}>
-                                        <TargetArticles targetBoArticle={targetBoArticles}/>
+                                        <TargetArticles
+                                            targetBoArticle={targetBoArticles}
+                                            setArticlesRebuild={setArticlesRebuild}
+                                        />
                                     </TabPanel>
                                     <TabPanel value={"3"}>
-                                        <TargetArticles targetBoArticle={targetBoArticles}/>
+                                        <TargetArticles
+                                            targetBoArticle={targetBoArticles}
+                                            setArticlesRebuild={setArticlesRebuild}
+                                        />
                                     </TabPanel>
                                     <TabPanel value={"4"}>
-                                        <TargetArticles targetBoArticle={targetBoArticles}/>
+                                        <TargetArticles
+                                            targetBoArticle={targetBoArticles}
+                                            setArticlesRebuild={setArticlesRebuild}
+                                        />
                                     </TabPanel>
                                 </Box>
 

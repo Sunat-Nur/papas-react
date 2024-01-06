@@ -7,9 +7,33 @@ import {serverApi} from "../../../lib/Config";
 import moment from "moment";
 import Checkbox from "@mui/material/Checkbox";
 import {Favorite} from "@mui/icons-material";
-
+import {Definer} from "../../../lib/Definer";
+import assert from "assert";
+import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetAlert";
+import MemberApiService from "../../apiServices/memberApiService";
 
 export function TargetArticles(props: any) {
+    const {setArticlesRebuild} = props;
+
+    /** HANDLERS **/
+    const targetLikeHandler = async (e: any) => {
+        try {
+            assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
+
+            const memberService = new MemberApiService();
+            const like_result = await memberService.memberLikeTarget({
+                like_ref_id: e.target.id,
+                group_type: "community"
+            });
+            assert.ok(like_result, Definer.general_err1);
+            await sweetTopSmallSuccessAlert("success", 700, false);
+            setArticlesRebuild(new Date); // yuqoridagi props dan qiymat kelyabdi
+        } catch (err: any) {
+            console.log(err);
+            sweetErrorHandling(err).then();
+        }
+    };
+
     return (
         <Stack>
             {props.targetBoArticles?.map((article: BoArticle) => {
@@ -50,7 +74,12 @@ export function TargetArticles(props: any) {
                                             icon={<FavoriteBorder/>}
                                             checkedIcon={<Favorite style={{color: "red"}}/>}
                                             id={article?._id}
-                                            checked={false}
+                                            onClick={targetLikeHandler}
+                                            checked={
+                                                article?.me_liked && article.me_liked[0]?.my_favorite
+                                                    ? true
+                                                    : false
+                                            }
                                         />
                                         <span style={{margin: "0px 25px 0px 10px"}}>{article?.art_likes}</span>
                                         <RemoveRedEyeIcon/>

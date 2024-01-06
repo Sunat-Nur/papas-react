@@ -7,6 +7,7 @@
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/CommunityPage/targetArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/CommunityPage/targetArticles.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
