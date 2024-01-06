@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import "../../../css/order.css"
 import {Box, Container, Stack} from "@mui/material";
 import Pagination from "@mui/material/Pagination";
@@ -35,6 +35,7 @@ const targetBoArticlesRetriever = createSelector(
         targetBoArticles,
     })
 );
+
 
 export function CommunityPage(props: any) {
     /** Initializations **/
@@ -82,8 +83,8 @@ export function CommunityPage(props: any) {
     };
 
 
-    const handlePaginationChange = (event: any, value: number) => {
-        searchArticlesObj.page = value;
+    const handlePaginationChange = (event: ChangeEvent<unknown>, page: number) => {
+        searchArticlesObj.page = page;
         setSearchArticlesObj({...searchArticlesObj});
     };
 
@@ -102,7 +103,6 @@ export function CommunityPage(props: any) {
                                 <Box className={"article_tabs"}>
                                     <Box sx={{borderBottom: 1, borderColor: "divider"}}>
                                         <TabList
-                                            // value={value}
                                             onChange={handleChange}
                                             aria-label="lab API tabs example"
                                             style={{borderColor: "blue"}}
@@ -117,25 +117,25 @@ export function CommunityPage(props: any) {
                                 <Box className={"article_main"}>
                                     <TabPanel value={"1"}>
                                         <TargetArticles
-                                            targetBoArticle={targetBoArticles}
+                                            targetBoArticles={targetBoArticles}
                                             setArticlesRebuild={setArticlesRebuild}
                                         />
                                     </TabPanel>
                                     <TabPanel value={"2"}>
                                         <TargetArticles
-                                            targetBoArticle={targetBoArticles}
+                                            targetBoArticles={targetBoArticles}
                                             setArticlesRebuild={setArticlesRebuild}
                                         />
                                     </TabPanel>
                                     <TabPanel value={"3"}>
                                         <TargetArticles
-                                            targetBoArticle={targetBoArticles}
+                                            targetBoArticles={targetBoArticles}
                                             setArticlesRebuild={setArticlesRebuild}
                                         />
                                     </TabPanel>
                                     <TabPanel value={"4"}>
                                         <TargetArticles
-                                            targetBoArticle={targetBoArticles}
+                                            targetBoArticles={targetBoArticles}
                                             setArticlesRebuild={setArticlesRebuild}
                                         />
                                     </TabPanel>
