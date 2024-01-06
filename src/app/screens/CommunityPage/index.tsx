@@ -81,8 +81,7 @@ export function CommunityPage(props: any) {
 
 
     const handlePaginationChange = (event: any, value: number) => {
-        // @ts-ignore
-        setSearchArticlesObj.page = value;
+        searchArticlesObj.page = value;
         setSearchArticlesObj({...searchArticlesObj });
     };
 
