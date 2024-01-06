@@ -39,21 +39,32 @@ const actionDispatch = (dispatch: Dispatch) => ({
         dispatch(setChosenSingleBoArticles(data)),
 });
 /** REDUX SELECTOR **/
-const chosenMemberRetriever = createSelector(
+// const chosenMemberRetriever = createSelector(
+//     retrieveChosenMember,
+//     (chosenMember) => ({
+//         chosenMember,
+//     })
+// );
+// const chosenMemberBoArticlesRetriever = createSelector(
+//     retrieveChosenMemberBoArticles,
+//     (chosenMemberBoArticles) => ({
+//         chosenMemberBoArticles,
+//     })
+// );
+// const chosenSingleBoArticleRetriever = createSelector(
+//     retrieveChosenSingleBoArticles,
+//     (chosenSingleBoArticle) => ({
+//         chosenSingleBoArticle,
+//     })
+// );
+
+const MemberRetriever = createSelector(
     retrieveChosenMember,
-    (chosenMember) => ({
-        chosenMember,
-    })
-);
-const chosenMemberBoArticlesRetriever = createSelector(
     retrieveChosenMemberBoArticles,
-    (chosenMemberBoArticles) => ({
-        chosenMemberBoArticles,
-    })
-);
-const chosenSingleBoArticleRetriever = createSelector(
     retrieveChosenSingleBoArticles,
-    (chosenSingleBoArticle) => ({
+    (chosenMember, chosenMemberBoArticles, chosenSingleBoArticle) => ({
+        chosenMember,
+        chosenMemberBoArticles,
         chosenSingleBoArticle,
     })
 );
@@ -66,10 +77,11 @@ export function VisitMyPage(props: any) {
         setChosenMemberBoArticles,
         setChosenSingleBoArticle,
     } = actionDispatch(useDispatch());
-    const { chosenMember } = useSelector(chosenMemberRetriever);
-    const { chosenMemberBoArticles } = useSelector(chosenMemberBoArticlesRetriever);
-    const { chosenSingleBoArticle } = useSelector(chosenSingleBoArticleRetriever);
-    const [value, setValue] = React.useState("1");
+
+    // const { chosenMember } = useSelector(chosenMemberRetriever);
+    // const { chosenMemberBoArticles } = useSelector(chosenMemberBoArticlesRetriever);
+    // const { chosenSingleBoArticle } = useSelector(chosenSingleBoArticleRetriever);
+    const [value, setValue] = useState("1");
 
     /** HANDLERS */
     const handleChange = (event: any, newValue: string) => {
@@ -180,11 +192,10 @@ export function VisitMyPage(props: any) {
                                     <p>Followers: 2</p>
                                     <p>Followings: 2</p>
                                 </Box>
-                                <p className={"user_desc"}>qushimcha ma'lumotlar mavjud emas</p>
+                                {/*<p className={"user_desc"}>qushimcha ma'lumotlar mavjud emas</p>*/}
                                 <Box
                                     display={"flex"}
                                     justifyContent={"flex-end"}
-                                    sx={{mb: "10px"}}
                                 >
                                     <TabList onChange={handleChange} aria-label="lab API tabs example">
                                         <Tab

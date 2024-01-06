@@ -150,6 +150,7 @@
 }
 
 .my_page_right .order_info_box {
+    height: auto;
     justify-content: space-between;
     position: relative;
     flex-direction: column;
