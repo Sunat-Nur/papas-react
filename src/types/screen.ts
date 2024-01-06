@@ -4,8 +4,9 @@
 
 import { BoArticle } from "./boArticle";
 import { Product } from "./product";
-import { Restaurant } from "./user";
+import {Member, Restaurant} from "./user";
 import {Order} from "./order";
+import {Follower, Following} from "./follow";
 
 
 /** REACT app state **/
@@ -14,6 +15,7 @@ export interface AppRootState {  // app dagi barcha interfacelarni integratsiya 
     restaurantPage: RestaurantPageState;
     ordersPage: OrdersPageState;
     communityPage: CommunityPageState;
+    memberPage: MemberPageState;
 }
 
 /** homePage  **/
@@ -46,6 +48,15 @@ export interface OrdersPageState{
 
 /** community page **/
 export interface CommunityPageState{
-    targetBoArticles: BoArticle[]
+    targetBoArticles: BoArticle[];
 
+}
+
+/** Member page **/
+export interface MemberPageState {
+    chosenMember: Member | null;
+    chosenMemberBoArticles: BoArticle[];
+    chosenSingleBoArticles: BoArticle | null;
+    memberFollowers: Follower[];
+    memberFollowings: Following[];
 }

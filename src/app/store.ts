@@ -3,7 +3,8 @@ import HomePageReducer from './screens/Homepage/slice';
 import reduxLogger from "redux-logger";
 import RestaurantPageReducer from "./screens/RestaurantPage/slice";
 import OrdersPagesReducer from "./screens/OrdersPage/slice";
-import CommunityPageReducer from "./screens/CommunityPage/slice"; // redux-logger ni vazifasi log qilib berish
+import CommunityPageReducer from "./screens/CommunityPage/slice";
+import {MemberPageReducer} from "./screens/MemberPage/slice";
 // redux da  ma'lumotlar oqimini shakilantirib beradi, redux-storage dagi ma'lumotlar o'zgarishini ko'rsatib beradi
 
 
@@ -15,6 +16,8 @@ export const store = configureStore({
     restaurantPage: RestaurantPageReducer,
     ordersPage: OrdersPagesReducer,
     communityPage: CommunityPageReducer,
+    memberPageState: MemberPageReducer,
+
   },
 });
 

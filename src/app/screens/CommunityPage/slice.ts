@@ -8,7 +8,7 @@ const initialState: CommunityPageState = {  // initialState i CommunityPageState
 };
 
 //communityPageSlice ni hosil qilishda createSlice dan foydalanyabman
-const communityPageSlice = createSlice({ // creatSlice ni ichiga object ni path qilyabman
+const CommunityPageSlice = createSlice({ // creatSlice ni ichiga object ni path qilyabman
     name: "communityPage", // object ni elemetlari sifadida name ini communityPage dab belgilayabman
     initialState,  //      initialStaten ni kirityabman
     reducers: {  // va reducer larni yaratib olyabman
@@ -20,9 +20,9 @@ const communityPageSlice = createSlice({ // creatSlice ni ichiga object ni path 
 
 
 // setTargetBoArticles ni communityPageSlice ni dagi actions dan qabul qilib olib olyabman va uni tashqarida ishlatish uchun export qilib olyabman
-export const { setTargetBoArticles} = communityPageSlice.actions;
+export const { setTargetBoArticles} = CommunityPageSlice.actions;
 
 
 // CommunityPageReducer ni communityPageSlice ichidagi reducer dan qabul qilib olyabman
-const CommunityPageReducer = communityPageSlice.reducer;
+const CommunityPageReducer = CommunityPageSlice.reducer;
 export default CommunityPageReducer;  // CommunityPageReducer ni export qilib olyabman
