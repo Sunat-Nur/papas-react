@@ -224,7 +224,7 @@ function App() {
                         setOrderRebuild={setOrderRebuild}
                     />
                 </Route>
-                <Route path="/mypage">
+                <Route path="/member-page">
                     < MemberPage verifiedMemberData={verifiedMemberData}/>
                 </Route>
                 <Route path="/help">

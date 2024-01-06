@@ -20,10 +20,10 @@ import {TViewer} from "../../components/tuiEditor/TViewer";
 /** Redux */
 import {Dispatch} from "@reduxjs/toolkit";
 import {Member} from "../../../types/user";
-import {setChosenMember, setChosenMemberBoArticles, setChosenSingleBoArticles} from "./slice";
+import {setChosenMember, setChosenMemberBoArticles, setChosenSingleBoArticle} from "./slice";
 import {BoArticle} from "../../../types/boArticle";
 import {createSelector} from "reselect";
-import {retrieveChosenMember, retrieveChosenMemberBoArticles, retrieveChosenSingleBoArticles} from "./selector";
+import {retrieveChosenMember, retrieveChosenMemberBoArticles, retrieveChosenSingleBoArticle} from "./selector";
 import {useDispatch, useSelector} from "react-redux";
 
 
@@ -34,7 +34,7 @@ const actionDispatch = (dispatch: Dispatch) => ({
     setChosenMemberBoArticles: (data: BoArticle[]) =>
         dispatch(setChosenMemberBoArticles(data)),
     setChosenSingleBoArticle: (data: BoArticle) =>
-        dispatch(setChosenSingleBoArticles(data)),
+        dispatch(setChosenSingleBoArticle(data)),
 });
 /** REDUX SELECTOR **/
 const chosenMemberRetriever = createSelector(
@@ -50,7 +50,7 @@ const chosenMemberBoArticlesRetriever = createSelector(
     })
 );
 const chosenSingleBoArticleRetriever = createSelector(
-    retrieveChosenSingleBoArticles,
+    retrieveChosenSingleBoArticle,
     (chosenSingleBoArticle) => ({
         chosenSingleBoArticle,
     })

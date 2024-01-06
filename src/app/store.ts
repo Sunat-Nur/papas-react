@@ -1,4 +1,4 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit';
 import HomePageReducer from './screens/Homepage/slice';
 import reduxLogger from "redux-logger";
 import RestaurantPageReducer from "./screens/RestaurantPage/slice";
@@ -9,15 +9,15 @@ import {MemberPageReducer} from "./screens/MemberPage/slice";
 
 
 export const store = configureStore({
-  // middleware da redux-loger ni yozib oldim
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(reduxLogger),
-  reducer: { // reducer bilan redux storage ni bog'layabmiz
-    homePage: HomePageReducer,
-    restaurantPage: RestaurantPageReducer,
-    ordersPage: OrdersPagesReducer,
-    communityPage: CommunityPageReducer,
-    memberPageState: MemberPageReducer,
-  },
+    // middleware da redux-loger ni yozib oldim
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(reduxLogger),
+    reducer: { // reducer bilan redux storage ni bog'layabmiz
+        homePage: HomePageReducer,
+        restaurantPage: RestaurantPageReducer,
+        ordersPage: OrdersPagesReducer,
+        communityPage: CommunityPageReducer,
+        memberPageState: MemberPageReducer,
+    },
 });
 
 export type AppDispatch = typeof store.dispatch;

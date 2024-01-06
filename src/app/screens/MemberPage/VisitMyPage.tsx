@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-
 import TabPanel from "@mui/lab/TabPanel";
 import TabContext from "@mui/lab/TabContext";
 import {Box, Container, Pagination, PaginationItem, Stack} from "@mui/material";
@@ -22,8 +21,8 @@ import {Button, Tab} from "@mui/material";
 /** Redux*/
 import {Dispatch} from "@reduxjs/toolkit";
 import {Member} from "../../../types/user";
-import {setChosenMember, setChosenMemberBoArticles, setChosenSingleBoArticles} from "./slice";
-import {retrieveChosenMember, retrieveChosenMemberBoArticles, retrieveChosenSingleBoArticles} from "./selector";
+import {setChosenMember, setChosenMemberBoArticles, setChosenSingleBoArticle} from "./slice";
+import {retrieveChosenMember, retrieveChosenMemberBoArticles, retrieveChosenSingleBoArticle} from "./selector";
 import {BoArticle, SearchMemberArticlesObj} from "../../../types/boArticle";
 import {createSelector} from "reselect";
 import {useDispatch, useSelector} from "react-redux";
@@ -38,7 +37,7 @@ const actionDispatch = (dispatch: Dispatch) => ({
     setChosenMemberBoArticles: (data: BoArticle[]) =>
         dispatch(setChosenMemberBoArticles(data)),
     setChosenSingleBoArticle: (data: BoArticle) =>
-        dispatch(setChosenSingleBoArticles(data)),
+        dispatch(setChosenSingleBoArticle(data)),
 });
 /** REDUX SELECTOR **/
 const chosenMemberRetriever = createSelector(
@@ -54,7 +53,7 @@ const chosenMemberBoArticlesRetriever = createSelector(
     })
 );
 const chosenSingleBoArticleRetriever = createSelector(
-    retrieveChosenSingleBoArticles,
+    retrieveChosenSingleBoArticle,
     (chosenSingleBoArticle) => ({
         chosenSingleBoArticle,
     })
@@ -74,6 +73,7 @@ export function VisitMyPage(props: any) {
     const {chosenMemberBoArticles} = useSelector(chosenMemberBoArticlesRetriever);
     const [value, setValue] = useState("1");
     const [articlesRebuild, setArticlesRebuild] = useState<Date>(new Date());
+    const [followRebuild, setFollowRebuild] = useState<boolean>(false);
     const [memberArticleSearchObj, setMemberArticleSearchObj] =
         useState<SearchMemberArticlesObj>({mb_id: "none", page: 1, limit: 5});
 
@@ -92,7 +92,7 @@ export function VisitMyPage(props: any) {
             .then((data) => setChosenMember(data))
             .catch((err) => console.log(err));
 
-    }, [memberArticleSearchObj, articlesRebuild]);
+    }, [memberArticleSearchObj, articlesRebuild, followRebuild]);
 
     /** HANDLERS */
     const handleChange = (event: any, newValue: string) => {
@@ -143,7 +143,7 @@ export function VisitMyPage(props: any) {
                                         >
                                             <Box className={"bottom_box"}>
                                                 <Pagination
-                                                    count={memberArticleSearchObj.limit}
+                                                    count={memberArticleSearchObj.page >= 3 ? memberArticleSearchObj.page + 1 : 3}
                                                     page={memberArticleSearchObj.page}
                                                     renderItem={(item) => (
                                                         <PaginationItem
@@ -164,13 +164,23 @@ export function VisitMyPage(props: any) {
                                 <TabPanel value={"2"}>
                                     <Box className={"menu_name"}>Followers</Box>
                                     <Box className={"menu_content"}>
-                                        <MemberFollowers actions_enabled={true}/>
+                                        <MemberFollowers
+                                            actions_enabled={true}
+                                            followRebuild={followRebuild}
+                                            setFollowRebuild={setFollowRebuild}
+                                            mb_id={props.verifiedMemberData?._id}
+                                        />
                                     </Box>
                                 </TabPanel>
                                 <TabPanel value={"3"}>
                                     <Box className={"menu_name"}>Following</Box>
                                     <Box className={"menu_content"}>
-                                        <MemberFollowing actions_enabled={true}/>
+                                        <MemberFollowing
+                                            actions_enabled={true}
+                                            followRebuild={followRebuild}
+                                            setFollowRebuild={setFollowRebuild}
+                                            mb_id={props.verifiedMemberData?._id}
+                                        />
                                     </Box>
                                 </TabPanel>
                                 <TabPanel value={"4"}>
@@ -182,7 +192,7 @@ export function VisitMyPage(props: any) {
                                 <TabPanel value={"5"}>
                                     <Box className={"menu_name"}>tanlangan maqola</Box>
                                     <Box className={"menu_content"}>
-                                        <TViewer chosenSingleBoArticle={chosenSingleBoArticle} />
+                                        <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>
                                     </Box>
                                 </TabPanel>
                                 <TabPanel value={"6"}>
@@ -205,13 +215,19 @@ export function VisitMyPage(props: any) {
                                 >
                                     <div className={"order_user_img"}>
                                         <img
-                                            src={"/community/sunat_nur.png"}
                                             className={"order_user_avatar"}
-                                        />
+                                            src={
 
+                                                // todo: should check here again
+
+                                                chosenMember?.mb_type === "RESTAURANT"
+                                                    ? '/icon/restaurant.svg'
+                                                    : '/icons/odamcha.svg'
+                                            }
+                                        />
                                     </div>
-                                    <span className={"order_user_name"}>sunat_nur</span>
-                                    <span className={"order_user_prof"}>USER</span>
+                                    <span className={"order_user_name"}>{chosenMember?.mb_nick}</span>
+                                    <span className={"order_user_prof"}>{chosenMember?.mb_type}</span>
                                 </Box>
                                 <Box className={"user_media_box"}
                                      sx={{
@@ -227,10 +243,12 @@ export function VisitMyPage(props: any) {
                                 <Box className={"user_media_box_follow"}
                                      sx={{flexDirection: "row"}}
                                 >
-                                    <p>Followers: 2</p>
-                                    <p>Followings: 2</p>
+                                    <p>Followers: {chosenMember?.mb_subscriber_cnt}</p>
+                                    <p>Followings: {chosenMember?.mb_follow_cnt}</p>
                                 </Box>
-                                {/*<p className={"user_desc"}>qushimcha ma'lumotlar mavjud emas</p>*/}
+                                <p className={"user_desc"}>
+                                    {chosenMember?.mb_description ??
+                                        "qushimcha ma'lumotlar mavjud emas"}</p>
                                 <Box
                                     display={"flex"}
                                     justifyContent={"flex-end"}
@@ -293,3 +311,5 @@ export function VisitMyPage(props: any) {
         </div>
     );
 }
+
+// todo: react-query ni mustaqil o'rganish

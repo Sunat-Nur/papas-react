@@ -1,12 +1,20 @@
-import {Button} from "@mui/material";
+import {Button, Pagination, PaginationItem} from "@mui/material";
 import {Avatar, Box} from "@mui/material";
 import {Stack} from "@mui/system";
 import {Dispatch} from "@reduxjs/toolkit";
-import {Follower} from "../../../types/follow";
+import {Follower, FollowSearchObj} from "../../../types/follow";
 import {setMemberFollowers} from "./slice";
 import {createSelector} from "reselect";
 import {retrieveMemberFollowers} from "./selector";
 import {useDispatch, useSelector} from "react-redux";
+import React, {useEffect, useState} from "react";
+import FollowApiService from "../../apiServices/followApiService";
+import {serverApi} from "../../../lib/Config";
+import {Definer} from "../../../lib/Definer";
+import assert from "assert";
+import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetAlert";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 /** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -22,26 +30,51 @@ const memberFollowersRetriever = createSelector(
     })
 );
 
-
-const followers = [
-    {mb_nick: "usman", following: true},
-    {mb_nick: "alen", following: false},
-    {mb_nick: "alex", following: true},
-];
-
 export function MemberFollowers(props: any) {
     /** INITIALIZATIONS **/
+    const {mb_id, followRebuild, setFollowRebuild} = props;
     const {setMemberFollowers,} = actionDispatch(useDispatch());
     const {memberFollowers} = useSelector(memberFollowersRetriever);
+    const [followersSearchObj, setFollowersSearchObj] = useState<FollowSearchObj>(
+        {page: 1, limit: 5, mb_id: mb_id}
+    );
+
+    useEffect(() => {
+        const followService = new FollowApiService();
+        followService.getMemberFollowers(followersSearchObj)
+            .then((data) => setMemberFollowers(data))
+            .catch((err) => console.log(err));
+    }, [followersSearchObj, followRebuild]);
 
     /** HANDLERS */
-    // todo: setMemberFollower
-    // todo: subs Handler
+    const handlePaginationChange = (event: any, value: number) => {
+        followersSearchObj.page = value
+        setFollowersSearchObj({...followersSearchObj});
+    };
+
+    const subscribeHandler = async (e: any, id: string) => {
+        try {
+            e.stopPropagation();
+            assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
+
+            const followService = new FollowApiService();
+            await followService.subscribe(id);
+
+            await sweetTopSmallSuccessAlert("subscribed successfully", 700, false);
+            setFollowRebuild(!followRebuild);
+        } catch (err: any) {
+            console.log(err);
+            sweetErrorHandling(err).then();
+        }
+    };
+
     return (
         <div className={"my_followers_page"}>
             <Stack>
-                {followers.map((follower) => {
-                    const image_url = "/community/mitti.jpeg";
+                {memberFollowers.map((follower: Follower) => {
+                    const image_url = follower?.subscriber_member_data?.mb_image
+                        ? `${serverApi}/${follower?.subscriber_member_data?.mb_image}`
+                        : "/auth/default_user.svg";
                     return (
                         <Box className={"follow_box"}>
                             <Stack flexDirection="row">
@@ -55,12 +88,12 @@ export function MemberFollowers(props: any) {
                                         height: "85%",
                                     }}
                                 >
-                                    <span className={"username_text"}>@mitti_vine</span>
-                                    <span className={"name_text"}>Ulug'bek</span>
+                                    <span className={"username_text"}>{follower?.subscriber_member_data?.mb_type}</span>
+                                    <span className={"name_text"}>{follower?.subscriber_member_data?.mb_nick}</span>
                                 </div>
                                 <Stack className={"button_follow"}>
                                     {props.actions_enabled &&
-                                        (follower.following ? (
+                                        (follower?.me_followed && follower.me_followed[0]?.my_following ? (
                                             <Button className={"following_already"}
                                                     style={{
                                                         background: "#68C5CB",
@@ -75,6 +108,7 @@ export function MemberFollowers(props: any) {
                                         ) : (
                                             <Button
                                                 className={"follow_back"}
+                                                onClick={(e) => subscribeHandler(e, follower?.subscriber_id)}
                                                 style={{
                                                     background: "#30945E",
                                                     borderRadius: "50px",
@@ -93,6 +127,30 @@ export function MemberFollowers(props: any) {
                         </Box>
                     );
                 })}
+                <Stack
+                    sx={{my: "40px"}}
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="center"
+                >
+                    <Box className={"bottom_box"}>
+                        <Pagination
+                            count={followersSearchObj.page >= 3 ? followersSearchObj.page + 1 : 3}
+                            page={followersSearchObj.page}
+                            renderItem={(item) => (
+                                <PaginationItem
+                                    components={{
+                                        previous: ArrowBackIcon,
+                                        next: ArrowForwardIcon,
+                                    }}
+                                    {...item}
+                                    color={"secondary"}
+                                />
+                            )}
+                            onChange={handlePaginationChange}
+                        />
+                    </Box>
+                </Stack>
             </Stack>
         </div>
     );

@@ -47,7 +47,7 @@ export function NavbarOthers(props: any) {
 
                     {props.verifiedMemberData ? (
                         <Box className="hover-line" onClick={props.setPath}>
-                            <NavLink to="/mypage" activeClassName="underline">
+                            <NavLink to="/member-page" activeClassName="underline">
                                 Sahifam
                             </NavLink>
                         </Box>

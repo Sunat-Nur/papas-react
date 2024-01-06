@@ -45,7 +45,6 @@ export interface OrdersPageState{
     finishedOrders: Order[];
 }
 
-
 /** community page **/
 export interface CommunityPageState{
     targetBoArticles: BoArticle[];
@@ -56,7 +55,7 @@ export interface CommunityPageState{
 export interface MemberPageState {
     chosenMember: Member | null;
     chosenMemberBoArticles: BoArticle[];
-    chosenSingleBoArticles: BoArticle | null;
+    chosenSingleBoArticle: BoArticle | null;
     memberFollowers: Follower[];
     memberFollowings: Following[];
 }

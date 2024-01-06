@@ -68,7 +68,6 @@ class CommunityApiService {
         }
     };
 
-
 }
 
 export default CommunityApiService;

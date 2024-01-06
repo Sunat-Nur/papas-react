@@ -5,10 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de3c9c5-d777-4679-95a1-af5529236930" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/apiServices/followApiService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/tuiEditor/TViewer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/tuiEditor/TViewer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/apiServices/communityApiService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/apiServices/communityApiService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/header/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/header/others.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/header/others.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/header/restaurant.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/header/restaurant.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitMyPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitMyPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberPosts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitOtherPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/VisitOtherPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/memberFollowing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/selector.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/selector.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/screens/MemberPage/slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/screens/MemberPage/slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/follow.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/follow.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/screen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/screen.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,27 +65,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;React Native.Unnamed (1).executor&quot;: &quot;Debug&quot;,
-    &quot;React Native.Unnamed.executor&quot;: &quot;Debug&quot;,
-    &quot;React Native.firstDebugging.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mac/Documents/papay-react&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/mac/Documents/papay-react/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "React Native.Unnamed (1).executor": "Debug",
+    "React Native.Unnamed.executor": "Debug",
+    "React Native.firstDebugging.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "/Users/mac/Documents/papay-react",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "editing.templates",
+    "ts.external.directory.path": "/Users/mac/Documents/papay-react/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/auth" />
