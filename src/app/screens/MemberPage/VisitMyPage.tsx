@@ -9,30 +9,72 @@ import {MemberFollowing} from "./memberFollowing";
 import {MySettings} from "./mySettings";
 import {TuiEditor} from "../../components/tuiEditor/TuiEditor";
 import {TViewer} from "../../components/tuiEditor/TViewer"
+/** others  */
 import SettingsIcon from "@mui/icons-material/Settings";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-//OTHERS
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import TabList from "@mui/lab/TabList";
 import {Button, Tab} from "@mui/material";
-import Marginer from "../../components/marginer";
+/** Redux*/
+import {Dispatch} from "@reduxjs/toolkit";
+import {Member} from "../../../types/user";
+import {setChosenMember, setChosenMemberBoArticles, setChosenSingleBoArticles} from "./slice";
+import {retrieveChosenMember, retrieveChosenMemberBoArticles, retrieveChosenSingleBoArticles} from "./selector";
+import {BoArticle} from "../../../types/boArticle";
+import {createSelector} from "reselect";
+import {useDispatch, useSelector} from "react-redux";
 
-// import {Viewer} from "@toast-ui/react-editor";
+
+
+/** REDUX SLICE */
+const actionDispatch = (dispatch: Dispatch) => ({
+    setChosenMember: (data: Member) => dispatch(setChosenMember(data)),
+    setChosenMemberBoArticles: (data: BoArticle[]) =>
+        dispatch(setChosenMemberBoArticles(data)),
+    setChosenSingleBoArticle: (data: BoArticle) =>
+        dispatch(setChosenSingleBoArticles(data)),
+});
+/** REDUX SELECTOR **/
+const chosenMemberRetriever = createSelector(
+    retrieveChosenMember,
+    (chosenMember) => ({
+        chosenMember,
+    })
+);
+const chosenMemberBoArticlesRetriever = createSelector(
+    retrieveChosenMemberBoArticles,
+    (chosenMemberBoArticles) => ({
+        chosenMemberBoArticles,
+    })
+);
+const chosenSingleBoArticleRetriever = createSelector(
+    retrieveChosenSingleBoArticles,
+    (chosenSingleBoArticle) => ({
+        chosenSingleBoArticle,
+    })
+);
 
 
 export function VisitMyPage(props: any) {
     /** INITIALIZATIONS */
-    const [value, setValue] = useState("1");
+    const {
+        setChosenMember,
+        setChosenMemberBoArticles,
+        setChosenSingleBoArticle,
+    } = actionDispatch(useDispatch());
+    const { chosenMember } = useSelector(chosenMemberRetriever);
+    const { chosenMemberBoArticles } = useSelector(chosenMemberBoArticlesRetriever);
+    const { chosenSingleBoArticle } = useSelector(chosenSingleBoArticleRetriever);
+    const [value, setValue] = React.useState("1");
 
     /** HANDLERS */
     const handleChange = (event: any, newValue: string) => {
         setValue(newValue);
     };
-
     return (
         <div className={"my_page"}>
             <Container maxWidth="lg" sx={{mt: "50px", mb: "50px",}}>
@@ -135,7 +177,8 @@ export function VisitMyPage(props: any) {
                                 <Box className={"user_media_box_follow"}
                                      sx={{flexDirection: "row"}}
                                 >
-                                    <p className={"follows"}>Followers: 3 Following: 2</p>
+                                    <p>Followers: 2</p>
+                                    <p>Followings: 2</p>
                                 </Box>
                                 <p className={"user_desc"}>qushimcha ma'lumotlar mavjud emas</p>
                                 <Box
