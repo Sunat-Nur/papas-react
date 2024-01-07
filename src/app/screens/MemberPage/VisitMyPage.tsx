@@ -68,6 +68,7 @@ export function VisitMyPage(props: any) {
         setChosenSingleBoArticle,
     } = actionDispatch(useDispatch());
 
+
     const {chosenMember} = useSelector(chosenMemberRetriever);
     const {chosenSingleBoArticle} = useSelector(chosenSingleBoArticleRetriever);
     const {chosenMemberBoArticles} = useSelector(chosenMemberBoArticlesRetriever);
@@ -92,7 +93,7 @@ export function VisitMyPage(props: any) {
             .then((data) => setChosenMember(data))
             .catch((err) => console.log(err));
 
-    }, [memberArticleSearchObj, articlesRebuild, followRebuild]);
+    }, [ memberArticleSearchObj, articlesRebuild, followRebuild]);
 
     /** HANDLERS */
     const handleChange = (event: any, newValue: string) => {
@@ -267,7 +268,7 @@ export function VisitMyPage(props: any) {
                                 </Box>
                             </Box>
                             <Box className={"my_page_menu"}
-                                 sx={{flexDirection: "column"}}
+                                 sx={{flexDirection: "column",}}
                             >
                                 <TabList onChange={handleChange} aria-label="lab API tabs example">
                                     <Stack flexDirection={"column"}>

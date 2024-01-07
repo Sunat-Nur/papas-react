@@ -48,7 +48,6 @@ export interface OrdersPageState{
 /** community page **/
 export interface CommunityPageState{
     targetBoArticles: BoArticle[];
-
 }
 
 /** Member page **/

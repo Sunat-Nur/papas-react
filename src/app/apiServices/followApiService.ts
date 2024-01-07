@@ -13,7 +13,7 @@ class FollowApiService {
 
     public async getMemberFollowers(data: FollowSearchObj): Promise<Follower[]> {
         try {
-            let url = `/follow/followers?page=${data.page}&limit=${data.limit}&mb_id=${data.mb_id}`;
+            let url = `/follow/followers?page=${data.page}&mb_id=${data.mb_id}&limit=${data.limit}`;
 
             const result = await axios.get(this.path + url, {
                 withCredentials: true,
@@ -33,7 +33,7 @@ class FollowApiService {
 
     public async getMemberFollowings(data: FollowSearchObj): Promise<Following[]> {
         try {
-            let url = `/follow/followings?page=${data.page}&limit=${data.limit}&mb_id=${data.mb_id}`;
+            let url = `/follow/followings?page=${data.page}&mb_id=${data.mb_id}&limit=${data.limit}`;
 
             const result = await axios.get(this.path + url, {
                 withCredentials: true,

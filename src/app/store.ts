@@ -16,7 +16,7 @@ export const store = configureStore({
         restaurantPage: RestaurantPageReducer,
         ordersPage: OrdersPagesReducer,
         communityPage: CommunityPageReducer,
-        memberPageState: MemberPageReducer,
+        memberPage: MemberPageReducer,
     },
 });
 

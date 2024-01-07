@@ -40,7 +40,7 @@ class MemberApiService {
             const result = await axios.post(this.path + "/signup", signup_data, //  login_data ni request_body ga beryabman
                 {withCredentials: true});
             assert.ok(result?.data, Definer.general_err1);
-            assert.ok(result?.data.state !== "fail", Definer.general_err1);
+            assert.ok(result?.data.state !== "fail", result.data.state);
             console.log("state:::", result.data.state);
 
             // member interface orqali hosil qilib olyabman
@@ -73,14 +73,14 @@ class MemberApiService {
     };
 
 
-    async memberLikeTarget(data: any): Promise<MemberLiken> {
+    public async memberLikeTarget(data: any): Promise<MemberLiken> {
         try {
             const result = await axios.post(this.path + "/member-liken", data, {
                 withCredentials: true,
             });
 
             assert.ok(result?.data, Definer.general_err1);
-            assert.ok(result?.data.state !== "fail", Definer.general_err1);
+            assert.ok(result?.data.state !== "fail", result.data.state);
             console.log("state:::", result.data.state);
 
             const like_result: MemberLiken = result.data.data;
@@ -94,15 +94,13 @@ class MemberApiService {
     };
 
 
-    async getChosenMember(id: string): Promise<Member> {
+    public async getChosenMember(id: string): Promise<Member> {
         try {
             const url = `/member/${id}`,
-                result = await axios.get(this.path + url, {
-                    withCredentials: true,
-                });
+                result = await axios.get(this.path + url, {withCredentials: true,});
 
             assert.ok(result?.data, Definer.general_err1);
-            assert.ok(result?.data.state !== "fail", Definer.general_err1);
+            assert.ok(result?.data.state !== "fail", result.data.state);
             console.log("state:::", result.data.state);
 
             const member: Member = result.data.data;
@@ -112,7 +110,6 @@ class MemberApiService {
             throw err;
         }
     };
-
 
 }
 

@@ -131,7 +131,7 @@ export function MemberFollowers(props: any) {
                     sx={{my: "40px"}}
                     direction="row"
                     alignItems="center"
-                    justifyContent="center"
+                    justifyContent="a"
                 >
                     <Box className={"bottom_box"}>
                         <Pagination
