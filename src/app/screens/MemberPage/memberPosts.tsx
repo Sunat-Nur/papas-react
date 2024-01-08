@@ -15,9 +15,6 @@ import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetA
 export function MemberPosts(props: any) {
     const {chosenMemberBoArticles, renderChosenArticleHandler, setArticlesRebuild} = props;
 
-    // todo :targetLIke handler
-    // todo: chosenMemberArticles
-
     /** HANDLERS **/
     const targetLikeHandler = async (e: any) => {
         try {
@@ -43,24 +40,21 @@ export function MemberPosts(props: any) {
                 {chosenMemberBoArticles.map((article: BoArticle) => {
                     const image_path = article.art_image
                         ? `${serverApi}/${article.art_image}`
-                        : "icons/odamcha/svg";
+                        : "/auth/default_user.svg";
+
                     return (
                         <Stack
                             className={"all_article_box"}
                             sx={{cursor: "pointer"}}
                             onClick={() => renderChosenArticleHandler(article?._id)}
                         >
-                            <Box
-                                className={"all_article_img"}
-                                sx={{backgroundImage: `url(${image_path})`,}}
-                            ></Box>
+                            <Box className={"all_article_img"} sx={{backgroundImage: `url(${image_path})`,}}></Box>
                             <Box className={"all_article_container"}>
-                                <Box
-                                    alignItems={"center"} display={"flex"}>
+                                <Box alignItems={"center"} display={"flex"}>
                                     <img
                                         src={
                                             article?.member_data?.mb_image
-                                                ? `${serverApi}/${article.member_data.mb_image}`
+                                                ? `${serverApi}/${article.member_data?.mb_image}`
                                                 : "/icons/odamcha.svg"
                                         }
                                         width={"35px"}
@@ -69,11 +63,7 @@ export function MemberPosts(props: any) {
                                     {article?.member_data?.mb_nick}
                                 </span>
                                 </Box>
-                                <Box
-                                    display={"flex"}
-                                    flexDirection={"column"}
-                                    sx={{mt: "15px"}}
-                                >
+                                <Box display={"flex"} flexDirection={"column"} sx={{mt: "15px"}}>
                                 <span className={"all_article_title"}>
                                     {article?.bo_id}
                                 </span>
@@ -81,8 +71,8 @@ export function MemberPosts(props: any) {
                                 </Box>
                                 <Box>
                                     <Box className={"article_share"}
-                                         style={{width: "100%", height: "auto"}}
-                                         sx={{mb: "30px"}}
+                                        style={{width: "100%", height: "auto"}}
+                                        sx={{mb: "30px"}}
                                     >
                                         <Box
                                             className={"article_share_main"}
@@ -90,20 +80,19 @@ export function MemberPosts(props: any) {
                                                 color: "#fff",
                                                 marginLeft: "150px",
                                                 display: "flex",
-                                                alignItems: "center",
-
+                                                alignItems: "center"
                                             }}
                                         >
                                             <span>{moment(article?.createdAt).format("YY-MM-DD HH:mm")}</span>
                                             <Checkbox
                                                 sx={{ml: "40px"}}
                                                 icon={<FavoriteBorder/>}
+                                                id={article?._id}
                                                 checkedIcon={<Favorite style={{color: "red"}}/>}
                                                 checked={article?.me_liked && article.me_liked[0]?.my_favorite ? true : false}
                                                 onClick={targetLikeHandler}
                                             />
                                             <span style={{marginRight: "18px"}}>{article?.art_likes}</span>
-
                                             <RemoveRedEyeIcon/>
                                             <span style={{marginLeft: "18px"}}>{article?.art_views}</span>
                                         </Box>

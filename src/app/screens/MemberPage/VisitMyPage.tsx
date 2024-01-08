@@ -29,6 +29,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {sweetErrorHandling, sweetFailureProvider} from "../../../lib/sweetAlert";
 import CommunityApiService from "../../apiServices/communityApiService";
 import MemberApiService from "../../apiServices/memberApiService";
+import {serverApi} from "../../../lib/Config";
 
 
 /** REDUX SLICE */
@@ -68,7 +69,6 @@ export function VisitMyPage(props: any) {
         setChosenSingleBoArticle,
     } = actionDispatch(useDispatch());
 
-
     const {chosenMember} = useSelector(chosenMemberRetriever);
     const {chosenSingleBoArticle} = useSelector(chosenSingleBoArticleRetriever);
     const {chosenMemberBoArticles} = useSelector(chosenMemberBoArticlesRetriever);
@@ -93,7 +93,7 @@ export function VisitMyPage(props: any) {
             .then((data) => setChosenMember(data))
             .catch((err) => console.log(err));
 
-    }, [ memberArticleSearchObj, articlesRebuild, followRebuild]);
+    }, [memberArticleSearchObj, articlesRebuild, followRebuild]);
 
     /** HANDLERS */
     const handleChange = (event: any, newValue: string) => {
@@ -119,7 +119,6 @@ export function VisitMyPage(props: any) {
             sweetErrorHandling(err).then()
         }
     }
-
 
     return (
         <div className={"my_page"}>
@@ -216,16 +215,22 @@ export function VisitMyPage(props: any) {
                                 >
                                     <div className={"order_user_img"}>
                                         <img
-                                            className={"order_user_avatar"}
                                             src={
-
-                                                // todo: should check here again
-
-                                                chosenMember?.mb_type === "RESTAURANT"
-                                                    ? '/icon/restaurant.svg'
-                                                    : '/icons/odamcha.svg'
+                                                chosenMember?.mb_image
+                                                    ? `${serverApi}/${chosenMember?.mb_image}`
+                                                    : "/auth/default_user.svg"
                                             }
+                                            className={"order_user_avatar"}
                                         />
+                                        <div className={"order_user_icon_box"}>
+                                            <img
+                                                src={
+                                                    chosenMember?.mb_type === "RESTAURANT"
+                                                        ? "/icon/restaurant.svg"
+                                                        : "/icons/user_icon.svg"
+                                                }
+                                            />
+                                        </div>
                                     </div>
                                     <span className={"order_user_name"}>{chosenMember?.mb_nick}</span>
                                     <span className={"order_user_prof"}>{chosenMember?.mb_type}</span>
@@ -242,10 +247,11 @@ export function VisitMyPage(props: any) {
                                     <YouTubeIcon/>
                                 </Box>
                                 <Box className={"user_media_box_follow"}
-                                     sx={{flexDirection: "row"}}
+                                     sx={{flexDirection: "row", mt: "10px"}}
                                 >
-                                    <p>Followers: {chosenMember?.mb_subscriber_cnt}</p>
-                                    <p>Followings: {chosenMember?.mb_follow_cnt}</p>
+                                    <Box sx={{mb: "2px"}}>Followers: {chosenMember?.mb_subscriber_cnt}</Box>
+                                    <Box>Followings: {chosenMember?.mb_follow_cnt}</Box>
+
                                 </Box>
                                 <p className={"user_desc"}>
                                     {chosenMember?.mb_description ??

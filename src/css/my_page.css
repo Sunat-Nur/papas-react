@@ -22,7 +22,7 @@
 }
 
 .my_page .menu_name {
-    width: 821px;
+    width: 880px;
     height: 70px;
     color: #FFF;
     text-align: center;
@@ -35,7 +35,7 @@
 }
 
 .my_page .all_article_box {
-    width: 871px;
+    width: 821px;
     height: 175px;
     margin-top: 15px;
     display: flex;
@@ -140,7 +140,7 @@
     margin-left: 57px;
     position: relative;
     width: 372.58px;
-    height: 408px;
+    height: 420px;
     border-radius: 16px;
     display: flex;
     background: #FFF;
@@ -175,6 +175,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    /*width: 10px;*/
+    /*height: 10px;*/
 }
 
 .my_page_right .order_user_avatar {
@@ -195,6 +197,10 @@
     margin-left: 115px;
     flex-direction: row;
     display: flex;
+}
+
+.order_user_icon_box {
+    margin-left: 110px;
 }
 
 .my_page_right .order_user_name {
@@ -227,7 +233,6 @@
 
 .my_page_right .user_media_box_follow {
     position: relative;
-    flex-direction: row;
     justify-content: space-evenly;
 
     color: #616164;
@@ -282,7 +287,7 @@
 /*Followers*/
 
 .my_followers_page {
-    width: 880px;
+    width: 821px;
     height: fit-content;
     display: flex;
     position: relative;
@@ -291,7 +296,7 @@
 
 
 .my_following_page {
-    width: 880px;
+    width: 821px;
     height: 100%;
     display: flex;
     position: relative;
@@ -299,7 +304,7 @@
 
 .member_page .follow_box {
     width: 821.42px;
-    height: 140px;
+    height: fit-content;
     border-radius: 17px;
     padding: 25px 45px;
 

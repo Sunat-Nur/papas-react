@@ -100,7 +100,7 @@ class MemberApiService {
                 result = await axios.get(this.path + url, {withCredentials: true,});
 
             assert.ok(result?.data, Definer.general_err1);
-            assert.ok(result?.data.state !== "fail", result.data.state);
+            assert.ok(result?.data?.state !== "fail", result?.data?.state);
             console.log("state:::", result.data.state);
 
             const member: Member = result.data.data;
