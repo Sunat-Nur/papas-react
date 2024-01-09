@@ -227,7 +227,7 @@ export function VisitMyPage(props: any) {
                                                 src={
                                                     chosenMember?.mb_type === "RESTAURANT"
                                                         ? "/icon/restaurant.svg"
-                                                        : "/icons/user_icon.svg"
+                                                        : "/auth/odamcha.svg"
                                                 }
                                             />
                                         </div>
@@ -255,10 +255,12 @@ export function VisitMyPage(props: any) {
                                 </Box>
                                 <p className={"user_desc"}>
                                     {chosenMember?.mb_description ??
-                                        "qushimcha ma'lumotlar mavjud emas"}</p>
+                                        "qushimcha ma'lumotlar mavjud emas"}
+                                </p>
                                 <Box
                                     display={"flex"}
                                     justifyContent={"flex-end"}
+                                    // sx={{ mt: "15px"}}
                                 >
                                     <TabList onChange={handleChange} aria-label="lab API tabs example">
                                         <Tab
