@@ -22,7 +22,7 @@ export function MemberPage(props: any) {
             <Switch>
                 <Route path={`${member.path}/other`}>
                     <VisitOtherPage
-                        verifiedMemberData={verifiedMemberData}
+                        verifiedMemberData={props.verifiedMemberData}
                         chosen_mb_id={chosen_mb_id}
                         chosen_art_id={chosen_art_id}
                     />

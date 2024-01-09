@@ -17,12 +17,12 @@
 
 
 .content_page {
-    width: 880px;
+    width: 821px;
     height: fit-content;
 }
 
 .my_page .menu_name {
-    width: 880px;
+    width: 821px;
     height: 70px;
     color: #FFF;
     text-align: center;
@@ -130,7 +130,7 @@
 
 .my_page {
     width: 100%;
-    height: fit-content;
+    height: 900px;
     display: flex;
     position: relative;
 }

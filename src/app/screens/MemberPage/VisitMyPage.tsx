@@ -225,9 +225,9 @@ export function VisitMyPage(props: any) {
                                         <div className={"order_user_icon_box"}>
                                             <img
                                                 src={
-                                                    chosenMember?.mb_type === "RESTAURANT"
-                                                        ? "/icon/restaurant.svg"
-                                                        : "/auth/odamcha.svg"
+                                                    // chosenMember?.mb_type === "RESTAURANT"
+                                                    //     ? "/icon/restaurant.svg"
+                                                         "/auth/odamcha.svg"
                                                 }
                                             />
                                         </div>
@@ -249,8 +249,8 @@ export function VisitMyPage(props: any) {
                                 <Box className={"user_media_box_follow"}
                                      sx={{flexDirection: "row", mt: "10px"}}
                                 >
-                                    <Box sx={{mb: "2px"}}>Followers: {chosenMember?.mb_subscriber_cnt}</Box>
-                                    <Box>Followings: {chosenMember?.mb_follow_cnt}</Box>
+                                    Followers: {chosenMember?.mb_subscriber_cnt} "
+                                    Followings: {chosenMember?.mb_follow_cnt}
 
                                 </Box>
                                 <p className={"user_desc"}>

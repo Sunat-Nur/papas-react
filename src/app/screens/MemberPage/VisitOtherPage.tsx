@@ -32,6 +32,7 @@ import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetA
 import assert from "assert";
 import {Definer} from "../../../lib/Definer";
 import FollowApiService from "../../apiServices/followApiService";
+import {serverApi} from "../../../lib/Config";
 
 
 /** REDUX SLICE */
@@ -75,7 +76,7 @@ export function VisitOtherPage(props: any) {
     const [articlesRebuild, setArticlesRebuild] = useState<Date>(new Date());
     const [followRebuild, setFollowRebuild] = useState<boolean>(false);
     const [memberArticleSearchObj, setMemberArticleSearchObj] =
-        useState<SearchMemberArticlesObj>({mb_id: "chosen_mb_id", page: 1, limit: 5});
+        useState<SearchMemberArticlesObj>({mb_id: chosen_mb_id, page: 1, limit: 5});
 
 
     useEffect(() => {
@@ -103,7 +104,7 @@ export function VisitOtherPage(props: any) {
             history.push("/member-page");
         }
         const memberService = new MemberApiService();
-        memberService.getChosenMember(memberArticleSearchObj.mb_id)
+        memberService.getChosenMember(memberArticleSearchObj?.mb_id)
             .then((data) => setChosenMember(data))
             .catch((err) => console.log(err));
     }, [verifiedMemberData, chosen_mb_id, followRebuild]);
@@ -112,6 +113,8 @@ export function VisitOtherPage(props: any) {
     const handleChange = (event: any, newValue: string) => {
         setValue(newValue);
     };
+
+    console.log("mb_id", chosen_mb_id);
 
     const handlePaginationChange = (event: any, value: number) => {
         memberArticleSearchObj.page = value
@@ -223,6 +226,12 @@ export function VisitOtherPage(props: any) {
                                         />
                                     </Box>
                                 </TabPanel>
+                                <TabPanel value="4">
+                                    <Box className="menu_name">Tanlangan Maqola</Box>
+                                    <Box className="menu_content">
+                                        <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>
+                                    </Box>
+                                </TabPanel>
                             </Box>
                         </Stack>
                         <Stack className={"my_page_right"} style={{height: "355px"}}>
@@ -232,10 +241,14 @@ export function VisitOtherPage(props: any) {
                                 </a>
                                 <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
                                     <div className={"order_user_img"}>
-                                        <img src={"/community/Dilnoza_K.jpeg"} className={"order_user_avatar"}/>
+                                        <img src={
+                                            chosenMember?.mb_image
+                                                ? `${serverApi}/${chosenMember?.mb_image}`
+                                                : "/community/user1.svg"
+                                        } className={"order_user_avatar"}/>
                                     </div>
-                                    <span className={"order_user_name"}>{chosen_mb_id?.mb_nick}</span>
-                                    <span className={"order_user_prof"}>{chosen_mb_id?.mb_type}</span>
+                                    <span className={"order_user_name"}>{chosenMember?.mb_nick}</span>
+                                    <span className={"order_user_prof"}>{chosenMember?.mb_type}</span>
                                 </Box>
                                 <Box className={"user_media_box"}
                                      sx={{color: "#a1a1a1", justifyContent: "space-between", alignItems: "center"}}>
@@ -245,52 +258,51 @@ export function VisitOtherPage(props: any) {
                                     <YouTubeIcon/>
                                 </Box>
                                 <Box className={"user_media_box_follow"} sx={{flexDirection: "row", mt: "10px"}}>
-                                    <Box sx={{mb: "2px"}}>Follower: {chosen_mb_id?.mb_subscriber_cnt}</Box>
-                                    <Box>Following: {chosen_mb_id?.mb_follow_cnt}</Box>
+                                    Follower: {chosenMember?.mb_subscriber_cnt} "
+                                    Following: {chosenMember?.mb_follow_cnt}
 
                                 </Box>
                                 <Box className={"user_desc"} sx={{mt: "10px"}}>
                                     {chosenMember?.mb_description ??
                                         "qushimcha ma'lumotlar mavjud emas"}
                                 </Box>
-                                <Box display={"flex"} justifyContent={"flex-end"} sx={{mb: "10px"}}>
+                                <Box display={"flex"} justifyContent={"flex-end"} sx={{mt: "5px"}}>
                                     <TabList onChange={handleChange} aria-label="lab API tabs example">
-                                        {chosenMember?.me_followed && chosenMember.me_followed[0]?.my_following}
-                                        <Tab
-                                            style={{flexDirection: "column"}}
-                                            value={"4"}
-                                            component={(e) => (
-                                                <Button
-                                                    value={chosenMember?._id}
-                                                    variant={"contained"}
-                                                    style={{backgroundColor: "#70900b8"}}
-                                                    onClick={unsubscribeHandler}
-                                                >
-                                                    Bekor qilish
-                                                </Button>
-                                            )}
-                                        />
+                                        {chosenMember?.me_followed && chosenMember?.me_followed[0]?.my_following ? (
+                                            <Tab
+                                                value={"4"}
+                                                component={() => (
+                                                    <Button
+                                                        value={chosenMember?._id}
+                                                        variant="contained"
+                                                        className="btn_cancel"
+                                                        onClick={unsubscribeHandler}
+                                                    >
+                                                        unFollow
+                                                    </Button>
+                                                )}
+                                            />
                                         ) : (
-                                        <Tab
-                                            style={{flexDirection: "column"}}
-                                            value={"4"}
-                                            component={(e) => (
-                                                <Button
-                                                    value={chosenMember?._id}
-                                                    variant={"contained"}
-                                                    style={{backgroundColor: "#70900b8"}}
-                                                    onClick={subscribeHandler}
-                                                >
-                                                    Follow
-                                                </Button>
-                                            )}
-                                        />
+                                            <Tab
+                                                value={"4"}
+                                                component={() => (
+                                                    <Button
+                                                        value={chosenMember?._id}
+                                                        variant="contained"
+                                                        className="btn_follow"
+                                                        onClick={subscribeHandler}
+                                                    >
+                                                        Follow
+                                                    </Button>
+                                                )}
+                                            />
+                                        )}
                                     </TabList>
                                 </Box>
                             </Box>
 
                             <Box className={"my_page_menu"}
-                                 sx={{flexDirection: "column",}}
+                                 sx={{flexDirection: "column"}}
                             >
                                 <TabList onChange={handleChange} aria-label="lab API tabs example">
                                     <Stack flexDirection={"column"}>
@@ -326,7 +338,7 @@ export function VisitOtherPage(props: any) {
                                             )}
                                         />
                                         <Tab
-                                            style={{flexDirection: "column",}}
+                                            style={{flexDirection: "column"}}
                                             value={"3"}
                                             component={() => (
                                                 <div className={`menu_box ${value}`} onClick={() => setValue("3")}>

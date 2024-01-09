@@ -94,23 +94,26 @@ class MemberApiService {
     };
 
 
-    public async getChosenMember(id: string): Promise<Member> {
+    async getChosenMember(id: string): Promise<Member> {
         try {
-            const url = `/member/${id}`,
-                result = await axios.get(this.path + url, {withCredentials: true,});
+            const url = `/member/${id}`;
+            const result = await axios.get(this.path + url, {
+                withCredentials: true,
+            });
 
             assert.ok(result?.data, Definer.general_err1);
-            assert.ok(result?.data?.state !== "fail", result?.data?.state);
+            assert.ok(result?.data.state !== "fail", Definer.general_err1);
             console.log("state:::", result.data.state);
 
             const member: Member = result.data.data;
+            console.log("like", member);
+
             return member;
         } catch (err: any) {
-            console.log(`ERROR ::: getChosenMember ${err.message}`);
+            console.log(`ERROR ::: memberLikeTarget ${err.message}`);
             throw err;
         }
-    };
-
+    }
 }
 
 export default MemberApiService;

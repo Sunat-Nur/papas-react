@@ -15,6 +15,7 @@ import assert from "assert";
 import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetAlert";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import {useHistory} from "react-router-dom";
 
 /** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -32,6 +33,7 @@ const memberFollowersRetriever = createSelector(
 
 export function MemberFollowers(props: any) {
     /** INITIALIZATIONS **/
+    const history = useHistory();
     const {mb_id, followRebuild, setFollowRebuild} = props;
     const {setMemberFollowers,} = actionDispatch(useDispatch());
     const {memberFollowers} = useSelector(memberFollowersRetriever);
@@ -47,11 +49,6 @@ export function MemberFollowers(props: any) {
     }, [followersSearchObj, followRebuild]);
 
     /** HANDLERS */
-    const handlePaginationChange = (event: any, value: number) => {
-        followersSearchObj.page = value
-        setFollowersSearchObj({...followersSearchObj});
-    };
-
     const subscribeHandler = async (e: any, id: string) => {
         try {
             e.stopPropagation();
@@ -68,6 +65,17 @@ export function MemberFollowers(props: any) {
         }
     };
 
+    const handlePaginationChange = (event: any, value: number) => {
+        followersSearchObj.page = value
+        setFollowersSearchObj({...followersSearchObj});
+    };
+
+
+    const visitMemberHandler = (mb_id: string) => {
+        history.push(`/member-page/other?mb_id=${mb_id}`);
+        document.location.reload();
+    };
+
     return (
         <div className={"my_followers_page"}>
             <Stack>
@@ -78,7 +86,13 @@ export function MemberFollowers(props: any) {
                     return (
                         <Box className={"follow_box"}>
                             <Stack flexDirection="row">
-                                <Avatar alt={""} src={image_url} sx={{width: 89, height: 89,}}/>
+                                <Avatar
+                                    alt={""}
+                                    src={image_url}
+                                    sx={{width: 89, height: 89,}}
+                                    style={{cursor: "pointer"}}
+                                    onClick={() => visitMemberHandler(follower?.subscriber_id)}
+                                />
                                 <div
                                     style={{
                                         width: "400px",
@@ -88,8 +102,15 @@ export function MemberFollowers(props: any) {
                                         height: "85%",
                                     }}
                                 >
-                                    <span className={"username_text"}>{follower?.subscriber_member_data?.mb_type}</span>
-                                    <span className={"name_text"}>{follower?.subscriber_member_data?.mb_nick}</span>
+                                    <span className={"username_text"}>
+                                        {follower?.subscriber_member_data?.mb_type}
+                                    </span>
+                                    <span
+                                        className={"name_text"}
+                                        style={{cursor: "pointer"}}
+                                        onClick={() => visitMemberHandler(follower?.subscriber_id)}
+                                    >
+                                        {follower?.subscriber_member_data?.mb_nick}</span>
                                 </div>
                                 <Stack className={"button_follow"}>
                                     {props.actions_enabled &&
