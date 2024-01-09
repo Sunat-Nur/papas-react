@@ -245,7 +245,7 @@ export function VisitOtherPage(props: any) {
                                         <img src={
                                             chosenMember?.mb_image
                                                 ? `${serverApi}/${chosenMember?.mb_image}`
-                                                : "/community/user1.svg"
+                                                : "/auth/default_user.svg"
                                         } className={"order_user_avatar"}/>
                                     </div>
                                     <span className={"order_user_name"}>{chosenMember?.mb_nick}</span>
