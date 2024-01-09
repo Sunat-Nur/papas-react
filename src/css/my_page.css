@@ -489,15 +489,15 @@
 
 
 .my_edit_page {
-    width: 880px;
-    height: auto;
+    width: 821.42px;
+    height: 100%;
     display: flex;
     position: relative;
 }
 
 .edit_page .edit_box{
     width: 821.43px;
-    height: 640px;
+    margin-bottom: 100px;
     position: relative;
     display: flex;
 }

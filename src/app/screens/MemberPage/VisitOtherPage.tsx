@@ -16,7 +16,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import TabList from "@mui/lab/TabList";
 import {Button, Tab} from "@mui/material";
-import {TViewer} from "../../components/tuiEditor/TViewer";
+import {TViewer} from "./TViewer";
 /** Redux */
 import {Dispatch} from "@reduxjs/toolkit";
 import {Member} from "../../../types/user";

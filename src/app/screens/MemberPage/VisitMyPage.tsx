@@ -6,8 +6,8 @@ import {MemberPosts} from "./memberPosts";
 import {MemberFollowers} from "./memberFollowers";
 import {MemberFollowing} from "./memberFollowing";
 import {MySettings} from "./mySettings";
-import {TuiEditor} from "../../components/tuiEditor/TuiEditor";
-import {TViewer} from "../../components/tuiEditor/TViewer"
+import {TuiEditor} from "./TuiEditor";
+import {TViewer} from "./TViewer"
 /** others  */
 import SettingsIcon from "@mui/icons-material/Settings";
 import TelegramIcon from "@mui/icons-material/Telegram";
@@ -186,7 +186,7 @@ export function VisitMyPage(props: any) {
                                 <TabPanel value={"4"}>
                                     <Box className={"menu_name"}>Maqola yozish</Box>
                                     <Box className={"write_content"}>
-                                        <TuiEditor/>
+                                        <TuiEditor setValue={setValue}/>
                                     </Box>
                                 </TabPanel>
                                 <TabPanel value={"5"}>
@@ -257,11 +257,7 @@ export function VisitMyPage(props: any) {
                                     {chosenMember?.mb_description ??
                                         "qushimcha ma'lumotlar mavjud emas"}
                                 </p>
-                                <Box
-                                    display={"flex"}
-                                    justifyContent={"flex-end"}
-                                    // sx={{ mt: "15px"}}
-                                >
+                                <Box display={"flex"} justifyContent={"flex-end"}>
                                     <TabList onChange={handleChange} aria-label="lab API tabs example">
                                         <Tab
                                             style={{flexDirection: "column"}}
@@ -278,7 +274,14 @@ export function VisitMyPage(props: any) {
                             <Box className={"my_page_menu"}
                                  sx={{flexDirection: "column",}}
                             >
-                                <TabList onChange={handleChange} aria-label="lab API tabs example">
+                                <TabList
+                                    onChange={handleChange}
+                                    variant="scrollable"
+                                    // value={value}
+                                    className="my_page_menu"
+                                    aria-label="Vertical tabs example"
+                                     sx={{ borderRight: 1, borderColor: "divider", width: "100%" }}
+                                >
                                     <Stack flexDirection={"column"}>
                                         <Tab
                                             style={{flexDirection: "column",}}

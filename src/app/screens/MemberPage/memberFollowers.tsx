@@ -32,7 +32,7 @@ const memberFollowersRetriever = createSelector(
 );
 
 export function MemberFollowers(props: any) {
-    /** INITIALIZATIONS **/
+    /** HANDLERS */
     const history = useHistory();
     const {mb_id, followRebuild, setFollowRebuild} = props;
     const {setMemberFollowers,} = actionDispatch(useDispatch());
