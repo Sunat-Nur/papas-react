@@ -78,7 +78,6 @@ export const TuiEditor = (props: any) => {
             const communityService = new CommunityApiService();
             await communityService.createArticle(communityArticleData);
             await sweetTopSmallSuccessAlert("Article is created successfull");
-            // history.push("/member-page");
             setValue("1");
             setArticlesRebuild(new Date());
         } catch (err) {
@@ -86,14 +85,14 @@ export const TuiEditor = (props: any) => {
         }
     };
 
-    // const addImageHook = {
-    //     addImageBlobHook: async (image: any, callback: any) => {
-    //         const uploadImageURL = await uploadImage(image);
-    //         console.log("upload-image", uploadImageURL);
-    //         callback(uploadImageURL);
-    //         return false;
-    //     },
-    // };
+    const addImageHook = {
+        addImageBlobHook: async (image: any, callback: any) => {
+            const uploadImageURL = await uploadImage(image);
+            console.log("upload-image", uploadImageURL);
+            callback(uploadImageURL);
+            return false;
+        },
+    };
 
     return (
         <Stack className={"my_edit_page"}>
@@ -144,7 +143,7 @@ export const TuiEditor = (props: any) => {
                         previewStyle="vertical"
                         height="640px"
                         toolbarItems={toolbarItems}
-                        // hooks={addImageHook}
+                        hooks={addImageHook}
                         events={events}
                         initialEditType="wysiwyg"
                         usageStatistics={false}

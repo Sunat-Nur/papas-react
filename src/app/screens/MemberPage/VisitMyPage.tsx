@@ -76,7 +76,7 @@ export function VisitMyPage(props: any) {
     const [articlesRebuild, setArticlesRebuild] = useState<Date>(new Date());
     const [followRebuild, setFollowRebuild] = useState<boolean>(false);
     const [memberArticleSearchObj, setMemberArticleSearchObj] =
-        useState<SearchMemberArticlesObj>({mb_id: "none", page: 1, limit: 5});
+        useState<SearchMemberArticlesObj>({mb_id: "none", page: 1, limit: 4});
 
     useEffect(() => {
         if (!localStorage.getItem("member_data")) {
@@ -192,12 +192,12 @@ export function VisitMyPage(props: any) {
                                         />
                                     </Box>
                                 </TabPanel>
-                                {/*<TabPanel value={"5"}>*/}
-                                {/*    <Box className={"menu_name"}>tanlangan maqola</Box>*/}
-                                {/*    <Box className={"menu_content"}>*/}
-                                {/*        <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>*/}
-                                {/*    </Box>*/}
-                                {/*</TabPanel>*/}
+                                <TabPanel value={"5"}>
+                                    <Box className={"menu_name"}>tanlangan maqola</Box>
+                                    <Box className={"menu_content"}>
+                                        <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>
+                                    </Box>
+                                </TabPanel>
                                 <TabPanel value={"6"}>
                                     <Box className={"menu_name"}>Ma'lumotlarni o'zgartirish</Box>
                                     <Box className={"menu_content"}>
@@ -207,7 +207,7 @@ export function VisitMyPage(props: any) {
                             </Box>
                         </Stack>
                         <Stack className={"my_page_right"}>
-                            <Box className={"order_info_box"}>
+                            <Box className={"order_info_box"} >
                                 <a onClick={() => setValue("6")} className={"settings_btn"}>
                                     <SettingsIcon/>
                                 </a>

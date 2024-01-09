@@ -21,7 +21,6 @@ import {Dispatch} from "@reduxjs/toolkit";
 import {setTargetBoArticles} from "./slice";
 import {retrieveTargetBoArticles} from "./selector"
 
-
 /** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlicedan setTopRestaurantni chaqirib olish edi.
     setTargetBoArticles: (data: BoArticle[]) =>
@@ -82,7 +81,6 @@ export function CommunityPage(props: any) {
         setValue(newValue);
     };
 
-
     const handlePaginationChange = (event: ChangeEvent<unknown>, page: number) => {
         searchArticlesObj.page = page;
         setSearchArticlesObj({...searchArticlesObj});
@@ -139,6 +137,7 @@ export function CommunityPage(props: any) {
                                             setArticlesRebuild={setArticlesRebuild}
                                         />
                                     </TabPanel>
+
                                 </Box>
 
                                 < Box className={"article_bott"}>

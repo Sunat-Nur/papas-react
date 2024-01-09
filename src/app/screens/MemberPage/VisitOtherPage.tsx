@@ -76,7 +76,7 @@ export function VisitOtherPage(props: any) {
     const [articlesRebuild, setArticlesRebuild] = useState<Date>(new Date());
     const [followRebuild, setFollowRebuild] = useState<boolean>(false);
     const [memberArticleSearchObj, setMemberArticleSearchObj] =
-        useState<SearchMemberArticlesObj>({mb_id: chosen_mb_id, page: 1, limit: 5});
+        useState<SearchMemberArticlesObj>({mb_id: chosen_mb_id, page: 1, limit: 4});
 
 
     useEffect(() => {
@@ -121,8 +121,9 @@ export function VisitOtherPage(props: any) {
         setMemberArticleSearchObj({...memberArticleSearchObj});
     };
 
-    const renderChosenArticleHandler = async (art_id: string) => {
+    const renderChosenArticleHandler = async (e: any, art_id: string) => {
         try {
+            e.stopPropagation();
             const communityService = new CommunityApiService()
             communityService.getChosenArticle(art_id)
                 .then((data) => {
