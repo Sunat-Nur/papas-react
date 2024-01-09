@@ -38,7 +38,7 @@ export function MemberPosts(props: any) {
         <Stack className={"content_page"}>
             <Box className={"post_content"}>
                 {chosenMemberBoArticles.map((article: BoArticle) => {
-                    const image_path = article.art_image
+                    const image_path = article?.art_image
                         ? `${serverApi}/${article.art_image}`
                         : "/auth/default_user.svg";
 
@@ -46,16 +46,18 @@ export function MemberPosts(props: any) {
                         <Stack
                             className={"all_article_box"}
                             sx={{cursor: "pointer"}}
+                            key={article?._id}
                             onClick={() => renderChosenArticleHandler(article?._id)}
                         >
-                            <Box className={"all_article_img"} sx={{backgroundImage: `url(${image_path})`,}}></Box>
+                            <Box className={"all_article_img"} sx={{backgroundImage: `url(${image_path})`,}}>
+                            </Box>
                             <Box className={"all_article_container"}>
                                 <Box alignItems={"center"} display={"flex"}>
                                     <img
                                         src={
                                             article?.member_data?.mb_image
                                                 ? `${serverApi}/${article.member_data?.mb_image}`
-                                                : "/icons/odamcha.svg"
+                                                : "/auth/default_user.svg"
                                         }
                                         width={"35px"}
                                         style={{borderRadius: "50%", backgroundSize: "cover"}}/>
@@ -89,7 +91,7 @@ export function MemberPosts(props: any) {
                                                 icon={<FavoriteBorder/>}
                                                 id={article?._id}
                                                 checkedIcon={<Favorite style={{color: "red"}}/>}
-                                                checked={article?.me_liked && article.me_liked[0]?.my_favorite ? true : false}
+                                                checked={article?.me_liked && article?.me_liked[0]?.my_favorite ? true : false}
                                                 onClick={targetLikeHandler}
                                             />
                                             <span style={{marginRight: "18px"}}>{article?.art_likes}</span>

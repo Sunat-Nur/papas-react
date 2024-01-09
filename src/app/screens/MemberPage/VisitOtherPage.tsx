@@ -226,12 +226,12 @@ export function VisitOtherPage(props: any) {
                                         />
                                     </Box>
                                 </TabPanel>
-                                <TabPanel value="4">
-                                    <Box className="menu_name">Tanlangan Maqola</Box>
-                                    <Box className="menu_content">
-                                        <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>
-                                    </Box>
-                                </TabPanel>
+                                {/*<TabPanel value="4">*/}
+                                {/*    <Box className="menu_name">Tanlangan Maqola</Box>*/}
+                                {/*    <Box className="menu_content">*/}
+                                {/*        <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>*/}
+                                {/*    </Box>*/}
+                                {/*</TabPanel>*/}
                             </Box>
                         </Stack>
                         <Stack className={"my_page_right"} style={{height: "355px"}}>
@@ -316,16 +316,16 @@ export function VisitOtherPage(props: any) {
                                                 </div>
                                             )}
                                         />
-                                        <Tab
-                                            style={{flexDirection: "column",}}
-                                            value={"1"}
-                                            component={() => (
-                                                <div className={`menu_box ${value}`} onClick={() => setValue("4")}>
-                                                    <img src={"/icons/Pencil.svg"} alt=""/>
-                                                    <span> tanlangan maqola</span>
-                                                </div>
-                                            )}
-                                        />
+                                        {/*<Tab*/}
+                                        {/*    style={{flexDirection: "column",}}*/}
+                                        {/*    value={"1"}*/}
+                                        {/*    component={() => (*/}
+                                        {/*        <div className={`menu_box ${value}`} onClick={() => setValue("4")}>*/}
+                                        {/*            <img src={"/icons/Pencil.svg"} alt=""/>*/}
+                                        {/*            <span> tanlangan maqola</span>*/}
+                                        {/*        </div>*/}
+                                        {/*    )}*/}
+                                        {/*/>*/}
 
                                         <Tab
                                             style={{flexDirection: "column",}}

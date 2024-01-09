@@ -186,15 +186,18 @@ export function VisitMyPage(props: any) {
                                 <TabPanel value={"4"}>
                                     <Box className={"menu_name"}>Maqola yozish</Box>
                                     <Box className={"write_content"}>
-                                        <TuiEditor setValue={setValue}/>
+                                        <TuiEditor
+                                            setValue={setValue}
+                                            setArticlesRebuild={setArticlesRebuild}
+                                        />
                                     </Box>
                                 </TabPanel>
-                                <TabPanel value={"5"}>
-                                    <Box className={"menu_name"}>tanlangan maqola</Box>
-                                    <Box className={"menu_content"}>
-                                        <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>
-                                    </Box>
-                                </TabPanel>
+                                {/*<TabPanel value={"5"}>*/}
+                                {/*    <Box className={"menu_name"}>tanlangan maqola</Box>*/}
+                                {/*    <Box className={"menu_content"}>*/}
+                                {/*        <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>*/}
+                                {/*    </Box>*/}
+                                {/*</TabPanel>*/}
                                 <TabPanel value={"6"}>
                                     <Box className={"menu_name"}>Ma'lumotlarni o'zgartirish</Box>
                                     <Box className={"menu_content"}>

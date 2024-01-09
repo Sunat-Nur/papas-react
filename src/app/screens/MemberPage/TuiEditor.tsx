@@ -15,7 +15,6 @@ import {sweetTopSmallSuccessAlert} from "../../../lib/sweetAlert";
 
 export const TuiEditor = (props: any) => {
     /** HANDLERS */
-        // const editorRef = useRef<Editor | null>(null);
     const {setValue, setArticlesRebuild} = props;
     const editorRef = useRef(null);
     const history = useHistory();
@@ -41,11 +40,10 @@ export const TuiEditor = (props: any) => {
         try {
             const communityService = new CommunityApiService();
             const image_name = await communityService.uploadImageToServer(image);
-
             communityArticleData.art_image = image_name;
             setCommunityArticleData({...communityArticleData});
-
-            const source = `${serverApi}/${image_name}`;
+            let source: string;
+            source = `${serverApi}/${image_name}`;
             return source;
         } catch (err) {
             console.log(`ERROR ::: uploadImage, ${err}`);
@@ -54,10 +52,10 @@ export const TuiEditor = (props: any) => {
 
     const changeCategoryHandler = useCallback(
         (e: any) => {
-            communityArticleData.art_subject = e.target.value;
+            communityArticleData.bo_id = e.target.value;
             setCommunityArticleData({...communityArticleData});
         },
-        [communityArticleData.art_subject]
+        [communityArticleData.bo_id]
     );
 
     const changeTitleHandler = (e: any) => {
@@ -80,7 +78,7 @@ export const TuiEditor = (props: any) => {
             const communityService = new CommunityApiService();
             await communityService.createArticle(communityArticleData);
             await sweetTopSmallSuccessAlert("Article is created successfull");
-            history.push("/member-page");
+            // history.push("/member-page");
             setValue("1");
             setArticlesRebuild(new Date());
         } catch (err) {
@@ -88,15 +86,14 @@ export const TuiEditor = (props: any) => {
         }
     };
 
-    const addImageHook = {
-        addImageBlobHook: async (image: any, callback: any) => {
-            const uploadImageURL = await uploadImage(image);
-            console.log("uploadimage", uploadImageURL);
-            callback(uploadImageURL);
-
-            return false;
-        },
-    };
+    // const addImageHook = {
+    //     addImageBlobHook: async (image: any, callback: any) => {
+    //         const uploadImageURL = await uploadImage(image);
+    //         console.log("upload-image", uploadImageURL);
+    //         callback(uploadImageURL);
+    //         return false;
+    //     },
+    // };
 
     return (
         <Stack className={"my_edit_page"}>
@@ -108,22 +105,17 @@ export const TuiEditor = (props: any) => {
                     justifyContent="space-evenly"
                 >
                     <Box className={"form_row"} sx={{width: "300px"}}>
-                        <Typography
-                            style={{color: "rgb(225 255 233)", margin: "10px"}}
-                            variant="h3"
-                        >
+                        <Typography style={{color: "rgb(225 255 233)", margin: "10px"}} variant="h3">
                             Category
                         </Typography>
                         <FormControl sx={{width: "100%", background: "white"}}>
                             <Select
-                                value={communityArticleData.bo_id}
+                                value={communityArticleData?.bo_id}
                                 displayEmpty
                                 inputProps={{"aria-label": "Without label"}}
                                 onChange={changeCategoryHandler}
                             >
-                                <MenuItem value="">
-                                    <span>Categoryni tanalng</span>
-                                </MenuItem>
+                                <MenuItem value="">Categoryni tanalang</MenuItem>
                                 <MenuItem value={"celebrity"}>Mashhurlar</MenuItem>
                                 <MenuItem value={"evaluation"}>Restoranga baho</MenuItem>
                                 <MenuItem value={"story"}>Mening hikoyam</MenuItem>
@@ -147,21 +139,15 @@ export const TuiEditor = (props: any) => {
                 <Box className={"edit_box"}>
                     <Editor
                         ref={editorRef}
-                        initialValue="type here"
+                        initialValue=" "
                         placeholder="Type here"
                         previewStyle="vertical"
-                        height="430px"
+                        height="640px"
+                        toolbarItems={toolbarItems}
+                        // hooks={addImageHook}
+                        events={events}
                         initialEditType="wysiwyg"
-                        hooks={{
-                            addImageBlobHook: async (image: any, callback: any) => {
-                                const uploadImageURL = await uploadImage(image);
-                                return false;
-                            },
-                        }}
-                        events={{
-                            load: function (param: any) {
-                            },
-                        }}
+                        usageStatistics={false}
                     />
                 </Box>
                 <Stack direction="row" justifyContent="center">
