@@ -128,9 +128,7 @@ class MemberApiService {
                 method: "POST",
                 data: formData,
                 withCredentials: true,
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
+                headers: {"Content-Type": "multipart/form-data"},
             });
             console.log("result", result);
 
