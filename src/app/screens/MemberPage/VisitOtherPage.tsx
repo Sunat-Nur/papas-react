@@ -33,6 +33,7 @@ import assert from "assert";
 import {Definer} from "../../../lib/Definer";
 import FollowApiService from "../../apiServices/followApiService";
 import {serverApi} from "../../../lib/Config";
+import {verifiedMemberData} from "../../apiServices/verify";
 
 
 /** REDUX SLICE */
@@ -66,7 +67,7 @@ const chosenSingleBoArticleRetriever = createSelector(
 export function VisitOtherPage(props: any) {
     /** INITIALIZATIONS */
     const history = useHistory()
-    const {verifiedMemberData, chosen_mb_id, chosen_art_id} = props;
+    const { chosen_mb_id, chosen_art_id} = props;
     const {setChosenMember, setChosenMemberBoArticles, setChosenSingleBoArticle,} = actionDispatch(useDispatch());
 
     const {chosenMember} = useSelector(chosenMemberRetriever);
@@ -83,7 +84,6 @@ export function VisitOtherPage(props: any) {
         if (chosen_mb_id === verifiedMemberData?._id) {
             history.push("/member-page")
         }
-
         const communityService = new CommunityApiService();
         if (chosen_art_id) {
             communityService.getChosenArticle(chosen_art_id)
@@ -113,9 +113,6 @@ export function VisitOtherPage(props: any) {
     const handleChange = (event: any, newValue: string) => {
         setValue(newValue);
     };
-
-    console.log("mb_id", chosen_mb_id);
-
     const handlePaginationChange = (event: any, value: number) => {
         memberArticleSearchObj.page = value
         setMemberArticleSearchObj({...memberArticleSearchObj});
@@ -140,7 +137,7 @@ export function VisitOtherPage(props: any) {
 
     const subscribeHandler = async (e: any) => {
         try {
-            assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
+            assert.ok(verifiedMemberData, Definer.auth_err1);
             const followService = new FollowApiService();
             await followService.subscribe(e.target.value);
             await sweetTopSmallSuccessAlert("subscribed successfully", 700, false);
@@ -153,7 +150,7 @@ export function VisitOtherPage(props: any) {
 
     const unsubscribeHandler = async (e: any) => {
         try {
-            assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
+            assert.ok(verifiedMemberData, Definer.auth_err1);
             const followService = new FollowApiService();
             await followService.unsubscribe(e.target.value);
             await sweetTopSmallSuccessAlert("unsubscribed successfully", 700, false);
@@ -227,12 +224,6 @@ export function VisitOtherPage(props: any) {
                                         />
                                     </Box>
                                 </TabPanel>
-                                {/*<TabPanel value="4">*/}
-                                {/*    <Box className="menu_name">Tanlangan Maqola</Box>*/}
-                                {/*    <Box className="menu_content">*/}
-                                {/*        <TViewer chosenSingleBoArticle={chosenSingleBoArticle}/>*/}
-                                {/*    </Box>*/}
-                                {/*</TabPanel>*/}
                             </Box>
                         </Stack>
                         <Stack className={"my_page_right"} style={{height: "355px"}}>
@@ -350,16 +341,12 @@ export function VisitOtherPage(props: any) {
                                         />
 
                                     </Stack>
-
                                 </TabList>
                             </Box>
-
                         </Stack>
                     </TabContext>
                 </Stack>
-
             </Container>
-
         </div>
     );
 }

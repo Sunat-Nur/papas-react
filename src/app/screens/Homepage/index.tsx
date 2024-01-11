@@ -23,9 +23,7 @@ const actionDispatch = (dispach: Dispatch) => ({ // buning mantiqi HomepageSlice
 });
 
 export function Homepage() {
-
     /** INITIALIZATION */
-
     const {setTopRestaurants, setBestRestaurants } = actionDispatch(useDispatch()); //HomePageSlicedan setTopRestaurantni chaqirib oldim.
 
 
@@ -43,10 +41,8 @@ export function Homepage() {
         restaurantService
             .getTopRestaurants()
             .then((data) => {  // then javob kelsin, back-end dan data kelsin deyilyabdi
-
                 // redux ni call qismi b
                 setTopRestaurants(data); // kelgan data ni setTopRestaurants ga yuklayabman
-
             }).catch(err => console.log(err));
 
         restaurantService   // BestRestaurantning datalarini STORE qildik,

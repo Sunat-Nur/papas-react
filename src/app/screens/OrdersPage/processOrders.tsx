@@ -14,6 +14,7 @@ import moment from "moment";
 import Button from "@mui/material/Button";
 import OrderApiService from "../../apiServices/orderApiService";
 import {sweetErrorHandling, sweetFailureProvider} from "../../../lib/sweetAlert";
+import {verifiedMemberData} from "../../apiServices/verify";
 
 /** REDUX SELECTOR */
 const processOrdersRetriever = createSelector(
@@ -29,46 +30,24 @@ export default function ProcessOrders(props: any) {
 
     console.log("ProcessOrders::::", processOrders);
     /** HANDLERS  */
-    // const finishOrderHandler = async (event: any) => {
-    //     try {
-    //         const order_id = event.target.value;
-    //         const data = {order_id: order_id, order_status: "FINISHED"};
-    //
-    //         if (!localStorage.getItem("member_data")) {
-    //             sweetFailureProvider("Please login first!", true);
-    //         }
-    //         let confirmation = window.confirm("Buyurtmani olganigizni tastiqlaysizmi ?");
-    //         if (confirmation) {
-    //             const orderService = new OrderApiService();
-    //             await orderService.updateOrderStatus(data).then();
-    //             props.setOrderRebuild(new Date());
-    //         }
-    //     } catch (err) {
-    //         console.log("finishOrderHandler, ERROR:", err);
-    //         sweetErrorHandling(err).then();
-    //     }
-    // };
     const deleteOrderHandler = async (event: any) => {
-            try {
-                const order_id = event.target.value;
-                const data = {order_id: order_id, order_status: "DELETED"};
-
-                if (!localStorage.getItem("member_data")) {
-                    sweetFailureProvider("Please login first!", true);
-                }
-                let confirmation = window.confirm("Buyurtmani bekor qilishni xoxlaysizmi ?");
-                if (confirmation) {
-                    const orderService = new OrderApiService();
-                    await orderService.updateOrderStatus(data).then();
-                    props.setOrderRebuild(new Date());
-                }
-            } catch (err) {
-                console.log("deleteOrderHandler, ERROR:", err);
-                sweetErrorHandling(err).then();
+        try {
+            const order_id = event.target.value;
+            const data = {order_id: order_id, order_status: "DELETED"};
+            if (!verifiedMemberData) {
+                sweetFailureProvider("Please login first!", true);
             }
-        };
-
-
+            let confirmation = window.confirm("Buyurtmani bekor qilishni xoxlaysizmi ?");
+            if (confirmation) {
+                const orderService = new OrderApiService();
+                await orderService.updateOrderStatus(data).then();
+                props.setOrderRebuild(new Date());
+            }
+        } catch (err) {
+            console.log("deleteOrderHandler, ERROR:", err);
+            sweetErrorHandling(err).then();
+        }
+    };
     return (
         <TabPanel value={"2"}>
             <Stack>

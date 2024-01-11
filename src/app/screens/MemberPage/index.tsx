@@ -1,11 +1,10 @@
 import React from "react";
-import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
+import {Route, Switch, useLocation, useRouteMatch} from "react-router-dom";
 import {VisitOtherPage} from "./VisitOtherPage";
 import {VisitMyPage} from "./VisitMyPage";
-import {verifiedMemberData} from "../../apiServices/verify";
 
 function useQuery() {
-    const { search } = useLocation();
+    const {search} = useLocation();
     return React.useMemo(() => new URLSearchParams(search), [search]);
 }
 
@@ -22,13 +21,12 @@ export function MemberPage(props: any) {
             <Switch>
                 <Route path={`${member.path}/other`}>
                     <VisitOtherPage
-                        verifiedMemberData={props.verifiedMemberData}
                         chosen_mb_id={chosen_mb_id}
                         chosen_art_id={chosen_art_id}
                     />
                 </Route>
                 <Route path={`${member.path}`}>
-                    <VisitMyPage verifiedMemberData={verifiedMemberData} />
+                    <VisitMyPage/>
                 </Route>
             </Switch>
         </div>

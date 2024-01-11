@@ -29,6 +29,7 @@ import assert from "assert";
 import {Definer} from "../../../lib/Definer";
 import MemberApiService from "../../apiServices/memberApiService";
 import {sweetErrorHandling, sweetTopSmallSuccessAlert} from "../../../lib/sweetAlert";
+import {verifiedMemberData} from "../../apiServices/verify";
 
 /** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlicedan setTopRestaurantni chaqirib olish edi.
@@ -69,7 +70,6 @@ export function ChosenDish(props: any) {
             const productService = new ProductApiService();
             const product: Product = await productService.getChosenDish(dish_id);
             setChosenProduct(product); // redux iga setChosenProduct ni path qilyabman
-
             const restaurantService = new RestaurantApiService();
             const restaurant = await restaurantService.getChosenRestaurant(
                 product.restaurant_mb_id
@@ -87,7 +87,7 @@ export function ChosenDish(props: any) {
     /** HANDLERS  */
     const targetLikeProduct = async (e: any) => {
         try {
-            assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
+            assert.ok(verifiedMemberData, Definer.auth_err1);
             const memberService = new MemberApiService();
             const like_result: any = await memberService.memberLikeTarget({
                 like_ref_id: e.target.id,

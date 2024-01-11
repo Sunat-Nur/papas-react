@@ -40,15 +40,12 @@ export function CommunityPage(props: any) {
     /** Initializations **/
     const {setTargetBoArticles} = actionDispatch(useDispatch())
     const {targetBoArticles} = useSelector(targetBoArticlesRetriever);
-
-
     const [value, setValue] = React.useState("1");
     const [searchArticlesObj, setSearchArticlesObj] = useState<SearchArticlesObj>({
         bo_id: "all",
         page: 1,
         limit: 5
     });
-
     const [articlesRebuild, setArticlesRebuild] = useState<Date>(new Date());
 
     useEffect(() => {

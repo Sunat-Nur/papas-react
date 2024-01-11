@@ -30,7 +30,7 @@ import {Product} from "../types/product";
 
 function App() {
     /** INITIALIZATION **/
-    const [verifiedMemberData, setVerifiedMemberData] = useState<Member | null>(null);
+    // const [verifiedMemberData, setVerifiedMemberData] = useState<Member | null>(null);
     const [path, setPath] = useState();
     const main_path = window.location.pathname;
     const [signUpOpen, setSignUpOpen] = useState(false); // boshlang'ish qiymat false
@@ -44,25 +44,6 @@ function App() {
     const cartJson: any = localStorage.getItem("cart_data");
     const current_cart: CartItem[] = JSON.parse(cartJson) ?? [];
     const [cartItems, setCartItems] = useState<CartItem[]>(current_cart);
-
-
-    useEffect(() => {
-        console.log("===== useEffect: App ===");
-        const memberDataJson: any = localStorage.getItem("member_data") // agar localstorage da member_data bolsa
-            ? localStorage.getItem("member_data") // member_data ni o'zini ber
-            : null; // bolmasa null qiymat ber deyabman
-
-        // agar memberDataJson mavjud bolsa parse json.parse usulida memberDataJson ber, mavjud bolmasa null qiymatni olib
-        const member_data = memberDataJson ? JSON.parse(memberDataJson) : null; // member_data object ga tenglab olyabman
-
-        if (member_data) { // agar member_data mavjud bolsa deb mb_image ni check qilib olyabman
-            member_data.mb_image = member_data.mb_image // member_data ni ichidan mb_image ni olyabman
-                ? `${serverApi}/${member_data.mb_image}`
-                : "/auth/odamcha.svg"; // agar mb_image mavjud bolmasa default rasm ber deyabman
-            setVerifiedMemberData(member_data);
-        }
-    }, [signUpOpen,]);
-
 
     /** HANDLERS **/
     const handleSignUpOpen = () => setSignUpOpen(true);
@@ -157,7 +138,6 @@ function App() {
             {main_path == "/" ? (
                 <NavbarHome
                     handleLogOutRequest={handleLogOutRequest}
-                    verifiedMemberData={verifiedMemberData}
                     handleCloseLogOut={handleCloseLogOut}
                     handleLogOutClick={handleLogOutClick}
                     handleSignUpOpen={handleSignUpOpen}
@@ -175,7 +155,6 @@ function App() {
             ) : main_path.includes("/restaurant") ? (
                 <NavbarRestaurant
                     handleLogOutRequest={handleLogOutRequest}
-                    verifiedMemberData={verifiedMemberData}
                     handleLogOutClick={handleLogOutClick}
                     handleCloseLogOut={handleCloseLogOut}
                     handleSignUpOpen={handleSignUpOpen}
@@ -193,7 +172,6 @@ function App() {
             ) : (
                 <NavbarOthers
                     handleLogOutRequest={handleLogOutRequest}
-                    verifiedMemberData={verifiedMemberData}
                     handleLogOutClick={handleLogOutClick}
                     handleCloseLogOut={handleCloseLogOut}
                     handleSignUpOpen={handleSignUpOpen}
@@ -225,7 +203,7 @@ function App() {
                     />
                 </Route>
                 <Route path="/member-page">
-                    < MemberPage verifiedMemberData={verifiedMemberData}/>
+                    < MemberPage/>
                 </Route>
                 <Route path="/help">
                     < HelpPage/>

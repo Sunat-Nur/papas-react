@@ -29,7 +29,7 @@ import {Restaurant} from '../../../types/user';
 import {useDispatch, useSelector} from "react-redux";
 import {Dispatch} from "@reduxjs/toolkit";
 import {setRandomRestaurants, setChosenRestaurant, setTargetProducts} from "./slice";
-
+import {verifiedMemberData} from "../../apiServices/verify";
 
 /** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({ // buning mantiqi HomepageSlicedan setTopRestaurantni chaqirib olish edi.
@@ -84,7 +84,6 @@ export function OneRestaurants(props: any) {
     const [productRebuild, setProductRebuild] = useState<Date>(new Date());
 
     useEffect(() => {
-
         const restaurantService = new RestaurantApiService();
         restaurantService.getRestaurants({page: 1, limit: 10, order: "random"})
             .then((data) => setRandomRestaurants(data))
@@ -125,11 +124,9 @@ export function OneRestaurants(props: any) {
         history.push(`/restaurant/dish/${id}`);
     };
 
-
     const targetLikeProduct = async (e: any) => {
         try {
-            assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
-
+            assert.ok(verifiedMemberData, Definer.auth_err1);
             const memberService = new MemberApiService();
             const like_result: any = await memberService.memberLikeTarget({
                 like_ref_id: e.target.id,
@@ -143,8 +140,6 @@ export function OneRestaurants(props: any) {
             sweetErrorHandling(err).then();
         }
     };
-
-
     return (
         <div className="single_restaurant">
             <Container>

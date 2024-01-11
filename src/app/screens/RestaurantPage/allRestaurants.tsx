@@ -29,6 +29,7 @@ import {Restaurant} from '../../../types/user';
 import {useDispatch, useSelector} from "react-redux";
 import {Dispatch} from "@reduxjs/toolkit";
 import {setTargetRestaurants} from "./slice";
+import {verifiedMemberData} from "../../apiServices/verify";
 
 
 SwiperCore.use([Autoplay, Navigation,]);
@@ -81,14 +82,13 @@ export function AllRestaurants() {
 
     const targetLikeHandler = async (e: any, id: string) => {
         try {
-            assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
+            assert.ok(verifiedMemberData, Definer.auth_err1);
             const memberService = new MemberApiService();
             const like_result: any = await memberService.memberLikeTarget({
                 like_ref_id: id,
                 group_type: "member",
             });
             assert.ok(like_result, Definer.general_err1);
-
             if (like_result.like_status > 0) {
                 e.target.style.fill = "red";
                 refs.current[like_result.like_ref_id].innerHTML++;
