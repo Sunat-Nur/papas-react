@@ -53,3 +53,12 @@ export interface AuthenticationModalProps {
     handleLoginOpen: () => void;
     handleSignUpOpen: () => void;
 }
+
+
+export interface MemberUpdateData {
+    mb_nick?: string;
+    mb_phone?: string;
+    mb_address?: string;
+    mb_description?: string;
+    mb_image?: string | null;
+}

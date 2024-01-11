@@ -207,15 +207,11 @@ export function VisitMyPage(props: any) {
                             </Box>
                         </Stack>
                         <Stack className={"my_page_right"}>
-                            <Box className={"order_info_box"} >
+                            <Box className={"order_info_box"}>
                                 <a onClick={() => setValue("6")} className={"settings_btn"}>
                                     <SettingsIcon/>
                                 </a>
-                                <Box
-                                    display={"flex"}
-                                    flexDirection={"column"}
-                                    alignItems={"center"}
-                                >
+                                <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
                                     <div className={"order_user_img"}>
                                         <img
                                             src={
@@ -230,7 +226,7 @@ export function VisitMyPage(props: any) {
                                                 src={
                                                     // chosenMember?.mb_type === "RESTAURANT"
                                                     //     ? "/icon/restaurant.svg"
-                                                         "/auth/odamcha.svg"
+                                                    "/auth/odamcha.svg"
                                                 }
                                             />
                                         </div>
@@ -283,7 +279,7 @@ export function VisitMyPage(props: any) {
                                     // value={value}
                                     className="my_page_menu"
                                     aria-label="Vertical tabs example"
-                                     sx={{ borderRight: 1, borderColor: "divider", width: "100%" }}
+                                    sx={{borderRight: 1, borderColor: "divider", width: "100%"}}
                                 >
                                     <Stack flexDirection={"column"}>
                                         <Tab
