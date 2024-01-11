@@ -33,6 +33,7 @@
     "react-router-dom": "^5.1.9",
     "react-scripts": "5.0.1",
     "redux-logger": "^3.0.6",
+    "socket.io-client": "^4.7.3",
     "source-map-loader": "^4.0.1",
     "styled-components": "^5.3.6",
     "sweetalert": "^2.1.2",
