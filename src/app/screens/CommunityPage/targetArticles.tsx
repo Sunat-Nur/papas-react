@@ -41,11 +41,15 @@ export function TargetArticles(props: any) {
                     ? `${serverApi}/${article.art_image}`
                     : "/community/sunat_nur.png";
                 return (
-                    <Link className="all_article_box" sx={{textDecoration: "none"}} href={``}>
+                    <Link
+                        className="all_article_box"
+                        sx={{textDecoration: "none"}}
+                        href={`/member-page/other?mb_id=${article.mb_id}&art_id=${article._id}`}
+                    >
                         <Box className="all_article_img" sx={{backgroundImage: `url(${art_image_url})`}}></Box>
                         <Box className="all_article_container">
                             <Box alignItems={"center"} display={"flex"}>
-                                <img src="/auth/default_user.svg" width={"35px"}
+                                <img src={verifiedMemberData?.mb_image} width={"35px"}
                                      style={{borderRadius: "50%", backgroundSize: "cover"}}/>
                                 <span className="all_article_auth_user" style={{marginLeft: "10px", color: "white"}}>
                                     {article?.member_data.mb_nick}
