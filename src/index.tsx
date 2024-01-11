@@ -10,13 +10,17 @@ import './css/index.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import {ThemeProvider} from '@mui/material/styles'; // themeProvider materila uni reactimizga integratsiya qilyabmiz
 import theme from './app/MaterialTheme';  //mui css fream-work
+import ReactDOM from "react-dom";
 
-const container = document.getElementById('root')!;   // document bu yerda real-dom hisoblanadi,
+// const container = document.getElementById('root')!;
+// document bu yerda real-dom hisoblanadi,
+
 // real-domdan getElementById bilan o'zagina qo'lga olib, container nomi bilan saqlayabmiz
-const root = createRoot(container);  // bu yerda containerni react-dom package ni ichida paste qilyabmiz
+// const root = createRoot(container);
+// bu yerda containerni react-dom package ni ichida paste qilyabmiz
 // natijada yangi root berilyabdi. yangi root da ham real-dom ham virtual dom integratsiya qilinga
 
-root.render( // rootni ustida biz react ni ishlata olamiz. reactni rootni ichida path qilyabmiz
+ReactDOM.render( // rootni ustida biz react ni ishlata olamiz. reactni rootni ichida path qilyabmiz
     // sababi qurilgan narsa birinchi virtual-domdan o'tib real-domga copy path qilinadi
     <React.StrictMode>
         <Provider store={store}>
@@ -25,7 +29,8 @@ root.render( // rootni ustida biz react ni ishlata olamiz. reactni rootni ichida
                 <App/>
             </ThemeProvider>
         </Provider>
-    </React.StrictMode>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 //  Provider react-reduxni componenti, bizni componentlarni redux ga bog'lovchi component  // store reduxni storage hisoblanadi
