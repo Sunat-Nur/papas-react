@@ -21,8 +21,7 @@ import {SocketContext, socket} from "./app/context/socket";
 // bu yerda containerni react-dom package ni ichida paste qilyabmiz
 // natijada yangi root berilyabdi. yangi root da ham real-dom ham virtual dom integratsiya qilinga
 
-ReactDOM.render( // rootni ustida biz react ni ishlata olamiz. reactni rootni ichida path qilyabmiz
-    // sababi qurilgan narsa birinchi virtual-domdan o'tib real-domga copy path qilinadi
+ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <ThemeProvider theme={theme}>

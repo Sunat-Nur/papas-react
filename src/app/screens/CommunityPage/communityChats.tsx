@@ -8,24 +8,21 @@ import {sweetErrorHandling, sweetFailureProvider} from "../../../lib/sweetAlert"
 import {SocketContext} from "../../context/socket";
 import {verifiedMemberData} from "../../apiServices/verify";
 import {ChatGreetMsg, ChatMessage} from "../../../types/others";
-import { RippleBadge } from "../../MaterialTheme/styled";
+import {RippleBadge} from "../../MaterialTheme/styled";
 
 const NewMessage = (data: any) => {
     console.log(data.new_message)
     if (data.new_message.mb_id == verifiedMemberData?._id) {
         return (
             <Box flexDirection={"row"} style={{display: "flex"}} sx={{m: "10px 0px"}} justifyContent={"flex-end"}>
-                <div className="msg_left">data.new_message.msg</div>
+                <div className="msg_left">{data.new_message.msg}</div>
             </Box>
         );
     } else {
         return (
             <Box flexDirection={"row"} style={{display: "flex"}} sx={{m: "10px 0px"}} justifyContent={"flex-end"}>
-                <Avatar
-                    alt={data.new_message.mb_nick}
-                    src={data.new_message.mb_image}
-                />
-                <div className="msg_left">data.new_message.msg</div>
+                <Avatar alt={data.new_message.mb_nick} src={data.new_message.mb_image}/>
+                <div className="msg_left">{data.new_message.msg}</div>
             </Box>
         )
     }
@@ -41,6 +38,7 @@ export function CommunityChats() {
 
     useEffect(() => {
         socket.connect();
+        console.log("socket:::::::::", socket)
         console.log("Printed");
         socket?.on("connect", function () {
             console.log("CLIENT: connected");
@@ -49,7 +47,6 @@ export function CommunityChats() {
         socket?.on("newMsg", (new_message: ChatMessage) => {
             console.log("Client: new message");
             messagesList.push(
-                // ...prevList,
                 //@ts-ignore
                 <NewMessage new_message={new_message} key={messagesList.length}/>,
             );
@@ -75,7 +72,6 @@ export function CommunityChats() {
             socket.disconnect();
         };
     }, [socket]);
-
 
     /** Handler **/
     const getInputMessageHandler = useCallback(
@@ -128,7 +124,7 @@ export function CommunityChats() {
             <Box className="chat_top">
                 Jonli Muloqot{" "}
                 <RippleBadge
-                    style={{ margin: "-30px 0 0 20px" }}
+                    style={{margin: "-30px 0 0 20px"}}
                     badgeContent={onlineUsers}
                 />
             </Box>
@@ -147,10 +143,9 @@ export function CommunityChats() {
                     name="message"
                     className="msg_input"
                     placeholder="Xabar jo'natish"
-                    onClick={onSendBtnHandler}
                     onChange={getInputMessageHandler}
                 />
-                <button className="send_msg_btn" onKeyDown={getKeyHandler}>
+                <button className="send_msg_btn" onKeyDown={getKeyHandler} onClick={onSendBtnHandler}>
                     <Send style={{color: "red"}}/>
                 </button>
             </Box>
