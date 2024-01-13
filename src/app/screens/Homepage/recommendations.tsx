@@ -71,8 +71,11 @@ export default function Recommendations() {
                                                 <div className={"article_author"}>
                                                     <Avatar
                                                         alt="Author_photo"
-                                                        src={verifiedMemberData?.mb_image ?? "/auth/odamcha.svg"}
-                                                        sx={{width: "35px", height: "35px"}}
+                                                        src={
+                                                            article?.member_data?.mb_image
+                                                                ? `${serverApi}/${article?.member_data?.mb_image}`
+                                                                : "/auth/odamcha.svg"
+                                                        }
                                                     />
                                                     <span
                                                         className={"author_username"}>{article?.member_data?.mb_nick}
@@ -99,7 +102,11 @@ export default function Recommendations() {
                                                 <div className={"article_author"}>
                                                     <Avatar
                                                         alt="Author_photo"
-                                                        src={verifiedMemberData?.mb_image ?? "/auth/odamcha.svg"}
+                                                        src={
+                                                            article?.member_data?.mb_image
+                                                                ? `${serverApi}/${article?.member_data?.mb_image}`
+                                                                : "/auth/odamcha.svg"
+                                                        }
                                                         sx={{width: "35px", height: "35px"}}
                                                     />
                                                     <span
