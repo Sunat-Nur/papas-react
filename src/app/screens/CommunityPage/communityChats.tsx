@@ -12,7 +12,7 @@ import {RippleBadge} from "../../MaterialTheme/styled";
 
 const NewMessage = (data: any) => {
     console.log(data.new_message)
-    if (data.new_message.mb_id == verifiedMemberData?._id) {
+    if (data.new_message.mb_id === verifiedMemberData?._id) {
         return (
             <Box flexDirection={"row"} style={{display: "flex"}} sx={{m: "10px 0px"}} justifyContent={"flex-end"}>
                 <div className="msg_left">{data.new_message.msg}</div>
@@ -38,7 +38,6 @@ export function CommunityChats() {
 
     useEffect(() => {
         socket.connect();
-        console.log("socket:::::::::", socket)
         console.log("Printed");
         socket?.on("connect", function () {
             console.log("CLIENT: connected");
@@ -52,6 +51,13 @@ export function CommunityChats() {
             );
             setMessagesList([...messagesList]);
         });
+        // socket?.on("newMsg", (new_msg: ChatMessage) => {
+        //     setMessagesList((prevList) => [
+        //         ...prevList,
+        //         <NewMessage data={new_msg} key={prevList.length} />,
+        //     ]);
+        //     console.log("Client: new message");
+        // });
 
         socket?.on("greetMsg", (msg: ChatGreetMsg) => {
             console.log("Client: greet message");
@@ -68,6 +74,8 @@ export function CommunityChats() {
             console.log("CLIENT: info message");
             setOnlineUsers(msg.total);
         });
+
+
         return () => {
             socket.disconnect();
         };
@@ -143,9 +151,10 @@ export function CommunityChats() {
                     name="message"
                     className="msg_input"
                     placeholder="Xabar jo'natish"
+                    onKeyDown={getKeyHandler}
                     onChange={getInputMessageHandler}
                 />
-                <button className="send_msg_btn" onKeyDown={getKeyHandler} onClick={onSendBtnHandler}>
+                <button className="send_msg_btn" onClick={onSendBtnHandler}>
                     <Send style={{color: "red"}}/>
                 </button>
             </Box>
