@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -36,22 +36,24 @@ const ModalImg = styled.img`
 
 export default function AuthenticationModal(props: any) {
     /** INITIALIZATION **/
+    // const { signUpOpen, loginOpen, handleLoginOpen, handleSignUpOpen } = props;
     const classes = useStyles();
-    let mb_nick = "",
-        mb_phone: 0,
-        mb_password = "";
+    const [mb_nick, setMbNick] = useState<string>("");
+    const [mb_phone, setMbPhone] = useState<number>(0);
+    const [mb_password, setMbPassword] = useState<string>("");
 
     /** HANDLERS **/
-    const handleUsername = (e: any) => {
-        mb_nick = e.target.value;
+
+    const handleUserName = (e: any) => {
+        setMbNick(e.target.value);
     };
 
     const handlePhone = (e: any) => {
-        mb_phone = e.target.value;
+        setMbPhone(Number(e.target.value));
     };
 
     const handlePassword = (e: any) => {
-        mb_password = e.target.value;
+        setMbPassword(e.target.value);
     };
 
     const handleSignupRequest = async () => {
@@ -88,19 +90,30 @@ export default function AuthenticationModal(props: any) {
                 mb_nick: mb_nick,
                 mb_password: mb_password
             };
-
             const memberApiService = new MemberApiService();
             await memberApiService.loginRequest(login_data);
-
             props.handleLoginClose();
             window.location.reload();
-
         } catch (err) {
             console.log(err);
             props.handleLoginClose();
             sweetErrorHandling(err).then();
         }
     };
+
+    const passwordKeyPressHandler = (e: any) => {
+        try {
+            if (e.key === "Enter" && props.signUpOpen) {
+                handleSignupRequest().then();
+            } else if (e.key === "Enter" && props.loginOpen) {
+                handleLoginRequest().then();
+            }
+        } catch (err: any) {
+            console.log(`getKeyHandler, ERROR: ${err}`);
+            sweetErrorHandling(err).then();
+        }
+    };
+
 
     return (
         <div>
@@ -127,7 +140,7 @@ export default function AuthenticationModal(props: any) {
                         <Stack sx={{marginLeft: "69px", alignItems: "center"}}>
                             <h2>SignUp Form</h2>
                             <TextField
-                                onChange={handleUsername}
+                                onChange={handleUserName}
                                 sx={{marginTop: "7px"}}
                                 id="outlined-basic"
                                 label="username"
@@ -139,6 +152,7 @@ export default function AuthenticationModal(props: any) {
                                 id="outlined-basic"
                                 label="phone number"
                                 variant="outlined"
+                                onKeyPress={passwordKeyPressHandler}
                             />
                             <TextField
                                 onChange={handlePassword}
@@ -189,7 +203,7 @@ export default function AuthenticationModal(props: any) {
                         >
                             <h2>Login Form</h2>
                             <TextField
-                                onChange={handleUsername}
+                                onChange={handleUserName}
                                 id="outlined-basic"
                                 label="username"
                                 variant="outlined"
@@ -200,6 +214,7 @@ export default function AuthenticationModal(props: any) {
                                 id="outlined-basic"
                                 label="password"
                                 variant="outlined"
+                                onKeyPress={passwordKeyPressHandler}
                             />
                             <Fab
                                 onClick={handleLoginRequest}
