@@ -51,14 +51,6 @@ export function CommunityChats() {
             );
             setMessagesList([...messagesList]);
         });
-        // socket?.on("newMsg", (new_msg: ChatMessage) => {
-        //     setMessagesList((prevList) => [
-        //         ...prevList,
-        //         <NewMessage data={new_msg} key={prevList.length} />,
-        //     ]);
-        //     console.log("Client: new message");
-        // });
-
         socket?.on("greetMsg", (msg: ChatGreetMsg) => {
             console.log("Client: greet message");
             messagesList.push(

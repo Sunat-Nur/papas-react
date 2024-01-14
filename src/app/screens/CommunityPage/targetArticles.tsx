@@ -39,8 +39,8 @@ export function TargetArticles(props: any) {
         <Stack>
             {props.targetBoArticles?.map((article: BoArticle) => {
                 const art_image_url = article?.art_image
-                    ? `${serverApi}/${article.art_image}`
-                    : "/community/sunat_nur.png";
+                    ? `${serverApi}/${article?.art_image}`
+                    : "/auth/default_user.svg";
                 return (
                     <Link
                         className="all_article_box"
@@ -49,13 +49,19 @@ export function TargetArticles(props: any) {
                         key={article?._id}
 
                     >
-                        <Box className="all_article_img" sx={{backgroundImage: `url(${art_image_url})`}}></Box>
+                        <Box className="all_article_img" sx={{backgroundImage: `url(${art_image_url})`}}>
+                        </Box>
                         <Box className="all_article_container"
-                            // onClick={() => rend(article?._id)}
                         >
                             <Box alignItems={"center"} display={"flex"}>
-                                <img src={verifiedMemberData?.mb_image} width={"35px"}
-                                     style={{borderRadius: "50%", backgroundSize: "cover"}}/>
+                                <img
+                                    src={
+                                        article?.member_data?.mb_image
+                                            ? `${serverApi}/${article?.member_data?.mb_image}`
+                                            : "auth/default_user.svg"
+                                    }
+                                    width={"35px"}
+                                    style={{borderRadius: "50%", backgroundSize: "cover"}}/>
                                 <span className="all_article_auth_user" style={{marginLeft: "10px", color: "white"}}>
                                     {article?.member_data.mb_nick}
                                 </span>
