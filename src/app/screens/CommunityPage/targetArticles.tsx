@@ -18,6 +18,7 @@ export function TargetArticles(props: any) {
 
     /** HANDLERS **/
     const targetLikeHandler = async (e: any) => {
+        const {renderChosenArticleHandler} = props;
         try {
             assert.ok(verifiedMemberData, Definer.auth_err1);
             const memberService = new MemberApiService();
@@ -45,9 +46,13 @@ export function TargetArticles(props: any) {
                         className="all_article_box"
                         sx={{textDecoration: "none"}}
                         href={`/member-page/other?mb_id=${article.mb_id}&art_id=${article._id}`}
+                        key={article?._id}
+
                     >
                         <Box className="all_article_img" sx={{backgroundImage: `url(${art_image_url})`}}></Box>
-                        <Box className="all_article_container">
+                        <Box className="all_article_container"
+                            // onClick={() => rend(article?._id)}
+                        >
                             <Box alignItems={"center"} display={"flex"}>
                                 <img src={verifiedMemberData?.mb_image} width={"35px"}
                                      style={{borderRadius: "50%", backgroundSize: "cover"}}/>

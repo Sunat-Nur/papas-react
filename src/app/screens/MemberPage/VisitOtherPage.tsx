@@ -224,13 +224,19 @@ export function VisitOtherPage(props: any) {
                                         />
                                     </Box>
                                 </TabPanel>
+                                <TabPanel value="4">
+                                    <Box className="menu_name">Tanlangan Maqola</Box>
+                                    <Box className="menu_content">
+                                        <TViewer chosenSingleBoArticle={chosenSingleBoArticle} />
+                                    </Box>
+                                </TabPanel>
                             </Box>
                         </Stack>
-                        <Stack className={"my_page_right"} style={{height: "355px"}}>
+                        <Stack className={"my_page_right"} style={{height: "365px"}}>
                             <Box className={"order_info_box"}>
-                                <a onClick={() => setValue("6")} className={"settings_btn"}>
-                                    <SettingsIcon/>
-                                </a>
+                                {/*<a onClick={() => setValue("6")} className={"settings_btn"}>*/}
+                                {/*    <SettingsIcon/>*/}
+                                {/*</a>*/}
                                 <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
                                     <div className={"order_user_img"}>
                                         <img src={
@@ -252,9 +258,8 @@ export function VisitOtherPage(props: any) {
                                 <Box className={"user_media_box_follow"} sx={{flexDirection: "row", mt: "10px"}}>
                                     Follower: {chosenMember?.mb_subscriber_cnt} "
                                     Following: {chosenMember?.mb_follow_cnt}
-
                                 </Box>
-                                <Box className={"user_desc"} sx={{mt: "10px"}}>
+                                <Box className={"user_desc"} sx={{mt: "10px", marginBottom: "9px"}}>
                                     {chosenMember?.mb_description ??
                                         "qushimcha ma'lumotlar mavjud emas"}
                                 </Box>
@@ -308,16 +313,6 @@ export function VisitOtherPage(props: any) {
                                                 </div>
                                             )}
                                         />
-                                        {/*<Tab*/}
-                                        {/*    style={{flexDirection: "column",}}*/}
-                                        {/*    value={"1"}*/}
-                                        {/*    component={() => (*/}
-                                        {/*        <div className={`menu_box ${value}`} onClick={() => setValue("4")}>*/}
-                                        {/*            <img src={"/icons/Pencil.svg"} alt=""/>*/}
-                                        {/*            <span> tanlangan maqola</span>*/}
-                                        {/*        </div>*/}
-                                        {/*    )}*/}
-                                        {/*/>*/}
 
                                         <Tab
                                             style={{flexDirection: "column",}}
