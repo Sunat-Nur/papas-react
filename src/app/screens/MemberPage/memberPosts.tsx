@@ -17,6 +17,7 @@ export function MemberPosts(props: any) {
     const {chosenMemberBoArticles, renderChosenArticleHandler, setArticlesRebuild} = props;
 
     /** HANDLERS **/
+
     const targetLikeHandler = async (e: any) => {
         try {
             e.stopPropagation();
@@ -28,7 +29,7 @@ export function MemberPosts(props: any) {
             });
             assert.ok(like_result, Definer.general_err1);
             await sweetTopSmallSuccessAlert("success", 700, false);
-            setArticlesRebuild(new Date); // yuqoridagi props dan qiymat kelyabdi
+            setArticlesRebuild(new Date);
         } catch (err: any) {
             console.log(err);
             sweetErrorHandling(err).then();

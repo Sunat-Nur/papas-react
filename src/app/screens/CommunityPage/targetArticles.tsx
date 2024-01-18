@@ -18,7 +18,6 @@ export function TargetArticles(props: any) {
 
     /** HANDLERS **/
     const targetLikeHandler = async (e: any) => {
-        const {renderChosenArticleHandler} = props;
         try {
             assert.ok(verifiedMemberData, Definer.auth_err1);
             const memberService = new MemberApiService();
@@ -61,7 +60,7 @@ export function TargetArticles(props: any) {
                                             : "auth/default_user.svg"
                                     }
                                     width={"35px"}
-                                    style={{borderRadius: "50%", backgroundSize: "cover"}}/>
+                                    style={{borderRadius: "50%", backgroundSize: "cover"}} alt=''/>
                                 <span className="all_article_auth_user" style={{marginLeft: "10px", color: "white"}}>
                                     {article?.member_data.mb_nick}
                                 </span>
@@ -91,9 +90,7 @@ export function TargetArticles(props: any) {
                                             id={article?._id}
                                             onClick={targetLikeHandler}
                                             checked={
-                                                article?.me_liked && article.me_liked[0]?.my_favorite
-                                                    ? true
-                                                    : false
+                                                !!(article?.me_liked && article?.me_liked[0]?.my_favorite)
                                             }
                                         />
                                         <span style={{margin: "0px 25px 0px 10px"}}>{article?.art_likes}</span>
