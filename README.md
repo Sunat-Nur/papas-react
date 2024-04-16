@@ -1,12 +1,7 @@
 PortFolio 프로잭트 소개
  ---------------
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://Rentup.uz](http://Rentup.uz) to view it in the browser.
 
 
 개발인원민 기간
