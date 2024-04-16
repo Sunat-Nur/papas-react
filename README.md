@@ -1,8 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
-
-## Available Scripts
+PortFolio 프로잭트 소개
+ ---------------
 
 In the project directory, you can run:
 
@@ -11,36 +8,100 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+개발인원민 기간
+---------------
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1 인개발 (4 주소요)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+목적
+---------------
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+구현 기능
+---------------
 
-### `npm run eject`
+. 메인 영화 랜덤 선정
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+. 영화 영상시청
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+. swiper 모듈을 이용한 터치 슬라이드
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+. 영화 검색 기능
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+. 클릭 한 영화의정보 가져오기
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+적용 기술
+---------------
+
+
+React
+---------------
+
+. The Movie DB API   Axios
+
+. Styled Component를 이용하여 Css처리
+
+. useState, useEffect
+
+. React Router Dom ( Nested Routes), useNavigate, useParams, useLocation, useRoutes
+
+. React Custom Hooks
+
+. Swiper 모듈을 이용한 터치 스라이드
+
+. 영화 검새 기능
+
+. 클릭 한 영화의 정보 가져오기
+
+
+React
+---------------
+
+. useState, useEffect 등 리액트 휴사용
+
+. Map 메소드를 사용한 할 일 목록 나열
+
+. Filter 메소드를 사용해서 할 일 목록 지우기
+
+. 마무리 된 일 표시하기 ( 조건부 삼항 연산자)
+
+. component ( component로 구역 분리)
+
+. TailWind Css로 스타일링
+
+. localStorage에 Data 값 담기
+
+. Drag and Drop API 사용하여 드래그 기능 구현
+
+
+
+Nodejs
+---------------
+
+. Express
+
+
+
+Ejs
+---------------
+
+. Ejs6 문법
+
+
+MongoDB
+---------------
+
+
+
+
+
+
+
+
+
+
+
