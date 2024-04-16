@@ -1,7 +1,7 @@
 PortFolio 프로잭트 소개
  ---------------
 
-Open [http://Rentup.uz](http://Rentup.uz) to view it in the browser.
+Open [http://Papays.uz](http://Papays.uz) to view it in the browser.
 
 
 개발인원민 기간
