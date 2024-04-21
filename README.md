@@ -7,7 +7,7 @@ Open [http://localhost:3000](http://localhost.3000) to view it in the browser.
 개발인원민 기간
 ---------------
 
-6 인개발 (4 주소요)
+6 인개발 (4 개월)
 
 
 목적
