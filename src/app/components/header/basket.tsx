@@ -143,7 +143,7 @@ export default function Basket(props: any) {
                                         </Box>
                                     </Box>
                                 );
-                            })}
+                            })}l
                         </Box>
                     </Box>
                     {cartItems?.length > 0 ? (
