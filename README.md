@@ -1,7 +1,7 @@
 PortFolio 프로잭트 소개
  ---------------
 
-Open [http://localhost:3000](http://localhost.3000) to view it in the browser.
+Open [http://Papays.uz](http://Papays.uz) to view it in the chrome browser.
 
 
 개발인원민 기간
